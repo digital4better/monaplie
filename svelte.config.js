@@ -9,12 +9,30 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [preprocess(), mdsvex(mdsvexConfig)],
+  preprocess: [
+    preprocess({
+      scss: {
+        prependData: '@use "src/variables.scss" as *;',
+      },
+    }),
+    mdsvex(mdsvexConfig),
+  ],
 
   kit: {
     adapter: adapter(),
+
     prerender: {
       default: true,
+    },
+
+    vite: {
+      css: {
+        preprocessorOptions: {
+          scss: {
+            additionalData: '@use "src/variables.scss" as *;',
+          },
+        },
+      },
     },
   },
 };
