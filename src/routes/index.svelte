@@ -1,8 +1,10 @@
 <script context="module">
   import Links from "$lib/components/Links.svelte";
   import Tutorials from "$lib/components/Tutorials.svelte";
+  import LeftMenu from "$lib/components/LeftMenu.svelte";
+  import LePlie from "$lib/components/LePLIE.svelte";
 
-  const promises = Object.entries(
+  const tutorialsPromises = Object.entries(
     import.meta.glob("$lib/content/tutorials/*.md")
   ).map(async ([slug, fetch]) => {
     const { metadata } = await fetch();
@@ -12,10 +14,43 @@
     };
   });
 
-  export async function load() {
-    const tutorials = await Promise.all(promises);
+  const linksPromises = Object.entries(
+    import.meta.glob("$lib/content/links/*.md")
+  ).map(async ([slug, fetch]) => {
+    const { metadata } = await fetch();
     return {
-      props: { tutorials },
+      slug: slug.replace(/^.*\/content\/links\//, ""),
+      ...metadata,
+    };
+  });
+
+  const categoriesPromises = Object.entries(
+    import.meta.glob("$lib/content/categories/*.md")
+  ).map(async ([slug, fetch]) => {
+    const { metadata } = await fetch();
+    return {
+      slug: slug.replace(/^.*\/content\/categories\//, ""),
+      ...metadata,
+    };
+  });
+
+  const lePliePromises = Object.entries(
+    import.meta.glob("$lib/content/le-plie.md")
+  ).map(async ([slug, fetch]) => {
+    const { metadata } = await fetch();
+    return {
+      slug: slug.replace(/^.*\/content\//, ""),
+      ...metadata,
+    };
+  });
+
+  export async function load() {
+    const tutorials = await Promise.all(tutorialsPromises);
+    const links = await Promise.all(linksPromises);
+    const categories = await Promise.all(categoriesPromises);
+    const lePlie = await Promise.all(lePliePromises);
+    return {
+      props: { tutorials, links, categories, lePlie },
     };
   }
 </script>
@@ -23,18 +58,58 @@
 <script>
   /** @type { { slug: string, title: string  }[] } */
   export let tutorials;
+  /** @type { { slug: string, title: string  }[] } */
+  export let links;
+  /** @type { { slug: string, title: string  }[] } */
+  export let categories;
+  /** @type { { slug: string, title: string  }[] } */
+  export let lePlie;
 </script>
 
 <svelte:head>
   <title>PLIE de la métropole nantaise</title>
 </svelte:head>
 
-<Links />
+<div class="container">
+  <div class="left-menu">
+    <LeftMenu lePlie={lePlie[0]}/>
+  </div>
+  <div class="content">
+    <Links {links} {categories} />
+    <Tutorials {tutorials} />
+    <div class="plie">
+      <LePlie lePlie={lePlie[0]} />
+    </div>
+  </div>
+</div>
 
-<Tutorials {tutorials} />
+<style lang="scss">
+  .container {
+    @include md {
+      display: flex;
+      min-height: 100vh;
+    }
+  }
+  .left-menu {
+    // display: none;
+    @include md {
+      display: grid;
+      grid-row: 1;
+      padding: 0 2em 0 2em;
+      border-right: 1px solid blue;
+    }
+  }
+  .content {
+    @include md {
+      padding-left: 5em;
+      display: grid;
+      grid-row: 1/3;
+    }
+  }
 
-<ul>
-  {#each tutorials as { slug, title }}
-    <li>{slug} - {title}</li>
-  {/each}
-</ul>
+  @include md {
+    .plie {
+      display: none
+    }
+  }
+</style>
