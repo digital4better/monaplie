@@ -72,7 +72,6 @@
 
 <div class="container">
   <div class="left-menu">
-    <!-- <LeftMenu lePlie={lePlie[0]}/> -->
     <LeftMenu>
       <LePlie lePlie={lePlie[0]}/>
     </LeftMenu>

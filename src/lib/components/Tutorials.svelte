@@ -29,15 +29,17 @@
 
   <div class="filters">
     <div class="filters-instruction">Filtrer les tutoriels par service</div>
-    {#each links as { title, slug }}
-      <div
-        class="filter"
-        class:selected={selectedFilters[slug]}
-        on:click={() => onClickFilter(slug)}
-      >
-        {title}
-      </div>
-    {/each}
+    <div>
+      {#each links as { title, slug }}
+        <div
+          class="filter"
+          class:selected={selectedFilters[slug]}
+          on:click={() => onClickFilter(slug)}
+        >
+          {title}
+        </div>
+      {/each}
+    </div>
   </div>
 
   <div class="container-list">
@@ -54,7 +56,7 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
   .tutorials {
     margin: 2em 1em 4em 1em;
   }
@@ -81,7 +83,12 @@
   }
   .filters {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    @include xl {
+      flex-direction: row;
+      align-items: center;
+    }
   }
   .filter {
     display: inline-flex;
@@ -91,22 +98,26 @@
     border-color: blue;
     border-radius: 15px;
     padding: 5px 12px 5px 12px;
-    margin: 0 0.6em 0 0.6em;
+    margin-right: 1.2em;
+    margin-top: 1em; 
     cursor: pointer;
+    @include xl {
+      margin-top: 0;
+    }
   }
   .filters-instruction {
     color: blue;
     margin-right: 1em;
   }
   .selected {
-    display: flex;
+    display: inline-flex;
     align-self: center;
     border: solid;
     border-width: 1px;
     border-color: blue;
     border-radius: 15px;
     padding: 5px 12px 5px 12px;
-    margin: 0 0.6em 0 0.6em;
+    margin-right: 1.2em; 
     background-color: blue;
     color: white;
     cursor: pointer;

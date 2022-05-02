@@ -1,20 +1,13 @@
 <script context="module">
-  import Logo from "$lib/content/logo.md";
-  import Description from "$lib/content/description.md";
-  // import LePlie from "$lib/components/LePLIE.svelte";
-
+  import Description from "./Description.svelte";
+import Logo from './Logo.svelte';
   export let lePlie;
 </script>
 
 <section class="left-menu">
-  <div class="logo">
-    <Logo />
-  </div>
-  <div class="description">
-    <Description />
-  </div>
+  <Logo />
+  <Description />
   <div class="plie">
-    <!-- <LePlie {lePlie}/> -->
     <slot />
   </div>
 </section>
@@ -45,10 +38,6 @@
       display: flex;
       align-self: flex-start;
     }
-  }
-  .logo {
-    display: flex;
-    justify-content: center;
   }
   .left-menu {
     max-height: auto !important;
