@@ -12,7 +12,7 @@
 
 <section class="links">
   <h2>🔗 Liens</h2>
-  <h3>Connexion vers les services publiques</h3>
+  <h3>Connexion vers les services publics</h3>
   <div class="list">
     {#each links as { title, label, image, alt, serviceCategories, link }}
       <div class="button" on:click={() => window.open(link)}>
@@ -53,6 +53,7 @@
     border-radius: 10px;
     max-width: 20em;
     min-width: 12em;
+    cursor: pointer;
   }
   .logo {
     height: 4em;

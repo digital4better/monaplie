@@ -72,11 +72,14 @@
 
 <div class="container">
   <div class="left-menu">
-    <LeftMenu lePlie={lePlie[0]}/>
+    <!-- <LeftMenu lePlie={lePlie[0]}/> -->
+    <LeftMenu>
+      <LePlie lePlie={lePlie[0]}/>
+    </LeftMenu>
   </div>
   <div class="content">
     <Links {links} {categories} />
-    <Tutorials {tutorials} />
+    <Tutorials {tutorials} {links} />
     <div class="plie">
       <LePlie lePlie={lePlie[0]} />
     </div>
@@ -86,24 +89,24 @@
 <style lang="scss">
   .container {
     @include md {
-      display: flex;
+      display: grid;
+      grid-template-columns: 20em 2fr;
       min-height: 100vh;
+    }
+    @include xl {
+      grid-template-columns: 33em 2fr;
     }
   }
   .left-menu {
-    // display: none;
     @include md {
-      display: grid;
-      grid-row: 1;
       padding: 0 2em 0 2em;
       border-right: 1px solid blue;
     }
   }
   .content {
+    overflow: auto;
     @include md {
       padding-left: 5em;
-      display: grid;
-      grid-row: 1/3;
     }
   }
 

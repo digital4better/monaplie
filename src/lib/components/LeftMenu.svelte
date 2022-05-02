@@ -1,10 +1,9 @@
 <script context="module">
   import Logo from "$lib/content/logo.md";
   import Description from "$lib/content/description.md";
-  import LePlie from "./LePLIE.svelte";
+  // import LePlie from "$lib/components/LePLIE.svelte";
 
   export let lePlie;
-  console.log(lePlie)
 </script>
 
 <section class="left-menu">
@@ -15,8 +14,9 @@
     <Description />
   </div>
   <div class="plie">
-  <LePlie {lePlie}/>
-</div>
+    <!-- <LePlie {lePlie}/> -->
+    <slot />
+  </div>
 </section>
 
 <style lang="scss">
@@ -32,7 +32,7 @@
     border-width: 1px;
     border-color: blue;
     border-radius: 15px;
-    padding: 0 12px 0 12px;
+    padding: 0 19px 0 19px;
     text-align: justify;
     margin: 2em 1em 4em 1em;
   }
