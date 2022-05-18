@@ -1,7 +1,7 @@
 ---
 title: Se connecter à la CAF
-icon: "../file.svg"
-services: ["caf.md"]
+icon: ../file.svg
+services:
+  - caf.md
+service: CAF
 ---
-
-# {title}

@@ -7,23 +7,14 @@ import mdsvexConfig from "./mdsvex.config.js";
 const config = {
   extensions: [".svelte", ...mdsvexConfig.extensions],
 
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
-  preprocess: [
-    preprocess({
-      scss: {
-        prependData: '@use "src/variables.scss" as *;',
-      },
-    }),
-    mdsvex(mdsvexConfig),
-  ],
-
   kit: {
     adapter: adapter(),
 
     prerender: {
       default: true,
     },
+
+    trailingSlash: "always",
 
     vite: {
       css: {
@@ -35,6 +26,17 @@ const config = {
       },
     },
   },
+
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: [
+    preprocess({
+      scss: {
+        prependData: '@use "src/variables.scss" as *;',
+      },
+    }),
+    mdsvex(mdsvexConfig),
+  ],
 };
 
 export default config;

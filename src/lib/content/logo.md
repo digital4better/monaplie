@@ -1,8 +1,5 @@
 ---
 layout: "logo"
 ---
-<script>
-  import plie from './plie.svg'
-</script>
 
-![PLIE]({plie})
+![PLIE](/images/plie.svg)

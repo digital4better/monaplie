@@ -1,14 +1,15 @@
 <script context="module">
+  // TODO: Should be a mdsvex template/layout
   import Logo from "$lib/content/logo.md";
 </script>
 
 <section class="logo">
-    <Logo />
+  <Logo />
 </section>
 
 <style lang="scss">
-    .logo {
-      display: flex;
-      justify-content: center;
-    }
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
 </style>

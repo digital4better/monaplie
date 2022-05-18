@@ -33,7 +33,6 @@
     align-items: center;
     color: inherit;
     font-weight: 800;
-    font-size: 15px;
     cursor: pointer;
     margin: 0;
     padding: 0.8em;
