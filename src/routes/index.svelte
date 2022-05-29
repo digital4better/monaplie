@@ -40,16 +40,16 @@
   <title>PLIE de la métropole nantaise</title>
 </svelte:head>
 
-<section class="content">
+<section class="index--container">
   <Links {links} {categories} />
   <Tutorials {tutorials} {links} />
 </section>
 
 <style lang="scss">
-  .content {
-    overflow: auto;
-    @include md {
-      padding-left: 5em;
-    }
+  .index--container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-top: 4rem;
   }
 </style>

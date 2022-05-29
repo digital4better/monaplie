@@ -1,0 +1,5 @@
+- [ ] Finalize tutorials/ slug component
+- [ ] Globally review components according to [WAI-ARIA Authoring Practices](https://w3c.github.io/aria-practices/)
+- [ ] Avoid using button when we should use links
+- [ ] Don't use div with on:click handlers. We should use inputs / buttons instead (see )
+- [ ] Review small screen bahaviour

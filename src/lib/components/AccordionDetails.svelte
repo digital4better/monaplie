@@ -1,33 +1,34 @@
-<script>
+<script lang="ts">
+  import type { SidebarDetail } from "$lib/types";
+  import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { slide } from "svelte/transition";
-  export let entry;
+  import SvgIcon from "./SvgIcon.svelte";
+
+  export let entry: SidebarDetail;
+
+  // TODO: review according to accordion pattern https://w3c.github.io/aria-practices/examples/accordion/accordion.html
+
   let isOpen = false;
   const toggle = () => (isOpen = !isOpen);
 </script>
 
-<button on:click={toggle} aria-expanded={isOpen}>
-  {entry.title}<svg
-    style="tran"
-    width="20"
-    height="20"
-    fill="none"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="2"
-    viewBox="0 0 24 24"
-    stroke="currentColor"><path d="M9 5l7 7-7 7" /></svg
-  >
+<button class="accordion--button" on:click={toggle} aria-expanded={isOpen}>
+  {entry.title}<SvgIcon class="accordion--button-icon" src={navigate_next} />
 </button>
 {#if isOpen}
-  <div transition:slide={{ duration: 300 }}>
-    <div class="content">{entry.content}</div>
+  <div
+    class="accordion--container"
+    transition:slide={{ duration: 300 }}
+    style:display={isOpen ? "block" : "none"}
+  >
+    <div class="accordion--content">{entry.content}</div>
   </div>
 {/if}
 
 <style>
-  button {
+  .accordion--button {
     border: none;
-    background-color: #f1f5ff;
+    background-color: var(--alt-bg-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,13 +41,13 @@
     margin-top: 0.8em;
     width: 100%;
   }
-  svg {
+  :global(.accordion--button-icon) {
     transition: transform 0.2s ease-in;
   }
-  [aria-expanded="true"] svg {
+  [aria-expanded="true"] :global(.accordion--button-icon) {
     transform: rotate(0.25turn);
   }
-  .content {
+  .accordion--content {
     margin: 1em 0 1em 2em;
     text-align: justify;
   }

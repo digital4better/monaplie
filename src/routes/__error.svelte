@@ -16,32 +16,39 @@
   export let status: number | null;
 </script>
 
-<section class="error">
-  <p class="status">{status}</p>
-  <p style="text-align: center; margin: 1em;">
+<section class="error--container">
+  <p class="error--status">{status}</p>
+  <p class="error--message">
     Oups ! Cette page n’a pas été trouvée. Vous pouvez reprendre votre
     navigation depuis la page d’accueil.
   </p>
-  <button on:click={() => goto("/")}> Revenir à la page d’accueil </button>
+  <!-- TODO: Use a link -->
+  <button class="error--link" on:click={() => goto("/")}>
+    Revenir à la page d’accueil
+  </button>
 </section>
 
-<style lang="scss">
-  .error {
+<style>
+  .error--container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
   }
-  .status {
+  .error--status {
     font-weight: 700;
     font-size: 6rem;
     line-height: 129.8%;
-    color: #f29400;
+    color: var(--color-orange);
     margin: 0;
   }
-  button {
-    background-color: #13235b;
+  .error--message {
+    text-align: center;
+    margin: 1em;
+  }
+  .error--link {
+    background-color: var(--color-blue-dark);
     color: white;
     border-radius: 15px;
     padding: 0.6em;

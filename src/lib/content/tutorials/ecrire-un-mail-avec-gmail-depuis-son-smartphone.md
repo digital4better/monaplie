@@ -4,22 +4,22 @@ title: Écrire un mail avec Gmail depuis son smartphone
 service: Générique
 steps:
   - image:
-      file: /images/3-1.png
+      src: /images/3-1.png
       alt: Ecran de sélection de l'application Gmail
     text: Ouvrez l'application Gmail  sur votre téléphone.
   - image:
-      file: /images/capture-écran-1.png
+      src: /images/capture-écran-1.png
       alt: Ecran d'accueil de Gmail
     text: En bas à droite, appuyez sur  ”Nouveau message”.
   - image:
-      file: /images/capture-écran3-1.png
+      src: /images/capture-écran3-1.png
       alt: Ecran de composition d'un email
     text: |-
       Ajoutez un objet : c’est le titre de votre message. Juste quelques mots.
 
       *Par exemple : « Candidature Plombier » ou « Attestation logement »*
   - image:
-      file: /images/capture-écran3-1.png
+      src: /images/capture-écran3-1.png
       alt: Ecran de composition d'un email
     text: >-
       Dans le champ "À", ajoutez des destinataires. Une adresse mail est
@@ -28,7 +28,7 @@ steps:
 
       *Exemples d’adresses : thomasdupont@gmail.com ou ismael44@yahoo.fr ou adupont@hotmail.fr*
   - image:
-      file: /images/capture-écran3-1.png
+      src: /images/capture-écran3-1.png
       alt: Ecran de composition d'un email
     text: >-
       Rédigez votre message.

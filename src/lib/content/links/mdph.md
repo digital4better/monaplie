@@ -4,8 +4,8 @@ layout: link
 label: Accompagnement des personnes handicapées et de leurs proches
 title: MDPH
 image:
-  file: /images/mdph.svg
+  src: /images/mdph.svg
   alt: ""
-link: http://www.mdph.fr/
+url: http://www.mdph.fr/
 category: Handicap et santé
 ---

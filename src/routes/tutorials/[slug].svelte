@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+  import Image from "$lib/components/Image.svelte";
   import type { Tutorial } from "$lib/types";
   import type { Load } from "@sveltejs/kit";
 
@@ -17,22 +18,37 @@
 
 <script lang="ts">
   export let tutorial: Tutorial;
-  export let step = 1;
+  export let step = 0;
 </script>
 
-<section class="tutorial">
+<div class="tutorial--container">
   <h1>{tutorial.title}</h1>
-  <h2>Étape {step}/{tutorial.steps.length}</h2>
-  {#if tutorial.steps[step]?.image}
-    <img src={tutorial.steps[step]?.image} alt="" />
-  {/if}
-  <span>{tutorial.steps[step]?.text}</span>
-</section>
+  <h2>Étape {step + 1}/{tutorial.steps.length}</h2>
+  <div class="tutorial--content">
+    {#if tutorial.steps[step]?.image != null}
+      <Image
+        src={tutorial.steps[step].image.src}
+        alt={tutorial.steps[step].image.alt}
+      />
+    {/if}
+    <p>
+      {tutorial.steps[step]?.text}
+    </p>
+  </div>
+</div>
 
-<style lang="scss">
-  .tutorial {
+<style>
+  .tutorial--container {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .tutorial--content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+    margin: 0 4rem;
   }
 </style>

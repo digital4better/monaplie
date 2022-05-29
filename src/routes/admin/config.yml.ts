@@ -7,19 +7,6 @@ public_folder: "/images"
 slug:
   clean_accents: true
 collections:
-  - name: "categories"
-    label: "Catégories"
-    folder: "src/lib/content/categories"
-    create: true
-    fields:
-      - {
-          name: "layout",
-          label: "Layout",
-          widget: "hidden",
-          default: "category",
-        }
-      - { name: "title", label: "Titre", widget: "string" }
-      - { name: "color", label: "Couleur", widget: "color" }
   - name: "links"
     label: "Liens"
     folder: "src/lib/content/links"
@@ -31,7 +18,7 @@ collections:
         label: "Image"
         widget: "object"
         fields:
-          - name: "file"
+          - name: "src"
             widget: "image"
             label: "Fichier"
             allow_multiple: false
@@ -40,8 +27,8 @@ collections:
             widget: "string"
             required: false
             label: "Alternative textuelle"
-            hint: "Accessibilité: Description textuelle de l'image"
-      - { name: "link", label: "URL", widget: "string" }
+            hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
+      - { name: "url", label: "URL", widget: "string" }
       - name: "category"
         label: "Catégorie"
         widget: "relation"
@@ -58,12 +45,7 @@ collections:
     folder: "src/lib/content/tutorials"
     create: true
     fields:
-      - {
-          name: "layout",
-          label: "Layout",
-          widget: "hidden",
-          default: "tutorial",
-        }
+      - { name: "layout", label: "Layout", widget: "hidden", default: "tutorial" }
       - { name: "title", label: "Titre", widget: "string" }
       - name: "service"
         label: "Service"
@@ -80,12 +62,13 @@ collections:
         label: "Étapes"
         widget: "list"
         min: 1
+        summary: "{{fields.text | truncate(100, '...')}}" # TODO use "Étape {{index}}" if/when available
         fields:
           - name: "image"
             label: "Image"
             widget: "object"
             fields:
-              - name: "file"
+              - name: "src"
                 widget: "image"
                 required: false
                 label: "Fichier"
@@ -95,11 +78,60 @@ collections:
                 widget: "string"
                 required: false
                 label: "Alternative textuelle"
-                hint: "Accessibilité: Description textuelle de l'image"
+                hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
           - name: "text"
             label: "Description"
             widget: "markdown"
-            editor_components: []`;
+            editor_components: []
+  - name: "categories"
+    label: "Catégories"
+    folder: "src/lib/content/categories"
+    create: true
+    fields:
+      - { name: "layout", label: "Layout", widget: "hidden", default: "category" }
+      - { name: "title", label: "Titre", widget: "string" }
+      - { name: "color", label: "Couleur", widget: "color" }
+  - name: "others"
+    label: "Autres"
+    files:
+      - label: "Barre latérale"
+        name: "sidebar"
+        file: "src/lib/content/sidebar.md"
+        fields:
+          - { name: "layout", label: "Layout", widget: "hidden", default: "sidebar" }
+          - name: "logo"
+            label: "Logo"
+            widget: "object"
+            fields:
+              - name: "src"
+                widget: "image"
+                label: "Fichier"
+                allow_multiple: false
+                hint: "Accessibilité: Utiliser un de fichier significatif"
+              - name: "alt"
+                widget: "string"
+                required: false
+                label: "Alternative textuelle"
+                hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
+          - { name: "description", label: "Description", widget: "markdown" }
+          - name: "details"
+            label: "Détails"
+            widget: "list"
+            min: 1
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "content", label: "Contenu", widget: "markdown" }
+          - name: "links"
+            label: "Liens"
+            widget: "list"
+            min: 1
+            collapsed: true
+            summary: "{{fields.link}}"
+            fields:
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }`;
 
 const NETLIFY_CMS_LOCAL_DEV_CONFIG = `
 backend:

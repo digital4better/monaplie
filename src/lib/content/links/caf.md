@@ -2,9 +2,9 @@
 layout: link
 title: CAF
 image:
-  file: /images/caf.svg
+  src: /images/caf.svg
   alt: ""
-link: https://www.caf.fr/
+url: https://www.caf.fr/
 category: Aides, logement
 label: Allocation logement et aides familiales
 ---

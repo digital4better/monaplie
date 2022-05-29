@@ -25,6 +25,10 @@ npm run dev
 npm run dev -- --open
 ```
 
+## Warning
+
+You can't use typescript or scss in layouts. mdsvex don't handle them
+
 ## Building
 
 To create a production version of your app:

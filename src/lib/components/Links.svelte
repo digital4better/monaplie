@@ -3,8 +3,10 @@
   import circle from "@material-design-icons/svg/filled/circle.svg?raw";
   import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
   import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
-  import launch from "@material-design-icons/svg/filled/launch.svg";
-  import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg";
+  import launch from "@material-design-icons/svg/filled/launch.svg?raw";
+  import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
+  import Image from "./Image.svelte";
+  import SvgIcon from "./SvgIcon.svelte";
 
   export let links: Link[] = [];
   export let categories: Category[] = [];
@@ -16,116 +18,160 @@
       })?.color || "red"
     );
   };
+
+  // TODO: Use localStorage to get/set favorites
+  export const isFavorite = (url: string) => {
+    return false;
+  };
 </script>
 
-<section class="links">
-  <h2 class="title"><img src={launch} alt="" />Liens</h2>
+<section class="links--container">
+  <h2 class="links--title">
+    <SvgIcon src={launch} />Liens
+  </h2>
   <h3>Connexion vers les services publics</h3>
-  <div class="list">
-    {#each links as { title, label, image, category, link }}
-      <a class="link" href={link}>
-        <div class="favorite" class:selected={false} aria-hidden>
-          {@html false ? favorite : favorite_border}
-        </div>
-        <img
-          class="logo"
-          src={image.file}
-          aria-label={image.alt}
-          alt={image.alt}
-        />
-        <div class="title">{title}<img src={navigate_next} alt="" /></div>
-        <div class="text-sm">{label}</div>
-        <div class="category">
-          <div class="circle" aria-hidden style:color={circleColor(category)}>
-            {@html circle}
+  <ul class="links--list">
+    {#each links as { title, label, image, category, url }}
+      <li class="link--container">
+        <a
+          class="link--anchor"
+          href={url}
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+          {title}
+        >
+          <span />
+        </a>
+        <div class="link--content">
+          <!-- TODO: Use checkbox design pattern https://w3c.github.io/aria-practices/examples/checkbox/checkbox.html -->
+          <div
+            class="favorite--container"
+            role="checkbox"
+            aria-checked={isFavorite(url)}
+            aria-label="Favoris"
+            tabindex="0"
+          >
+            {@html isFavorite(url) ? favorite : favorite_border}
           </div>
-          <span class="label">{category}</span>
+          <Image class="link--image" alt={image.alt} src={image.src} />
+          <div class="link--title">
+            {title}<SvgIcon src={navigate_next} />
+          </div>
+          <div class="link--label">{label}</div>
+          <div class="category--container">
+            <div
+              class="category--icon"
+              aria-hidden
+              style:color={circleColor(category)}
+            >
+              {@html circle}
+            </div>
+            <span class="category--label">{category}</span>
+          </div>
         </div>
-      </a>
+      </li>
     {/each}
-  </div>
+  </ul>
 </section>
 
-<style lang="scss">
-  .links {
-    margin: 2em 1em 4em 1em;
+<style>
+  .links--title {
+    align-items: center;
+    display: inline-flex;
+    gap: 1rem;
+    white-space: nowrap;
+  }
 
-    .title {
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-    }
+  .links--list {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    overflow-x: scroll;
+    overflow: auto;
+    padding-left: 0;
+  }
 
-    .list {
-      display: flex;
-      overflow: auto;
+  .link--container {
+    position: relative;
+    margin: 1rem 1rem 0 0;
+  }
 
-      .link {
-        position: relative;
+  .link--anchor {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+  }
 
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
+  .link--content {
+    align-items: flex-start;
+    background-color: var(--alt-bg-color);
+    border-radius: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 14rem;
+    padding: 2rem;
+    position: static;
+    text-decoration: none;
+    width: 12rem;
+  }
 
-        background-color: #f1f5ff;
-        border-radius: 10px;
-        margin: 1em 1em 0 0;
-        padding: 2em;
-        max-width: 20em;
-        min-width: 12em;
+  :global(.link--image) {
+    height: 4rem;
+  }
 
-        color: #000;
-        text-decoration: none;
+  .link--title {
+    align-items: center;
+    display: inline-flex;
+    margin-top: 0.125rem;
+    font-size: large;
+    font-weight: 800;
+    color: var(--color-blue-dark);
+  }
 
-        .category {
-          display: flex;
-          align-items: baseline;
-          gap: 0.375rem;
+  .link--label {
+    height: 100%;
+    line-height: 1.25rem;
+  }
 
-          margin-top: 3em;
+  .category--container {
+    align-items: baseline;
+    display: flex;
+    gap: 0.375rem;
+    margin-top: auto;
+  }
 
-          .circle {
-            fill: currentColor;
+  .category--icon {
+    fill: currentColor;
+  }
 
-            :global svg {
-              height: 0.667rem;
-              width: 0.667rem;
-            }
-          }
+  .category--icon :global(svg) {
+    height: 0.667rem;
+    width: 0.667rem;
+  }
 
-          .label {
-            font-size: small;
-            color: #544837;
-          }
-        }
+  .category--label {
+    font-size: small;
+    color: var(--alt-text-color);
+  }
 
-        .favorite {
-          position: absolute;
-          top: 0.5rem;
-          right: 0.5rem;
+  .favorite--container {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
 
-          height: 1.5rem;
+    height: 1.5rem;
 
-          fill: currentColor;
+    fill: currentColor;
 
-          color: #9b9b9b;
-          & .selected {
-            color: "#F29400";
-          }
-        }
+    color: var(--color-grey-light);
+  }
 
-        .logo {
-          height: 4em;
-        }
-
-        .title {
-          margin: 0.5em 0 0.5em 0;
-          font-size: large;
-          font-weight: 800;
-          color: #1e326a;
-        }
-      }
-    }
+  .favorite--container [aria-checked="true"] {
+    color: "var(--color-orange)";
   }
 </style>

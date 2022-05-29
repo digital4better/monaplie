@@ -4,8 +4,8 @@ layout: link
 label: Le service public de l'emploi en France
 title: Pôle Emploi
 image:
-  file: /images/poleemploi.svg
+  src: /images/poleemploi.svg
   alt: ""
-link: https://www.pole-emploi.fr/
+url: https://www.pole-emploi.fr/
 category: RSA, Emploi
 ---
