@@ -12,6 +12,7 @@ const config = {
 
     prerender: {
       default: true,
+      entries: ["*", "/admin/config.yml"],
     },
 
     trailingSlash: "always",
