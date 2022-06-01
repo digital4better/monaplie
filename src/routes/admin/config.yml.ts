@@ -3,7 +3,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 const NETLIFY_CMS_CONFIG = `
 publish_mode: editorial_workflow
 media_folder: "static/images"
-public_folder: "/images"
+public_folder: "images"
 slug:
   clean_accents: true
 collections:
