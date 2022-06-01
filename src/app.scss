@@ -1,0 +1,67 @@
+/* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
+@import "@csstools/normalize.css";
+
+:root {
+  --font-sans: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+
+  --main-text-color: #000;
+  --alt-text-color: #544837;
+
+  --link-color: #000;
+
+  --main-bg-color: transparent;
+  --alt-bg-color: #f3f6fb;
+
+  --color-blue: #007cbf;
+  --color-blue-dark: #13235b;
+  --color-grey: #707173;
+  --color-grey-light: #9b9b9b;
+  --color-orange: #f29400;
+  --color-white: #fff;
+  --color-yellow: #fabc0f;
+
+  font-family: var(--font-sans);
+}
+
+body {
+  background: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-size: 0.9375rem;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  text-decoration: underline;
+  filter: brightness(80%);
+}
+
+/* helpers */
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}
