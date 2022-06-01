@@ -1,4 +1,4 @@
-name: CI
+name: Build and deploy project
 
 permissions:
   contents: read
@@ -7,8 +7,6 @@ permissions:
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
 
 jobs:
@@ -26,9 +24,6 @@ jobs:
           node-version: 16
           cache: "npm"
       - run: npm ci
-      # - run: npm run check
-      # - run: npm run lint
-      # - run: npm run test
       - run: npm run build
       - name: "Upload Pages artifact"
         uses: actions/upload-pages-artifact@v0.1.0
