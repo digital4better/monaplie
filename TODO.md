@@ -1,5 +1,10 @@
+- [ ] Only allow CI on main branch / pull_requests
 - [ ] Finalize tutorials/ slug component
 - [ ] Globally review components according to [WAI-ARIA Authoring Practices](https://w3c.github.io/aria-practices/)
 - [ ] Avoid using button when we should use links
 - [ ] Don't use div with on:click handlers. We should use inputs / buttons instead (see )
 - [ ] Review small screen bahaviour
+- [ ] Fix npm run check errors
+- [ ] Fix npm npm run lint errors
+- [ ] Fix npm run test errors
+- [ ] Re-enable npm run check/lint/test in CI
