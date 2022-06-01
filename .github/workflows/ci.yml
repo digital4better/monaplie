@@ -1,0 +1,40 @@
+name: CI
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+on: [push, pull_request]
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      # links this workflow to the deployments page on your repository
+      name: github-pages
+      # attaches the deployed URL to this job on the workflow summary
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+      - run: npm ci
+      # - run: npm run check
+      # - run: npm run lint
+      # - run: npm run test
+      - run: npm run build
+      - name: "Upload Pages artifact"
+        uses: actions/upload-pages-artifact@v0.1.0
+        with:
+          path: build
+      - name: "Deploy to GitHub Pages"
+        id: deployment
+        uses: actions/deploy-pages@v1.0.4
