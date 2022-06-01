@@ -5,12 +5,11 @@ permissions:
   pages: write
   id-token: write
 
-on: [push, pull_request]
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:

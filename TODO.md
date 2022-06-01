@@ -1,4 +1,3 @@
-- [ ] Only allow CI on main branch / pull_requests
 - [ ] Finalize tutorials/ slug component
 - [ ] Globally review components according to [WAI-ARIA Authoring Practices](https://w3c.github.io/aria-practices/)
 - [ ] Avoid using button when we should use links
