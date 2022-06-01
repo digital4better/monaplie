@@ -133,6 +133,12 @@ collections:
               - { name: "title", label: "Titre", widget: "string" }
               - { name: "url", label: "URL", widget: "string" }`;
 
+const NETLIFY_CMS_LOCAL_PRD_CONFIG = `
+backend:
+  name: github
+  repo: digital4better/laplie
+  branch: main
+  site_domain: enchanting-pegasus-785727.netlify.com`;
 const NETLIFY_CMS_LOCAL_DEV_CONFIG = `
 backend:
   name: git-gateway
@@ -144,9 +150,10 @@ local_backend: true`;
  */
 export const get: RequestHandler = async () => {
   return {
-    body:
+    body: NETLIFY_CMS_CONFIG.concat(
       process.env["NODE_ENV"] === "development"
-        ? NETLIFY_CMS_CONFIG.concat(NETLIFY_CMS_LOCAL_DEV_CONFIG)
-        : NETLIFY_CMS_CONFIG,
+        ? NETLIFY_CMS_LOCAL_DEV_CONFIG
+        : NETLIFY_CMS_LOCAL_PRD_CONFIG
+    ),
   };
 };
