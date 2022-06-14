@@ -7,3 +7,4 @@
 - [ ] Fix npm npm run lint errors
 - [ ] Fix npm run test errors
 - [ ] Re-enable npm run check/lint/test in CI
+- [ ] Use localStorage to get/set favorites
