@@ -8,7 +8,7 @@ steps:
       alt: Ecran de sélection de l'application Gmail
     text: Ouvrez l'application Gmail  sur votre téléphone.
   - image:
-      src: images/capture-écran-1.png
+      src: images/capture-écran-1.png
       alt: Ecran d'accueil de Gmail
     text: En bas à droite, appuyez sur  ”Nouveau message”.
   - image:
