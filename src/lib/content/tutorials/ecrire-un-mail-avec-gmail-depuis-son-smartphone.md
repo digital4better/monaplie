@@ -4,7 +4,7 @@ title: Écrire un mail avec Gmail depuis son smartphone
 service: Générique
 steps:
   - image:
-      src: images/3-1.png
+      src: static/images/3-1.png
       alt: Ecran de sélection de l'application Gmail
     text: Ouvrez l'application Gmail  sur votre téléphone.
   - image:
