@@ -1,5 +1,4 @@
 <script context="module" lang="ts">
-  import { goto } from "$app/navigation";
   import type { Load } from "@sveltejs/kit";
 
   export const load: Load = ({ error, status }) => {
@@ -22,10 +21,9 @@
     Oups ! Cette page n’a pas été trouvée. Vous pouvez reprendre votre
     navigation depuis la page d’accueil.
   </p>
-  <!-- TODO: Use a link -->
-  <button class="error--link" on:click={() => goto("/")}>
-    Revenir à la page d’accueil
-  </button>
+    <a href={"/"} class="error--link"  rel="noopener noreferrer">
+      Revenir à la page d’accueil
+    </a>
 </section>
 
 <style>
@@ -52,5 +50,6 @@
     color: white;
     border-radius: 15px;
     padding: 0.6em;
+    text-decoration: none;
   }
 </style>

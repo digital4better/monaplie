@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import type { Link, Tutorial } from "$lib/types";
   import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
   import Image from "./Image.svelte";
@@ -51,14 +50,10 @@
     <div class="tutorials--list">
       {#each tutorials as { title, slug, icon, service }}
         {#if selectedFilters[service] || noFilterSelected}
-          <!-- TODO: Use a link -->
-          <div
-            class="tutorial--button"
-            on:click={() => goto(`/tutorials/${slug}`)}
-          >
+          <a href={`/tutorials/${slug}`} class="tutorial--link" rel="noopener noreferrer">
             <Image class="tutorial--icon" src={icon} alt="" />
             <div class="tutorial--title">{title}</div>
-          </div>
+          </a>
         {/if}
       {/each}
     </div>
@@ -117,7 +112,7 @@
     overflow: auto;
   }
 
-  .tutorial--button {
+  .tutorial--link {
     padding: 1em;
     margin: 1em 1em 0 0;
     background-color: var(--alt-bg-color);
@@ -127,6 +122,7 @@
     justify-content: space-between;
     max-width: fit-content;
     cursor: pointer;
+    text-decoration: none;
   }
 
   :global(.tutorial--icon) {
