@@ -11,7 +11,7 @@ const config = {
     adapter: adapter(),
 
     paths: {
-      base: "/laplie",
+      base: process.env["NODE_ENV"] === "production" ? "/laplie" : "",
     },
 
     prerender: {
