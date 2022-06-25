@@ -1,8 +1,12 @@
+import { base } from "$app/paths";
 import type { Handle } from "@sveltejs/kit";
 
 export const handle: Handle = async ({ event, resolve }) => {
-  if (event.url.pathname === "/admin" || event.url.pathname === "/admin/") {
-    return Response.redirect(new URL("/admin/index.html", event.url));
+  if (
+    event.url.pathname === `${base}/admin` ||
+    event.url.pathname === `${base}/admin/`
+  ) {
+    return Response.redirect(new URL("/index.html", event.url));
   }
   return resolve(event);
 };

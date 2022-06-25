@@ -2,7 +2,7 @@
 layout: link
 title: Sécurité sociale
 image:
-  src: images/cpam.svg
+  src: /laplie/images/cpam.svg
   alt: ""
 url: https://www.ameli.fr/
 category: Handicap et santé

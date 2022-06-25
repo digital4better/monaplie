@@ -1,9 +1,10 @@
+import { base } from "$app/paths";
 import type { RequestHandler } from "@sveltejs/kit";
 
 const NETLIFY_CMS_CONFIG = `
 publish_mode: editorial_workflow
 media_folder: "static/images"
-public_folder: "images"
+public_folder: "${base}/images"
 slug:
   clean_accents: true
 collections:

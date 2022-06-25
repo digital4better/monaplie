@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { base } from "$app/paths";
   import type { Link, Tutorial } from "$lib/types";
   import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
   import Image from "./Image.svelte";
@@ -54,7 +55,7 @@
           <!-- TODO: Use a link -->
           <div
             class="tutorial--button"
-            on:click={() => goto(`/tutorials/${slug}`)}
+            on:click={() => goto(`${base}/tutorials/${slug}`)}
           >
             <Image class="tutorial--icon" src={icon} alt="" />
             <div class="tutorial--title">{title}</div>
