@@ -170,8 +170,10 @@
 
     color: var(--color-grey-light);
   }
-
+  /*
+  // TODO: Uncomment when used
   .favorite--container [aria-checked="true"] {
     color: "var(--color-orange)";
   }
+  */
 </style>
