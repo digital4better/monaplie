@@ -39,8 +39,7 @@
     }
   }
 
-  .layout--header,
-  .layout--footer {
+  .layout--header {
     display: block;
 
     @include md {
@@ -74,29 +73,9 @@
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    padding-top: 4rem;
   }
 
   .header--logo {
     align-self: center;
-  }
-
-  .header--motd {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-
-    border: solid;
-    border-width: 1px;
-    border-color: var(--color-blue);
-    border-radius: 15px;
-
-    padding: 1.5rem 2.5rem;
-
-    text-align: justify;
-  }
-
-  .header--motd :global(.icon) {
-    padding-top: 1rem;
   }
 </style>

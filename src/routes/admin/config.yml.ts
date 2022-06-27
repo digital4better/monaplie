@@ -50,14 +50,11 @@ collections:
       - { name: "title", label: "Titre", widget: "string" }
       - name: "icon"
         label: "Icon"
-        widget: "object"
-        fields:
-          - name: "src"
-            widget: "image"
-            required: false
-            label: "Fichier"
-            allow_multiple: false
-            hint: "Sur la page d'accueil, cet icône sera placé devant le titre du tutoriel"
+        widget: "image"
+        required: false
+        label: "Fichier"
+        allow_multiple: false
+        hint: "Sur la page d'accueil, cet icône sera placé devant le titre du tutoriel"
       - name: "service"
         label: "Service"
         widget: "select"
