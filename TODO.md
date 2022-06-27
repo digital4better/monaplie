@@ -1,10 +1,10 @@
-- [ ] Finalize tutorials/ slug component
+- [x] Finalize tutorials/ slug component
 - [x] Globally review components according to [WAI-ARIA Authoring Practices](https://w3c.github.io/aria-practices/)
 - [x] Avoid using button when we should use links
-- [x] Don't use div with on:click handlers. We should use inputs / buttons instead (see )
-- [ ] Review small screen bahaviour
+- [x] Don't use div with on:click handlers. We should use inputs / buttons instead
+- [x] Review small screen bahaviour
 - [ ] Use localStorage to get/set favorites
-- [ ] Fix npm run check errors
-- [ ] Fix npm npm run lint errors
-- [ ] Fix npm run test errors
+- [x] Fix npm run check errors
+- [x] Fix npm npm run lint errors
+- [x] Fix npm run test errors
 - [ ] Re-enable npm run check/lint/test in CI

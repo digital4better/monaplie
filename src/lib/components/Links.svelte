@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { Category, Link } from "$lib/types";
   import circle from "@material-design-icons/svg/filled/circle.svg?raw";
-  import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
-  import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
+  // TODO: Uncomment when used
+  // import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
+  // import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import Image from "./Image.svelte";
@@ -20,9 +21,9 @@
   };
 
   // TODO: Use localStorage to get/set favorites
-  export const isFavorite = (url: string) => {
-    return false;
-  };
+  // export const isFavorite = (url: string) => {
+  //   return false;
+  // };
 </script>
 
 <section class="links--container">
@@ -44,6 +45,7 @@
           <span />
         </a>
         <div class="link--content">
+          <!-- TODO: Uncomment when used
           <div
             class="favorite--container"
             role="checkbox"
@@ -52,7 +54,7 @@
             tabindex="0"
           >
             {@html isFavorite(url) ? favorite : favorite_border}
-          </div>
+          </div> -->
           <Image class="link--image" alt={image.alt} src={image.src} />
           <div class="link--title">
             {title}<SvgIcon src={navigate_next} />
@@ -158,6 +160,8 @@
     color: var(--alt-text-color);
   }
 
+  /* 
+  // TODO: Uncomment when used
   .favorite--container {
     position: absolute;
     top: 0.5rem;
@@ -168,7 +172,8 @@
     fill: currentColor;
 
     color: var(--color-grey-light);
-  }
+  } */
+
   /*
   // TODO: Uncomment when used
   .favorite--container [aria-checked="true"] {
