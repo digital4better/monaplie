@@ -21,9 +21,9 @@
     Oups ! Cette page n’a pas été trouvée. Vous pouvez reprendre votre
     navigation depuis la page d’accueil.
   </p>
-    <a href={"/"} class="error--link"  rel="noopener noreferrer">
-      Revenir à la page d’accueil
-    </a>
+  <a href={"/laplie"} class="error--link" rel="noopener noreferrer">
+    Revenir à la page d’accueil
+  </a>
 </section>
 
 <style>

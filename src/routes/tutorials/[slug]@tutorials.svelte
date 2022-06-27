@@ -27,7 +27,7 @@
 <div class="tutorial--container">
   <div class="tutorial--home-link">
     <SvgIcon src={arrow_left} color="var(--color-blue-dark)" />
-    <a href={"/"} rel="noopener noreferrer">Accueil</a>
+    <a href={"/laplie"} rel="noopener noreferrer">Accueil</a>
   </div>
   <h1>{tutorial.title}</h1>
   <h2>Étape {step + 1}/{tutorial.steps.length}</h2>
@@ -65,6 +65,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1rem 0;
   }
   .tutorial--home-link {
     display: flex;
