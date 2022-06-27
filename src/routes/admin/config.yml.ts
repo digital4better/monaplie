@@ -47,6 +47,16 @@ collections:
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "tutorial" }
       - { name: "title", label: "Titre", widget: "string" }
+      - name: "icon"
+        label: "Icon"
+        widget: "object"
+        fields:
+          - name: "src"
+            widget: "image"
+            required: false
+            label: "Fichier"
+            allow_multiple: false
+            hint: "Sur la page d'accueil, cet icône sera placé devant le titre du tutoriel"
       - name: "service"
         label: "Service"
         widget: "select"
@@ -73,7 +83,7 @@ collections:
                 required: false
                 label: "Fichier"
                 allow_multiple: false
-                hint: "Accessibilité: Utiliser un de fichier significatif"
+                hint: "Accessibilité: Utiliser un nom de fichier significatif"
               - name: "alt"
                 widget: "string"
                 required: false
