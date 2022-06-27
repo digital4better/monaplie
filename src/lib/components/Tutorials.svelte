@@ -50,7 +50,11 @@
     <div class="tutorials--list">
       {#each tutorials as { title, slug, icon, service }}
         {#if selectedFilters[service] || noFilterSelected}
-          <a href={`/tutorials/${slug}`} class="tutorial--link" rel="noopener noreferrer">
+          <a
+            href={`/laplie/tutorials/${slug}`}
+            class="tutorial--link"
+            rel="noopener noreferrer"
+          >
             <Image class="tutorial--icon" src={icon} alt="" />
             <div class="tutorial--title">{title}</div>
           </a>

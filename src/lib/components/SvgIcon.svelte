@@ -10,7 +10,7 @@
     | string
     | null
     | undefined = "medium";
-  export let color: string = "var(--main-text-color)";
+  export let color = "var(--main-text-color)";
 </script>
 
 <div

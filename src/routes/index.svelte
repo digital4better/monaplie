@@ -15,16 +15,18 @@
       };
     });
 
-  const tutorials = items(import.meta.glob("$lib/content/tutorials/*.md"));
-  const links = items(import.meta.glob("$lib/content/links/*.md"));
-  const categories = items(import.meta.glob("$lib/content/categories/*.md"));
+  const tutorials_data = items(import.meta.glob("$lib/content/tutorials/*.md"));
+  const links_data = items(import.meta.glob("$lib/content/links/*.md"));
+  const categories_data = items(
+    import.meta.glob("$lib/content/categories/*.md")
+  );
 
   export const load: Load = async () => {
     return {
       props: {
-        tutorials: await Promise.all(tutorials),
-        links: await Promise.all(links),
-        categories: await Promise.all(categories),
+        tutorials: await Promise.all(tutorials_data),
+        links: await Promise.all(links_data),
+        categories: await Promise.all(categories_data),
       },
     };
   };
