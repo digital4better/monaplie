@@ -73,6 +73,7 @@
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    padding: 4rem 0;
   }
 
   .header--logo {
