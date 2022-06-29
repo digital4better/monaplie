@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Écrire un mail avec Gmail depuis son smartphone
-icon: point d'interrogation
+icon: null
 service: Générique
 steps:
   - image:
