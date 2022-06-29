@@ -1,7 +1,6 @@
 <script lang="ts">
   import AccordionDetails from "$lib/components/AccordionDetails.svelte";
   import Link from "$lib/components/Link.svelte";
-  import Image from "$lib/components/Image.svelte";
   import SvgIcon from "$lib/components/SvgIcon.svelte";
   import { metadata } from "$lib/content/sidebar.md";
   import type { Sidebar } from "$lib/types";
@@ -33,7 +32,6 @@
   <segment>
     Projet open-source sur
     <Link href="https://github.com/digital4better/laplie">GitHub</Link>
-    <Image src="/laplie/images/github.svg" />
   </segment>
 </div>
 

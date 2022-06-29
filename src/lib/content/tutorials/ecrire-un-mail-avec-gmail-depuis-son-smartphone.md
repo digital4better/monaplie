@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Écrire un mail avec Gmail depuis son smartphone
-icon: /laplie/images/561127.png
+icon: point d'interrogation
 service: Générique
 steps:
   - image:
