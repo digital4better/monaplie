@@ -10,7 +10,7 @@ module.exports = {
   ignorePatterns: ["*.cjs"],
   overrides: [{ files: ["*.svelte"], processor: "svelte3/svelte3" }],
   settings: {
-    "svelte3/typescript": () => require("typescript"),
+    "svelte3/typescript": true,
   },
   parserOptions: {
     sourceType: "module",
@@ -20,5 +20,10 @@ module.exports = {
     browser: true,
     es2017: true,
     node: true,
+  },
+  rules: {
+    // Checked by Typescript - ts(2451)
+    "no-redeclare": "off",
+    "@typescript-eslint/no-redeclare": "off",
   },
 };
