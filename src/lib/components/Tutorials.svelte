@@ -53,7 +53,6 @@
           <a
             href={`/laplie/tutorials/${slug}`}
             class="tutorial--link"
-            rel="noopener noreferrer"
           >
             <Image class="tutorial--icon" src={icon} alt="" />
             <div class="tutorial--title">{title}</div>

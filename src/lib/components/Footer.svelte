@@ -32,10 +32,8 @@
   </segment>
   <segment>
     Projet open-source sur
-    <a href="https://github.com/digital4better/laplie" target="_blank">
-      GitHub
-    </a>
-    <Image src="/laplie/images/github.svg" alt="Logo Github" />
+    <Link href="https://github.com/digital4better/laplie">GitHub</Link>
+    <Image src="/laplie/images/github.svg" />
   </segment>
 </div>
 

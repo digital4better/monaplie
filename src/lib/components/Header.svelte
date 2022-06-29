@@ -12,7 +12,7 @@
   <segment class="header--logo">
     <Image src={logo.src} alt={logo.alt} />
   </segment>
-  <segment id="description" class="header--motd">
+  <segment class="header--motd">
     <SvgIcon src={help_outline} color="var(--color-blue)" />
     {description}
   </segment>

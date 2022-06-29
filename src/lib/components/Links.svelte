@@ -45,6 +45,7 @@
           <span />
         </a>
         <div class="link--content">
+          <!-- TODO: Use checkbox design pattern https://w3c.github.io/aria-practices/examples/checkbox/checkbox.html -->
           <!-- TODO: Uncomment when used
           <div
             class="favorite--container"
