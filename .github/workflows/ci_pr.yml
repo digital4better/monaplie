@@ -7,11 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      # links this workflow to the deployments page on your repository
-      name: github-pages
-      # attaches the deployed URL to this job on the workflow summary
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
