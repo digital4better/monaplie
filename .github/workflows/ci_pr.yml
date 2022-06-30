@@ -14,7 +14,8 @@ jobs:
           node-version: 16
           cache: "npm"
       - run: npm ci
-      # - run: npm run check
-      # - run: npm run lint
-      # - run: npm run test
+      - run: npx playwright install --with-deps
+      - run: npm run check
+      - run: npm run lint
+      - run: npm run test
       - run: npm run build
