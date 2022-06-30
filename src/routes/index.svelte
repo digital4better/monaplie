@@ -5,7 +5,7 @@
   import type { Load } from "@sveltejs/kit";
 
   const items = (
-    collection: Record<string, () => Promise<Record<string, any>>>
+    collection: Record<string, () => Promise<Record<string, any>>> // eslint-disable-line @typescript-eslint/no-explicit-any
   ) =>
     Object.entries(collection).map(async ([slug, fetch]) => {
       const { metadata } = await fetch();
