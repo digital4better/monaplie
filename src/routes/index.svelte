@@ -17,7 +17,9 @@
 
   const tutorials = items(import.meta.glob("$lib/content/tutorials/*.md"));
   const links = items(import.meta.glob("$lib/content/links/*.md"));
-  const categories = items(import.meta.glob("$lib/content/categories/*.md"));
+  const categories = items(
+    import.meta.glob("$lib/content/categories/*.md")
+  );
 
   export const load: Load = async () => {
     return {

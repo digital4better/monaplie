@@ -29,6 +29,10 @@
       </ul>
     {/each}
   </segment>
+  <segment>
+    Projet open-source sur
+    <Link href="https://github.com/digital4better/laplie">GitHub</Link>
+  </segment>
 </div>
 
 <style>

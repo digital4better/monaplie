@@ -6,7 +6,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     event.url.pathname === `${base}/admin` ||
     event.url.pathname === `${base}/admin/`
   ) {
-    return Response.redirect(new URL(`${base}/admin/index.html`, event.url));
+    return Response.redirect(new URL("/index.html", event.url));
   }
   return resolve(event);
 };

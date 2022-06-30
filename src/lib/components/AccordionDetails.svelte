@@ -3,25 +3,35 @@
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { slide } from "svelte/transition";
   import SvgIcon from "./SvgIcon.svelte";
+  import { uid } from "uid";
 
   export let entry: SidebarDetail;
 
-  // TODO: review according to accordion pattern https://w3c.github.io/aria-practices/examples/accordion/accordion.html
-
   let isOpen = false;
   const toggle = () => (isOpen = !isOpen);
+  const accordionId = "accordion" + uid();
+  const sectionId = "accordion-section" + uid();
 </script>
 
-<button class="accordion--button" on:click={toggle} aria-expanded={isOpen}>
-  {entry.title}<SvgIcon class="accordion--button-icon" src={navigate_next} />
-</button>
+<h3>
+  <button
+    class="accordion--button"
+    on:click={toggle}
+    aria-expanded={isOpen}
+    aria-controls="sect"
+    id={accordionId}
+  >
+    {entry.title}<SvgIcon class="accordion--button-icon" src={navigate_next} />
+  </button>
+</h3>
 {#if isOpen}
   <div
     class="accordion--container"
+    aria-labelledby="accordionId"
     transition:slide={{ duration: 300 }}
     style:display={isOpen ? "block" : "none"}
   >
-    <div class="accordion--content">{entry.content}</div>
+    <div id={sectionId} class="accordion--content">{entry.content}</div>
   </div>
 {/if}
 

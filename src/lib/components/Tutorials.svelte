@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-  import { base } from "$app/paths";
   import type { Link, Tutorial } from "$lib/types";
   import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
-  import Image from "./Image.svelte";
+  import email from "@material-design-icons/svg/outlined/email.svg?raw";
+  import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
+  import account from "@material-design-icons/svg/outlined/account_box.svg?raw";
+  import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
+
   import SvgIcon from "./SvgIcon.svelte";
 
   export let tutorials: Tutorial[];
@@ -23,6 +25,32 @@
 
   const hasAnyFilterActive = () =>
     Object.values(selectedFilters).some((value) => value);
+
+  const icons = [
+    {
+      key: "email",
+      src: email,
+    },
+    {
+      key: "fichier",
+      src: insert_drive_file,
+    },
+    {
+      key: "point d'interrogation",
+      src: help_outline,
+    },
+    {
+      key: "compte",
+      src: account,
+    },
+    {
+      key: "télécharger",
+      src: download,
+    },
+  ];
+  const findIconSrc = (iconKey: string) => {
+    return icons.find((i) => i.key === iconKey)?.src || "";
+  };
 </script>
 
 <section class="tutorials--container">
@@ -52,14 +80,10 @@
     <div class="tutorials--list">
       {#each tutorials as { title, slug, icon, service }}
         {#if selectedFilters[service] || noFilterSelected}
-          <!-- TODO: Use a link -->
-          <div
-            class="tutorial--button"
-            on:click={() => goto(`${base}/tutorials/${slug}`)}
-          >
-            <Image class="tutorial--icon" src={icon} alt="" />
+          <a href={`/laplie/tutorials/${slug}`} class="tutorial--link">
+            <SvgIcon class="tutorial--icon" src={findIconSrc(icon)} />
             <div class="tutorial--title">{title}</div>
-          </div>
+          </a>
         {/if}
       {/each}
     </div>
@@ -118,7 +142,7 @@
     overflow: auto;
   }
 
-  .tutorial--button {
+  .tutorial--link {
     padding: 1em;
     margin: 1em 1em 0 0;
     background-color: var(--alt-bg-color);
@@ -128,10 +152,10 @@
     justify-content: space-between;
     max-width: fit-content;
     cursor: pointer;
+    text-decoration: none;
   }
 
   :global(.tutorial--icon) {
-    width: 2em;
-    margin-right: 1em;
+    margin-right: 0.5em;
   }
 </style>

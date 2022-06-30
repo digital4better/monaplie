@@ -27,8 +27,8 @@
   <div class="tutorial--content">
     {#if tutorial.steps[step]?.image != null}
       <Image
-        src={tutorial.steps[step].image.src}
-        alt={tutorial.steps[step].image.alt}
+        src={tutorial.steps[step]?.image?.src || ''}
+        alt={tutorial.steps[step]?.image?.alt || ''}
       />
     {/if}
     <p>

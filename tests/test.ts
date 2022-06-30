@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 
-test("index page has expected h1", async ({ page }) => {
-  await page.goto("/");
-  expect(await page.textContent("h1")).toBe("Welcome to SvelteKit");
+test("index page has expected description", async ({ page }) => {
+  await page.goto("/laplie");
+  expect(await page.textContent(".header--motd")).toBe(
+    " Le PLIE est un dispositif territorial qui vise à faciliter l’accès à l’emploi des publics les plus en difficulté."
+  );
 });
