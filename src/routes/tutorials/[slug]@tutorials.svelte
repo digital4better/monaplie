@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
   import Image from "$lib/components/Image.svelte";
-  import type { Tutorial } from "$lib/types";
-  import type { Load } from "@sveltejs/kit";
   import SvgIcon from "$lib/components/SvgIcon.svelte";
-  import arrow_rigth from "@material-design-icons/svg/filled/arrow_right.svg?raw";
+  import type { Tutorial, TutorialStep } from "$lib/types";
   import arrow_left from "@material-design-icons/svg/filled/arrow_left.svg?raw";
+  import arrow_rigth from "@material-design-icons/svg/filled/arrow_right.svg?raw";
+  import type { Load } from "@sveltejs/kit";
 
   const tutorials = import.meta.glob("$lib/content/tutorials/*.md");
 
@@ -21,7 +21,10 @@
 
 <script lang="ts">
   export let tutorial: Tutorial;
-  export let step = 0;
+  let current = 0;
+  let step: TutorialStep | undefined;
+
+  $: step = tutorial.steps[current];
 </script>
 
 <div class="tutorial--container">
@@ -30,29 +33,26 @@
     <a href={"/laplie"} rel="noopener noreferrer">Accueil</a>
   </div>
   <h1>{tutorial.title}</h1>
-  <h2>Étape {step + 1}/{tutorial.steps.length}</h2>
+  <h2>Étape {current + 1}/{tutorial.steps.length}</h2>
   <div class="tutorial--content">
-    {#if tutorial.steps[step]?.image != null}
-      <Image
-        src={tutorial.steps[step]?.image?.src || ""}
-        alt={tutorial.steps[step]?.image?.alt || ""}
-      />
+    {#if step?.image}
+      <Image src={step.image.src} alt={step.image.alt} />
     {/if}
     <p>
-      {tutorial.steps[step]?.text}
+      {step?.text}
     </p>
   </div>
   <div class="tutorial--step-buttons">
-    {#if step != 0}
-      <button class="tutorial--button" on:click={() => step--}>
+    {#if current > 0}
+      <button class="tutorial--button" on:click={() => current--}>
         <SvgIcon src={arrow_left} color="var(--color-blue-dark)" />
         Précédent
       </button>
     {:else}
       <br />
     {/if}
-    {#if step < tutorial.steps.length - 1}
-      <button class="tutorial--button" on:click={() => step++}>
+    {#if current < tutorial.steps.length - 1}
+      <button class="tutorial--button" on:click={() => current++}>
         Suivant
         <SvgIcon src={arrow_rigth} color="var(--color-blue)-dark" />
       </button>
