@@ -6,5 +6,8 @@ image:
   alt: ""
 url: https://www.caf.fr/
 category: Aides, logement
-label: Allocation logement et aides familiales
+label: |-
+  ***Caisse d'Allocations Familiales***
+
+  Allocation logement et aides familiales
 ---
