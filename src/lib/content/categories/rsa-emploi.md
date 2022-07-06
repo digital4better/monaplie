@@ -1,5 +1,5 @@
 ---
 layout: category
-title: "RSA, Emploi"
+title: Emploi & Formation
 color: blue
 ---
