@@ -1,5 +1,5 @@
 ---
 layout: category
-title: Aides, logement
+title: Aides financières (RSA, APL)
 color: "#e5690c"
 ---
