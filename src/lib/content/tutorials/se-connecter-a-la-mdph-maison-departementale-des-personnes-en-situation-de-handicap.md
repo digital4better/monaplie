@@ -16,14 +16,14 @@ steps:
   - image:
       src: /laplie/images/capture-d’ecran-mdph-3bis.png
       alt: Le dossier de demande MDPH
-    text: |-
+    text:
       Le dossier de demande MDPH va se remplir en fonction de votre situation
 
-      1 - Première demande
+      1. Première demande
 
-      2- Vous avez déjà une aide MDPH
+      2. Vous avez déjà une aide MDPH
 
-      3- Vous avez déjà une aide mais votre situation a changé
+      3. Vous avez déjà une aide mais votre situation a changé
   - image:
       src: /laplie/images/capture-d’ecran-mdph-4.png
       alt: Les parties à renseigner pour une première demande
@@ -52,7 +52,7 @@ steps:
   - image:
       src: /laplie/images/capture-d’ecran-mdph-9.png
       alt: D'autres documents peuvent être ajoutés
-    text: >-
+    text:
       Je peux ajouter des documents pour expliquer davantage ma situation, mon
       handicap et mes difficultés.
 
@@ -65,7 +65,7 @@ steps:
   - image:
       src: /laplie/images/capture-d’ecran-mdph-11.png
       alt: Comment transmettre votre dossier à la MDPH
-    text: |-
+    text:
       On peut aussi le faire en ligne 
 
       [mdphenligne.cnsa.fr](https://mdphenligne.cnsa.fr/)
