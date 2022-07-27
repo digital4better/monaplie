@@ -24,7 +24,7 @@
   let current = 0;
   let step: TutorialStep | undefined;
 
-  $: step = tutorial.steps[current];
+  $: step = tutorial.steps ? tutorial.steps[current] : undefined;
 </script>
 
 <div class="tutorial--container">
@@ -33,31 +33,33 @@
     <a href={"/laplie"} rel="noopener noreferrer">Accueil</a>
   </div>
   <h1>{tutorial.title}</h1>
-  <h2>Étape {current + 1}/{tutorial.steps.length}</h2>
-  <div class="tutorial--content">
-    {#if step?.image}
-      <Image src={step.image.src} alt={step.image.alt} />
-    {/if}
-    <p>
-      {step?.text}
-    </p>
-  </div>
-  <div class="tutorial--step-buttons">
-    {#if current > 0}
-      <button class="tutorial--button" on:click={() => current--}>
-        <SvgIcon src={arrow_left} color="var(--color-blue-dark)" />
-        Précédent
-      </button>
-    {:else}
-      <br />
-    {/if}
-    {#if current < tutorial.steps.length - 1}
-      <button class="tutorial--button" on:click={() => current++}>
-        Suivant
-        <SvgIcon src={arrow_rigth} color="var(--color-blue)-dark" />
-      </button>
-    {/if}
-  </div>
+  {#if tutorial.steps}
+    <h2>Étape {current + 1}/{tutorial.steps.length}</h2>
+    <div class="tutorial--content">
+      {#if step?.image}
+        <Image src={step.image.src} alt={step.image.alt} />
+      {/if}
+      <p>
+        {step?.text}
+      </p>
+    </div>
+    <div class="tutorial--step-buttons">
+      {#if current > 0}
+        <button class="tutorial--button" on:click={() => current--}>
+          <SvgIcon src={arrow_left} color="var(--color-blue-dark)" />
+          Précédent
+        </button>
+      {:else}
+        <br />
+      {/if}
+      {#if current < tutorial.steps.length - 1}
+        <button class="tutorial--button" on:click={() => current++}>
+          Suivant
+          <SvgIcon src={arrow_rigth} color="var(--color-blue)-dark" />
+        </button>
+      {/if}
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
