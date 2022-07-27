@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Se connecter à la CAF
-icon: null
+icon: compte
 service: CAF
 steps:
   - image:
