@@ -9,7 +9,7 @@ slug:
   clean_accents: true
 collections:
   - name: "links"
-    label: "Liens"
+    label: "Sites publics"
     folder: "src/lib/content/links"
     create: true
     fields:

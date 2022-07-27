@@ -28,7 +28,7 @@
 
 <section class="links--container">
   <h2 class="links--title">
-    <SvgIcon src={launch} />Liens
+    <SvgIcon src={launch} />Vos sites publics
   </h2>
   <h3>Connexion vers les services publics</h3>
   <ul class="links--list">
