@@ -52,7 +52,7 @@ steps:
   - image:
       src: /laplie/images/capture-d’ecran-mdph-9.png
       alt: D'autres documents peuvent être ajoutés
-    text:
+    text: |-
       Je peux ajouter des documents pour expliquer davantage ma situation, mon
       handicap et mes difficultés.
 
@@ -65,7 +65,7 @@ steps:
   - image:
       src: /laplie/images/capture-d’ecran-mdph-11.png
       alt: Comment transmettre votre dossier à la MDPH
-    text:
+    text: >-
       On peut aussi le faire en ligne 
 
       [mdphenligne.cnsa.fr](https://mdphenligne.cnsa.fr/)
