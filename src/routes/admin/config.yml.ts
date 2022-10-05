@@ -8,6 +8,48 @@ public_folder: "${base}/images"
 slug:
   clean_accents: true
 collections:
+  - name: "site"
+    label: "Configuration générale"
+    files:
+      - name: "site"
+        label: "Site"
+        file: "src/lib/content/site.md"
+        fields:
+          - { name: "layout", label: "Layout", widget: "hidden", default: "site" }
+          - { name: "title", label: "Titre", widget: "string" }
+          - name: "logo"
+            label: "Logo"
+            widget: "object"
+            fields:
+              - name: "src"
+                widget: "image"
+                label: "Fichier"
+                allow_multiple: false
+                hint: "Accessibilité: Utiliser un de fichier significatif"
+              - name: "alt"
+                widget: "string"
+                required: false
+                label: "Alternative textuelle"
+                hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
+          - { name: "description", label: "Description", widget: "markdown" }
+          - name: "details"
+            label: "Détails"
+            widget: "list"
+            min: 1
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "content", label: "Contenu", widget: "markdown" }
+          - name: "links"
+            label: "Liens"
+            widget: "list"
+            min: 1
+            collapsed: true
+            summary: "{{fields.link}}"
+            fields:
+              - { name: "title", label: "Titre", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
   - name: "links"
     label: "Sites publics"
     folder: "src/lib/content/links"
@@ -97,48 +139,7 @@ collections:
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "category" }
       - { name: "title", label: "Titre", widget: "string" }
-      - { name: "color", label: "Couleur", widget: "color" }
-  - name: "others"
-    label: "Autres"
-    files:
-      - label: "Barre latérale"
-        name: "sidebar"
-        file: "src/lib/content/sidebar.md"
-        fields:
-          - { name: "layout", label: "Layout", widget: "hidden", default: "sidebar" }
-          - name: "logo"
-            label: "Logo"
-            widget: "object"
-            fields:
-              - name: "src"
-                widget: "image"
-                label: "Fichier"
-                allow_multiple: false
-                hint: "Accessibilité: Utiliser un de fichier significatif"
-              - name: "alt"
-                widget: "string"
-                required: false
-                label: "Alternative textuelle"
-                hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
-          - { name: "description", label: "Description", widget: "markdown" }
-          - name: "details"
-            label: "Détails"
-            widget: "list"
-            min: 1
-            collapsed: true
-            summary: "{{fields.title}}"
-            fields:
-              - { name: "title", label: "Titre", widget: "string" }
-              - { name: "content", label: "Contenu", widget: "markdown" }
-          - name: "links"
-            label: "Liens"
-            widget: "list"
-            min: 1
-            collapsed: true
-            summary: "{{fields.link}}"
-            fields:
-              - { name: "title", label: "Titre", widget: "string" }
-              - { name: "url", label: "URL", widget: "string" }`;
+      - { name: "color", label: "Couleur", widget: "color" }`;
 
 const NETLIFY_CMS_LOCAL_PRD_CONFIG = `
 backend:

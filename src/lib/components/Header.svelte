@@ -1,11 +1,11 @@
 <script lang="ts">
   import Image from "$lib/components/Image.svelte";
   import SvgIcon from "$lib/components/SvgIcon.svelte";
-  import { metadata } from "$lib/content/sidebar.md";
-  import type { Sidebar } from "$lib/types";
+  import { metadata } from "$lib/content/site.md";
+  import type { Site } from "$lib/types";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
 
-  export let { logo, description, details, links } = metadata as Sidebar;
+  export let { logo, description, details, links } = metadata as Site;
 </script>
 
 <div class="header--container">

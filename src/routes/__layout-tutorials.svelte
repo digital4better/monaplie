@@ -1,12 +1,12 @@
 <script lang="ts">
   import Footer from "$lib/components/Footer.svelte";
   import Header from "$lib/components/Header.svelte";
-  import "../app.scss";
   import Image from "$lib/components/Image.svelte";
-  import { metadata } from "$lib/content/sidebar.md";
-  import type { Sidebar } from "$lib/types";
+  import { metadata } from "$lib/content/site.md";
+  import type { Site } from "$lib/types";
+  import "../app.scss";
 
-  export let { logo, description, details, links } = metadata as Sidebar;
+  export let { logo, description, details, links } = metadata as Site;
 </script>
 
 <div class="layout--container">

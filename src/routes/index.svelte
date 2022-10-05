@@ -1,7 +1,8 @@
 <script context="module" lang="ts">
   import Links from "$lib/components/Links.svelte";
   import Tutorials from "$lib/components/Tutorials.svelte";
-  import type { Category, Link, Tutorial } from "$lib/types";
+  import { metadata } from "$lib/content/site.md";
+  import type { Category, Link, Site, Tutorial } from "$lib/types";
   import type { Load } from "@sveltejs/kit";
 
   const items = (
@@ -18,6 +19,8 @@
   const tutorials = items(import.meta.glob("$lib/content/tutorials/*.md"));
   const links = items(import.meta.glob("$lib/content/links/*.md"));
   const categories = items(import.meta.glob("$lib/content/categories/*.md"));
+
+  export let { title } = metadata as Site;
 
   export const load: Load = async () => {
     return {
@@ -41,6 +44,7 @@
 </svelte:head>
 
 <section class="index--container">
+  <h1>{title}</h1>
   <Links {links} {categories} />
   <Tutorials {tutorials} {links} />
 </section>

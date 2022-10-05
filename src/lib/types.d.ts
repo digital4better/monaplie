@@ -15,14 +15,15 @@ export type Link = {
   category: string;
   label: string;
 };
-export type Sidebar = {
+export type Site = {
+  title: string;
   logo: Image;
   description: string;
-  details: SidebarDetail[];
-  links: SidebarLink[];
+  details: SiteDetail[];
+  links: SiteLinks[];
 };
-export type SidebarDetail = { title: string; content: string };
-export type SidebarLink = { title: string; url: string };
+export type SiteDetail = { title: string; content: string };
+export type SiteLinks = { title: string; url: string };
 export type Tutorial = {
   slug: string;
   icon: string;

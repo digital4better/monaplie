@@ -3,12 +3,12 @@
 </script>
 
 <script lang="ts">
-  import type { SidebarDetail } from "$lib/types";
+  import type { SiteDetail } from "$lib/types";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { slide } from "svelte/transition";
   import SvgIcon from "./SvgIcon.svelte";
 
-  export let entry: SidebarDetail;
+  export let entry: SiteDetail;
 
   let isOpen = false;
   const toggle = () => (isOpen = !isOpen);

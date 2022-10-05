@@ -1,5 +1,6 @@
 ---
-layout: sidebar
+layout: site
+title: Bienvenue dans la boîte à outil du PLIE
 logo:
   src: /laplie/images/plie.svg
   alt: Logo du PLIE
