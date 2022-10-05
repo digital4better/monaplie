@@ -1,27 +1,15 @@
 <script context="module" lang="ts">
-  import type { Load } from "@sveltejs/kit";
-
-  export const load: Load = ({ error, status }) => {
-    return {
-      props: {
-        error,
-        status,
-      },
-    };
-  };
-</script>
-
-<script lang="ts">
-  export let status: number | null;
+  import { base } from "$app/paths";
+  import { page } from "$app/stores";
 </script>
 
 <section class="error--container">
-  <p class="error--status">{status}</p>
+  <p class="error--status">{$page.status}</p>
   <p class="error--message">
     Oups ! Cette page n’a pas été trouvée. Vous pouvez reprendre votre
     navigation depuis la page d’accueil.
   </p>
-  <a href={"/laplie"} class="error--link"> Revenir à la page d’accueil </a>
+  <a href={base} class="error--link"> Revenir à la page d’accueil </a>
 </section>
 
 <style>

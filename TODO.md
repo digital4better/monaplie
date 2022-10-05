@@ -1,10 +1,8 @@
 - [ ] Use localStorage to get/set favorites
-- [ ] Re-enable npm run lint in CI
-- [ ] Fix horizontal scroll problem 
+- [ ] Fix horizontal scroll problem
 - [ ] Fix rich text
 - [ ] All card must have the same height (links)
 - [ ] Display links' category higher in the card to make it more visible
 - [ ] Replace information bloc invariant content by content changing depending on the day of the week
 - [ ] Allow ordering tutorials and links from the CMS
 - [ ] Allow to add links to existing tutorials
-- [ ] Add a h1 title on homepage

@@ -15,21 +15,10 @@ const config = {
     },
 
     prerender: {
-      default: true,
       entries: ["*", "/admin/config.yml"],
     },
 
     trailingSlash: "always",
-
-    vite: {
-      css: {
-        preprocessorOptions: {
-          scss: {
-            additionalData: '@use "src/variables.scss" as *;',
-          },
-        },
-      },
-    },
   },
 
   // Consult https://github.com/sveltejs/svelte-preprocess

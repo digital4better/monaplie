@@ -1,11 +1,11 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import type { Link, Tutorial } from "$lib/types";
-  import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
-  import email from "@material-design-icons/svg/outlined/email.svg?raw";
-  import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
   import account from "@material-design-icons/svg/outlined/account_box.svg?raw";
+  import email from "@material-design-icons/svg/outlined/email.svg?raw";
   import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
-
+  import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
+  import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let tutorials: Tutorial[];
@@ -80,7 +80,7 @@
     <div class="tutorials--list">
       {#each tutorials as { title, slug, icon, service }}
         {#if selectedFilters[service] || noFilterSelected}
-          <a href={`/laplie/tutorials/${slug}`} class="tutorial--link">
+          <a href={`${base}/tutorials/${slug}`} class="tutorial--link">
             <SvgIcon class="tutorial--icon" src={findIconSrc(icon)} />
             <div class="tutorial--title">{title}</div>
           </a>

@@ -1,3 +1,5 @@
+export const prerender = true;
+
 import { base } from "$app/paths";
 import type { RequestHandler } from "@sveltejs/kit";
 
@@ -156,12 +158,12 @@ local_backend: true`;
  * Expose specific Netlify CMS configuration according to the environment
  * @returns the Netlify CMS configuration
  */
-export const get: RequestHandler = async () => {
-  return {
-    body: NETLIFY_CMS_CONFIG.concat(
+export const GET: RequestHandler = async () => {
+  return new Response(
+    NETLIFY_CMS_CONFIG.concat(
       process.env["NODE_ENV"] === "development"
         ? NETLIFY_CMS_LOCAL_DEV_CONFIG
         : NETLIFY_CMS_LOCAL_PRD_CONFIG
-    ),
-  };
+    )
+  );
 };

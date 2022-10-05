@@ -1,10 +1,10 @@
 <script lang="ts">
+  import "$lib/app.scss";
   import Footer from "$lib/components/Footer.svelte";
   import Header from "$lib/components/Header.svelte";
   import Image from "$lib/components/Image.svelte";
   import { metadata } from "$lib/content/site.md";
   import type { Site } from "$lib/types";
-  import "../app.scss";
 
   export let { logo, description, details, links } = metadata as Site;
 </script>
