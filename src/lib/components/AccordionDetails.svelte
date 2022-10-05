@@ -1,16 +1,18 @@
+<script context="module" lang="ts">
+  let localIdCounter = 0;
+</script>
+
 <script lang="ts">
   import type { SidebarDetail } from "$lib/types";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { slide } from "svelte/transition";
   import SvgIcon from "./SvgIcon.svelte";
-  import { uid } from "uid";
 
   export let entry: SidebarDetail;
 
   let isOpen = false;
   const toggle = () => (isOpen = !isOpen);
-  const accordionId = "accordion" + uid();
-  const sectionId = "accordion-section" + uid();
+  const id = `accordion-${localIdCounter++}`;
 </script>
 
 <h3>
@@ -19,19 +21,18 @@
     on:click={toggle}
     aria-expanded={isOpen}
     aria-controls="sect"
-    id={accordionId}
+    {id}
   >
     {entry.title}<SvgIcon class="accordion--button-icon" src={navigate_next} />
   </button>
 </h3>
 {#if isOpen}
   <div
-    class="accordion--container"
-    aria-labelledby="accordionId"
+    class="accordion--content"
+    aria-labelledby={id}
     transition:slide={{ duration: 300 }}
-    style:display={isOpen ? "block" : "none"}
   >
-    <div id={sectionId} class="accordion--content">{entry.content}</div>
+    {entry.content}
   </div>
 {/if}
 
