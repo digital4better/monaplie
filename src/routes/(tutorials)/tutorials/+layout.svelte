@@ -6,7 +6,7 @@
   import { metadata } from "$lib/content/site.md";
   import type { Site } from "$lib/types";
 
-  export let { logo, description, details, links } = metadata as Site;
+  export let { logo } = metadata as Site;
 </script>
 
 <div class="layout--container">

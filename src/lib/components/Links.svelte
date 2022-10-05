@@ -7,6 +7,7 @@
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import Image from "./Image.svelte";
+  import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let links: Link[] = [];
@@ -60,7 +61,7 @@
           <div class="link--title">
             {title}<SvgIcon src={navigate_next} />
           </div>
-          <div class="link--label">{label}</div>
+          <Markdown class="link--label" content={label} />
           <div class="category--container">
             <div
               class="category--icon"

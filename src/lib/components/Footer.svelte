@@ -6,7 +6,7 @@
   import type { Site } from "$lib/types";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
 
-  export let { logo, description, details, links } = metadata as Site;
+  export let { details, links } = metadata as Site;
 </script>
 
 <div class="footer--container">

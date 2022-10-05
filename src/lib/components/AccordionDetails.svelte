@@ -6,6 +6,7 @@
   import type { SiteDetail } from "$lib/types";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { slide } from "svelte/transition";
+  import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let entry: SiteDetail;
@@ -32,7 +33,7 @@
     aria-labelledby={id}
     transition:slide={{ duration: 300 }}
   >
-    {entry.content}
+    <Markdown content={entry.content} />
   </div>
 {/if}
 

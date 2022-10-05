@@ -4,6 +4,7 @@
   import { metadata } from "$lib/content/site.md";
   import type { Site } from "$lib/types";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
+  import Markdown from "./Markdown.svelte";
 
   export let { logo, description, details, links } = metadata as Site;
 </script>
@@ -14,7 +15,7 @@
   </segment>
   <segment class="header--motd">
     <SvgIcon src={help_outline} color="var(--color-blue)" />
-    {description}
+    <Markdown content={description} />
   </segment>
 </div>
 

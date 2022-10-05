@@ -9,6 +9,8 @@
 </script>
 
 <script lang="ts">
+  import Markdown from "$lib/components/Markdown.svelte";
+
   export let data: PageData;
 
   let current = 0;
@@ -30,7 +32,7 @@
         <Image src={step.image.src} alt={step.image.alt} />
       {/if}
       <p>
-        {step?.text}
+        <Markdown content={step?.text} />
       </p>
     </div>
     <div class="tutorial--step-buttons">
