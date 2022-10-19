@@ -55,8 +55,5 @@
 
   .layout--main {
     width: 100%;
-    @include md {
-      padding: 0 4rem;
-    }
   }
 </style>
