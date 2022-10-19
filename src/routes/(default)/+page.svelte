@@ -16,11 +16,11 @@
 </svelte:head>
 
 <section class="index--container">
-  <div class = 'top--container'>
+  <div class="top--container">
     <h1>{title}</h1>
     <Links links={data.links} categories={data.categories} />
   </div>
-  <div class = 'bottom--container'>
+  <div class="bottom--container">
     <Tutorials tutorials={data.tutorials} links={data.links} />
   </div>
 </section>
@@ -30,17 +30,16 @@
     display: flex;
     flex-direction: column;
   }
-  .top--container{
-    display : flex;
+  .top--container {
+    display: flex;
     flex-direction: column;
-    padding : 4rem 4rem 0rem 4rem;
+    padding: 4rem 4rem 0rem 4rem;
     background: (#80b6e6);
   }
-  .bottom--container{
-    display : flex;
+  .bottom--container {
+    display: flex;
     flex-direction: column;
-    padding : 4rem 4rem 0rem 4rem;
+    padding: 4rem 4rem 0rem 4rem;
     background: (#d9ebf5);
   }
 </style>
-
