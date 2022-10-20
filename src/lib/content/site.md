@@ -4,6 +4,9 @@ title: Bienvenue dans la boîte à outil du PLIE
 logo:
   src: /laplie/images/plie.svg
   alt: Logo du PLIE
+homePicture:
+  src : /laplie/images/home-picture.png
+  alt : Image d'accueil
 description: Le PLIE est un dispositif territorial qui vise à faciliter l’accès
   à l’emploi des publics les plus en difficulté.
 details:
