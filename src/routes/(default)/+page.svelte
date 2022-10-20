@@ -1,16 +1,21 @@
 <script context="module" lang="ts">
+  import Favorites from "$lib/components/Favorites.svelte";
   import Image from "$lib/components/Image.svelte";
   import Links from "$lib/components/Links.svelte";
   import Resources from "$lib/components/Resources.svelte";
   import Tutorials from "$lib/components/Tutorials.svelte";
   import { metadata } from "$lib/content/site.md";
-  import type { Site } from "$lib/types";
+  import type { Link, Site } from "$lib/types";
+  import { storedFavorites } from "../../lib/store";
   import type { PageData } from "./$types";
 </script>
 
 <script lang="ts">
   export let data: PageData;
   export let { title, homePicture } = metadata as Site;
+  export let currentFavorites: Link[] = data.links.filter(
+    (link) => JSON.parse($storedFavorites || "{}").links?.indexOf(link.url) >= 0
+  );
 </script>
 
 <svelte:head>
@@ -23,7 +28,12 @@
       <h1>{title}</h1>
       <Image src={homePicture.src} alt={homePicture.alt} />
     </div>
-    <Links links={data.links} categories={data.categories} />
+    <Favorites {currentFavorites} />
+    <Links
+      links={data.links}
+      categories={data.categories}
+      bind:currentFavorites
+    />
   </div>
   <div class="bottom--container">
     <Tutorials tutorials={data.tutorials} links={data.links} />
@@ -40,10 +50,10 @@
     width: 75vw;
   }
   .top--container {
+    background: (#80b6e6);
     display: flex;
     flex-direction: column;
     padding: 4rem 0 0 4rem;
-    background: (#80b6e6);
   }
   .bottom--container {
     display: flex;
@@ -52,7 +62,9 @@
     background: (#d9ebf5);
   }
   .header-top--container {
+    align-items: center;
     display: flex;
     justify-content: space-between;
+    width: 92.5%;
   }
 </style>

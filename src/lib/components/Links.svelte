@@ -7,14 +7,17 @@
   import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
-  import { getStoredItem, setStoredItem } from "../store";
+  import { initSetStorageFavorites, storedFavorites } from "../store";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let links: Link[] = [];
+  export let currentFavorites: Link[];
   export let categories: Category[] = [];
   let interval_: NodeJS.Timer;
+
+  initSetStorageFavorites();
 
   export const circleColor = (category: string) => {
     return (
@@ -29,19 +32,11 @@
     list?.scrollBy(value, 0);
   };
 
-  export const isFavorite = (url: string) => {
-    const localStorageFavorite = getStoredItem("favorite");
-    if (!localStorageFavorite) return false;
-    const favorites: { links: string[] } = JSON.parse(localStorageFavorite);
-    return !!favorites.links.find((link) => link == url);
-  };
-
   export const setFavorite = (url: string) => {
-    const localStorageFavorite = getStoredItem("favorite");
-    if (!localStorageFavorite) {
-      setStoredItem("favorite", { links: [url] });
+    if (!$storedFavorites) {
+      $storedFavorites = JSON.stringify({ links: [url] });
     } else {
-      const favorites: { links: string[] } = JSON.parse(localStorageFavorite);
+      const favorites: { links: string[] } = JSON.parse($storedFavorites);
       const indexFavorite = favorites.links.indexOf(url);
       if (indexFavorite >= 0) {
         favorites.links.splice(indexFavorite, 1);
@@ -49,47 +44,15 @@
       } else {
         favorites.links.push(url);
       }
-      setStoredItem("favorite", favorites);
+      $storedFavorites = JSON.stringify(favorites);
+      currentFavorites = links.filter(
+        (link) => favorites.links.indexOf(link.url) >= 0
+      );
     }
   };
 </script>
 
 <section class="links--container">
-  <div class="favorite-box--container">
-    <div class="favorite-box--row">
-      {@html favorite_border}
-      <span class="favorite-box--title">Favoris</span>
-    </div>
-    <div class="favorite-box--row">
-      <span>Les services et tutoriels que vous avez sauvegardés</span>
-    </div>
-    <ul class="favorite-box--list">
-      {#each links.filter( (link) => isFavorite(link.url) ) as { title, url, image }}
-        <li class="favorite-box--card">
-          <a
-            class="link--anchor"
-            rel="noopener noreferrer"
-            href={url}
-            tabindex="0"
-            target="_blank"
-            {title}
-          >
-            <span />
-          </a>
-          <div class="favorite-link--card">
-            <Image
-              class="link-favorite--image"
-              alt={image.alt}
-              src={image.src}
-            />
-            <div class="favorite-link--title">
-              {title}<SvgIcon src={navigate_next} />
-            </div>
-          </div>
-        </li>
-      {/each}
-    </ul>
-  </div>
   <h2 class="links--title">
     <SvgIcon src={launch} />Vos sites publics
   </h2>
@@ -124,16 +87,18 @@
           target="_blank"
           {title}
         >
-          <!-- TODO: Use checkbox design pattern https://w3c.github.io/aria-practices/examples/checkbox/checkbox.html -->
           <div
             class="favorite--container"
             role="checkbox"
-            aria-checked={isFavorite(url)}
+            aria-checked="true"
             aria-label="Favoris"
             tabindex="0"
             on:click={() => setFavorite(url)}
           >
-            {@html isFavorite(url) ? favorite : favorite_border}
+            {@html JSON.parse($storedFavorites || "{}")?.links?.indexOf(url) >=
+            0
+              ? favorite
+              : favorite_border}
           </div>
           <Image class="link--image" alt={image.alt} src={image.src} />
           <span class="link--title">
@@ -157,6 +122,9 @@
 </section>
 
 <style lang="scss">
+  .links--container {
+    padding: 7rem 0 0 0;
+  }
   .links--title {
     align-items: center;
     display: inline-flex;
@@ -246,63 +214,5 @@
 
   .favorite--container[aria-checked="true"] {
     color: var(--color-orange);
-  }
-
-  .favorite-box--container {
-    display: flex;
-    flex-direction: column;
-    background-color: #f7dcb0;
-    width: 80%;
-    border-radius: 10px;
-    padding: 1rem;
-  }
-
-  .favorite-box--row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-
-  .favorite-box--list {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    gap: 1rem;
-    padding-left: 0;
-    margin: 0;
-  }
-
-  .favorite-box--title {
-    margin-left: 0.5rem;
-    font-size: 1.17em;
-    font-weight: bold;
-  }
-
-  .favorite-link--card {
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    padding: 0.4rem;
-    gap: 0.5rem;
-    background-color: white;
-  }
-
-  :global(.link-favorite--image) {
-    height: 2.5rem;
-  }
-
-  .favorite-box--card {
-    position: relative;
-  }
-
-  .favorite-link--title {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    display: inline-flex;
-    margin-top: 0.125rem;
-    font-size: large;
-    font-weight: 800;
-    color: var(--color-blue-dark);
   }
 </style>
