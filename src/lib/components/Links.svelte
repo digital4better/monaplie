@@ -40,7 +40,6 @@
       const indexFavorite = favorites.links.indexOf(url);
       if (indexFavorite >= 0) {
         favorites.links.splice(indexFavorite, 1);
-        favorites.links = favorites.links;
       } else {
         favorites.links.push(url);
       }
