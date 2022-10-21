@@ -135,6 +135,7 @@
   }
 
   .link--content {
+    box-sizing: border-box;
     align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
@@ -142,17 +143,20 @@
     flex-direction: column;
     gap: 1rem;
     min-height: 14rem;
+    height: 100%;
     padding: 2rem;
     position: static;
     text-decoration: none;
-    width: 12rem;
+    width: 17rem;
   }
 
   :global(.link--image) {
-    height: 4rem;
+    max-width: 10rem;
+    max-height: 4rem;
   }
 
   .link--title {
+    box-sizing: border-box;
     align-items: center;
     display: inline-flex;
     margin-top: 0.125rem;
@@ -167,6 +171,7 @@
   }
 
   .category--container {
+    box-sizing: border-box;
     align-items: baseline;
     display: flex;
     gap: 0.375rem;

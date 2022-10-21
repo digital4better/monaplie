@@ -108,6 +108,7 @@
   }
 
   .tutorials--filters {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -119,6 +120,7 @@
   }
 
   .tutorials--filter {
+    box-sizing: border-box;
     display: inline-flex;
     align-self: center;
     border: solid;
@@ -147,6 +149,7 @@
   }
 
   .tutorials--list {
+    box-sizing: border-box;
     white-space: normal;
     @include md {
       white-space: nowrap;

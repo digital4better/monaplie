@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+  import Ressources from "$lib/components/Ressources.svelte";
   import Links from "$lib/components/Links.svelte";
   import Tutorials from "$lib/components/Tutorials.svelte";
   import { metadata } from "$lib/content/site.md";
@@ -22,6 +23,7 @@
   </div>
   <div class="bottom--container">
     <Tutorials tutorials={data.tutorials} links={data.links} />
+    <Ressources ressources={data.ressources} />
   </div>
 </section>
 
@@ -32,6 +34,7 @@
     padding: 0;
   }
   .top--container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     padding: 4rem 0rem 4rem 2rem;
@@ -41,6 +44,7 @@
     background: (#80b6e6);
   }
   .bottom--container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     padding: 4rem 0rem 4rem 2rem;
