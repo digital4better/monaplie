@@ -78,11 +78,17 @@
 
   <div class="tutorials--list-container">
     <div class="tutorials--list">
-      {#each tutorials as { title, slug, icon, service }}
-        {#if selectedFilters[service] || noFilterSelected}
-          <a href={`${base}/tutorials/${slug}`} class="tutorial--link">
-            <SvgIcon class="tutorial--icon" src={findIconSrc(icon)} />
-            <div class="tutorial--title">{title}</div>
+      {#each tutorials as tutorial}
+        {#if selectedFilters[tutorial.service] || noFilterSelected}
+          <a
+            href={"url" in tutorial
+              ? tutorial.url
+              : `${base}/tutorials/${tutorial.slug}`}
+            target={"url" in tutorial ? "_blank" : "_self"}
+            class="tutorial--link"
+          >
+            <SvgIcon class="tutorial--icon" src={findIconSrc(tutorial.icon)} />
+            <div class="tutorial--title">{tutorial.title}</div>
           </a>
         {/if}
       {/each}

@@ -24,13 +24,23 @@ export type Site = {
 };
 export type SiteDetail = { title: string; content: string };
 export type SiteLinks = { title: string; url: string };
-export type Tutorial = {
+
+export type BaseTutorial = {
   slug: string;
   icon: string;
   title: string;
   service: string;
+};
+export type Tutorial = InternalTutorial | ExternalTutorial;
+
+export type InternalTutorial = BaseTutorial & {
   steps: TutorialStep[];
 };
+
+export type ExternalTutorial = BaseTutorial & {
+  url: string;
+};
+
 export type TutorialStep = {
   image?: Image;
   text: string;
