@@ -5,6 +5,8 @@
   // import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
   // import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
+  import arrow_back from "@material-design-icons/svg/filled/arrow_back.svg?raw";
+  import arrow_forward from "@material-design-icons/svg/filled/arrow_forward.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
@@ -25,6 +27,14 @@
   // export const isFavorite = (url: string) => {
   //   return false;
   // };
+  const scrollLeft = () => {
+    const ul = document.querySelector("#linkList-ul");
+    ul?.scrollBy(-30, 0);
+  };
+  const scrollRight = () => {
+    const ul = document.querySelector("#linkList-ul");
+    ul?.scrollBy(30, 0);
+  };
 </script>
 
 <section class="links--container">
@@ -32,7 +42,14 @@
     <SvgIcon src={launch} />Vos sites publics
   </h2>
   <h3>Connexion vers les services publics</h3>
-  <ul class="links--list">
+  <button class="scroll--button" on:click={scrollLeft}>
+    <SvgIcon src={arrow_back} />
+  </button>
+
+  <button class="scroll--button" on:click={scrollRight}>
+    <SvgIcon src={arrow_forward} />
+  </button>
+  <ul class="links--list" id="linkList-ul">
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
         <a
@@ -78,7 +95,7 @@
   </ul>
 </section>
 
-<style>
+<style lang="scss">
   .links--title {
     align-items: center;
     display: inline-flex;
@@ -90,8 +107,7 @@
     display: flex;
     gap: 1rem;
     list-style-type: none;
-    overflow-x: scroll;
-    overflow: auto;
+    overflow: hidden;
     padding-left: 0;
   }
 
@@ -182,4 +198,16 @@
     color: "var(--color-orange)";
   }
   */
+  .scroll--button {
+    background-color: white;
+    border-radius: 100%;
+    height: 2rem;
+    border: 0;
+  }
+  .scroll--button:hover {
+    cursor: pointer;
+  }
+  .scroll--button:active {
+    background-color: gray;
+  }
 </style>
