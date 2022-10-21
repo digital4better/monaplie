@@ -33,7 +33,7 @@
 
   .header--motd {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1.5rem;
 
     border: solid;
@@ -41,12 +41,13 @@
     border-color: var(--color-blue);
     border-radius: 15px;
 
-    padding: 1.5rem 2.5rem;
-
-    text-align: justify;
+    padding: 0.5rem 1rem;
   }
 
   .header--motd :global(.icon) {
     padding-top: 1rem;
+  }
+  .header--motd :global(.markdown) {
+    padding: 0;
   }
 </style>

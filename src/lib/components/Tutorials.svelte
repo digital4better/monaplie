@@ -90,7 +90,7 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
   .tutorials--title {
     display: inline-flex;
     align-items: center;
@@ -136,7 +136,10 @@
   }
 
   .tutorials--list {
-    white-space: nowrap;
+    white-space: normal;
+    @include md {
+      white-space: nowrap;
+    }
     display: flex;
     flex-wrap: wrap;
     overflow: auto;

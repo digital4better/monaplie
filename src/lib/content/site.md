@@ -1,6 +1,6 @@
 ---
 layout: site
-title: Bienvenue dans la boîte à outil du PLIE
+title: Bienvenue dans MonaPLIE
 logo:
   src: /laplie/images/plie.svg
   alt: Logo du PLIE
