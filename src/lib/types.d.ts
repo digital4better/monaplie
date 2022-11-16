@@ -25,12 +25,12 @@ export type Site = {
 export type SiteDetail = { title: string; content: string };
 export type SiteLinks = { title: string; url: string };
 
-export type BaseTutorial = {
+interface BaseTutorial {
   slug: string;
   icon: string;
   title: string;
   service: string;
-};
+}
 export type Tutorial = InternalTutorial | ExternalTutorial;
 
 export type InternalTutorial = BaseTutorial & {

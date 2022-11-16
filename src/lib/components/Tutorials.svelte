@@ -65,13 +65,13 @@
     >
     <div>
       {#each links as { title }}
-        <div
+        <button
           class="tutorials--filter"
           class:tutorials--filter-selected={selectedFilters[title]}
           on:click={() => onClickFilter(title)}
         >
           {title}
-        </div>
+        </button>
       {/each}
     </div>
   </div>
@@ -125,6 +125,7 @@
     margin-right: 1.2em;
     margin-top: 1em;
     cursor: pointer;
+    background-color: inherit;
   }
 
   .tutorials--filter-selected {

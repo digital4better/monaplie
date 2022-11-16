@@ -2,7 +2,7 @@
   import { base } from "$app/paths";
   import Image from "$lib/components/Image.svelte";
   import SvgIcon from "$lib/components/SvgIcon.svelte";
-  import type { InternalTutorial, TutorialStep } from "$lib/types";
+  import type { TutorialStep } from "$lib/types";
   import arrow_left from "@material-design-icons/svg/filled/arrow_left.svg?raw";
   import arrow_rigth from "@material-design-icons/svg/filled/arrow_right.svg?raw";
   import type { PageData } from "./$types";
@@ -11,7 +11,7 @@
 <script lang="ts">
   import Markdown from "$lib/components/Markdown.svelte";
 
-  export let data: PageData & { tutorial: InternalTutorial };
+  export let data: PageData;
 
   let current = 0;
   let step: TutorialStep | undefined;
