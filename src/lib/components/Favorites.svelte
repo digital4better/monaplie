@@ -5,7 +5,7 @@
   import Image from "./Image.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
-  export let currentFavorites: Link[];
+  export let favorites: Link[] = [];
 </script>
 
 <section class="links--container">
@@ -18,7 +18,7 @@
       <span>Les services et tutoriels que vous avez sauvegardés</span>
     </div>
     <ul class="favorite-box--list">
-      {#each currentFavorites || [] as { image, title, url }}
+      {#each favorites as { image, title, url }}
         <li class="favorite-box--card">
           <a
             class="link--anchor"

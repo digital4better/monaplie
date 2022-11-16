@@ -21,7 +21,7 @@ export type Link = {
 export type Site = {
   title: string;
   logo: Image;
-  homePicture: Image;
+  home: Image;
   description: string;
   details: SiteDetail[];
   links: SiteLinks[];

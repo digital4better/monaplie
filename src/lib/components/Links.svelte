@@ -7,13 +7,13 @@
   import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
-  import { initSetStorageFavorites, storedFavorites } from "../store";
+  import { initSetStorageFavorites, storedItems } from "../store";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let links: Link[] = [];
-  export let currentFavorites: Link[];
+  export let favorites: Link[];
   export let categories: Category[] = [];
   let interval_: NodeJS.Timer;
 
@@ -33,22 +33,31 @@
   };
 
   export const setFavorite = (url: string) => {
-    if (!$storedFavorites) {
-      $storedFavorites = JSON.stringify({ links: [url] });
+    if (!$storedItems) {
+      $storedItems = JSON.stringify({ links: [url] });
     } else {
-      const favorites: { links: string[] } = JSON.parse($storedFavorites);
-      const indexFavorite = favorites.links.indexOf(url);
+      const favoritesTemp: { links: string[] } = JSON.parse($storedItems);
+      console.log(favoritesTemp);
+      const indexFavorite = favoritesTemp.links.indexOf(url);
       if (indexFavorite >= 0) {
-        favorites.links.splice(indexFavorite, 1);
+        favoritesTemp.links.splice(indexFavorite, 1);
       } else {
-        favorites.links.push(url);
+        favoritesTemp.links.push(url);
       }
-      $storedFavorites = JSON.stringify(favorites);
-      currentFavorites = links.filter(
-        (link) => favorites.links.indexOf(link.url) >= 0
+      $storedItems = JSON.stringify(favoritesTemp);
+      favorites = links.filter(
+        (link) => favoritesTemp.links.indexOf(link.url) >= 0
       );
     }
   };
+
+  const isFavorite = (
+    storedItems: string | false | null,
+    url: string
+  ): string =>
+    JSON.parse(storedItems || "{}")?.links?.indexOf(url) >= 0
+      ? favorite
+      : favorite_border;
 </script>
 
 <section class="links--container">
@@ -89,15 +98,12 @@
           <div
             class="favorite--container"
             role="checkbox"
-            aria-checked="true"
+            aria-checked={isFavorite($storedItems, url) === favorite}
             aria-label="Favoris"
             tabindex="0"
             on:click={() => setFavorite(url)}
           >
-            {@html JSON.parse($storedFavorites || "{}")?.links?.indexOf(url) >=
-            0
-              ? favorite
-              : favorite_border}
+            {@html isFavorite($storedItems, url)}
           </div>
           <Image class="link--image" alt={image.alt} src={image.src} />
           <span class="link--title">

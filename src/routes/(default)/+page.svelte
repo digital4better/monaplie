@@ -6,15 +6,15 @@
   import Tutorials from "$lib/components/Tutorials.svelte";
   import { metadata } from "$lib/content/site.md";
   import type { Link, Site } from "$lib/types";
-  import { storedFavorites } from "../../lib/store";
+  import { storedItems } from "../../lib/store";
   import type { PageData } from "./$types";
 </script>
 
 <script lang="ts">
   export let data: PageData;
-  export let { title, homePicture } = metadata as Site;
-  export let currentFavorites: Link[] = data.links.filter(
-    (link) => JSON.parse($storedFavorites || "{}").links?.indexOf(link.url) >= 0
+  export let { title, home } = metadata as Site;
+  export let favorites: Link[] = data.links.filter(
+    (link) => JSON.parse($storedItems || "{}").links?.indexOf(link.url) >= 0
   );
 </script>
 
@@ -26,14 +26,10 @@
   <div class="top--container">
     <div class="header-top--container">
       <h1>{title}</h1>
-      <Image src={homePicture.src} alt={homePicture.alt} />
+      <Image src={home.src} alt={home.alt} />
     </div>
-    <Favorites {currentFavorites} />
-    <Links
-      links={data.links}
-      categories={data.categories}
-      bind:currentFavorites
-    />
+    <Favorites {favorites} />
+    <Links links={data.links} categories={data.categories} bind:favorites />
   </div>
   <div class="bottom--container">
     <Tutorials tutorials={data.tutorials} links={data.links} />
