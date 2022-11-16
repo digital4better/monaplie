@@ -14,13 +14,13 @@ const items = (
 const tutorials = items(import.meta.glob("$lib/content/tutorials/*.md"));
 const links = items(import.meta.glob("$lib/content/links/*.md"));
 const categories = items(import.meta.glob("$lib/content/categories/*.md"));
-const ressources = items(import.meta.glob("$lib/content/ressources/*.md"));
+const resources = items(import.meta.glob("$lib/content/resources/*.md"));
 
 export const load: Load = async () => {
   return {
     tutorials: await Promise.all(tutorials),
     links: await Promise.all(links),
     categories: await Promise.all(categories),
-    ressources: await Promise.all(ressources),
+    resources: await Promise.all(resources),
   };
 };

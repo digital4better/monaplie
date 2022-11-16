@@ -1,5 +1,5 @@
 ---
-layout: ressource
+layout: resource
 title: Accéder à One Drive
 category: Outil
 image:

@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import Ressources from "$lib/components/Ressources.svelte";
+  import Resources from "$lib/components/Resources.svelte";
   import Links from "$lib/components/Links.svelte";
   import Tutorials from "$lib/components/Tutorials.svelte";
   import { metadata } from "$lib/content/site.md";
@@ -23,7 +23,7 @@
   </div>
   <div class="bottom--container">
     <Tutorials tutorials={data.tutorials} links={data.links} />
-    <Ressources ressources={data.ressources} />
+    <Resources resources={data.resources} />
   </div>
 </section>
 

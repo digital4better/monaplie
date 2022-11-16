@@ -2,54 +2,49 @@
   import SvgIcon from "./SvgIcon.svelte";
   import attach_file from "@material-design-icons/svg/outlined/attach_file.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
-  import type { Ressource } from "$lib/types";
+  import type { Resource } from "$lib/types";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
 
-  export let ressources: Ressource[];
-  const categories = ressources.reduce((acc, ressource) => {
-    if (acc.indexOf(ressource.category) >= 0) return acc;
-    return [...acc, ressource.category];
-  }, [] as string[]);
-  console.log(categories);
-
-  const selectedFilters: Record<string, boolean> = categories.reduce(
-    (acc, link) => ({ ...acc, [link]: false }),
-    {}
+  export let resources: Resource[];
+  const categories = Array.from(
+    new Set(resources.map(({ category }) => category))
   );
 
-  let noFilterSelected = true;
+  let selectedFilters: string[] = [];
 
   const onClickFilter = (category: string) => {
-    selectedFilters[category] = !selectedFilters[category];
-    noFilterSelected = !hasAnyFilterActive();
+    console.log("befor", selectedFilters);
+    const index = selectedFilters.indexOf(category);
+    if (index < 0) selectedFilters = [...selectedFilters, category];
+    else {
+      selectedFilters.splice(index, 1);
+      selectedFilters = selectedFilters; // I don't know how to do it differently :
+    }
   };
-
-  const hasAnyFilterActive = () =>
-    Object.values(selectedFilters).some((value) => value);
 </script>
 
 <secion class="section--container">
-  <div class="ressource--container">
+  <div class="resource--container">
     <SvgIcon src={attach_file} />
-    <h3 class="ressource--title">Ressources</h3>
+    <h3 class="resource--title">resources</h3>
   </div>
-  <span class="ressource--title">Des ressources externes</span>
+  <span class="resource--title">Des resources externes</span>
   <div>
     {#each categories as category}
-      <div
-        class="ressources--filter"
-        class:ressources--filter-selected={selectedFilters[category]}
+      <button
+        class="resources--filter"
+        class:resources--filter-selected={selectedFilters.includes(category)}
         on:click={() => onClickFilter(category)}
       >
         {category}
-      </div>
+      </button>
     {/each}
   </div>
 
-  <ul class="ressources--list">
-    {#each ressources as { title, label, image, url, category }}
-      {#if selectedFilters[category] || noFilterSelected}
+  <ul class="resources--list">
+    {#each resources as { title, label, image, url, category }}
+      {#if selectedFilters.length == 0 ? true : selectedFilters.includes(category)}
         <li class="link--container">
           <a
             class="link--anchor"
@@ -78,22 +73,22 @@
   .section--container {
     padding-top: 7rem;
   }
-  .ressource--container {
+  .resource--container {
     box-sizing: border-box;
     display: flex;
     align-items: center;
   }
-  .ressource--title {
+  .resource--title {
     font-weight: bold;
   }
-  .ressources--title {
+  .resources--title {
     align-items: center;
     display: inline-flex;
     gap: 1rem;
     white-space: nowrap;
   }
 
-  .ressources--list {
+  .resources--list {
     display: flex;
     gap: 1rem;
     list-style-type: none;
@@ -148,7 +143,7 @@
     height: 100%;
     line-height: 1.25rem;
   }
-  .ressources--filter {
+  .resources--filter {
     box-sizing: border-box;
     display: inline-flex;
     align-self: center;
@@ -160,8 +155,9 @@
     margin-right: 1.2em;
     margin-top: 1em;
     cursor: pointer;
+    background-color: inherit;
   }
-  .ressources--filter-selected {
+  .resources--filter-selected {
     display: inline-flex;
     align-self: center;
     border: solid;

@@ -1,5 +1,5 @@
 ---
-layout: ressource
+layout: resource
 title: Google Map
 category: Mobilité
 image:
