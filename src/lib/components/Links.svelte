@@ -14,6 +14,7 @@
 
   export let links: Link[] = [];
   export let categories: Category[] = [];
+  let interval_: NodeJS.Timer;
 
   export const circleColor = (category: string) => {
     return (
@@ -27,13 +28,10 @@
   // export const isFavorite = (url: string) => {
   //   return false;
   // };
-  const scrollLeft = () => {
+
+  const scroll = (value: number) => {
     const ul = document.querySelector("#linkList-ul");
-    ul?.scrollBy(-30, 0);
-  };
-  const scrollRight = () => {
-    const ul = document.querySelector("#linkList-ul");
-    ul?.scrollBy(30, 0);
+    ul?.scrollBy(value, 0);
   };
 </script>
 
@@ -42,11 +40,22 @@
     <SvgIcon src={launch} />Vos sites publics
   </h2>
   <h3>Connexion vers les services publics</h3>
-  <button class="scroll--button" on:click={scrollLeft}>
+  <button
+    class="scroll--button"
+    aria-hidden="true"
+    on:mousedown={() => (interval_ = setInterval(() => scroll(-5), 20))}
+    on:mouseup={() => clearInterval(interval_)}
+  >
     <SvgIcon src={arrow_back} />
   </button>
 
-  <button class="scroll--button" on:click={scrollRight}>
+  <button
+    class="scroll--button"
+    aria-hidden="true"
+    on:click={() => scroll(10)}
+    on:mousedown={() => (interval_ = setInterval(() => scroll(5), 20))}
+    on:mouseup={() => clearInterval(interval_)}
+  >
     <SvgIcon src={arrow_forward} />
   </button>
   <ul class="links--list" id="linkList-ul">

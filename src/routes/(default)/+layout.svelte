@@ -34,7 +34,7 @@
     padding: 0 1.25rem 1rem 1.25rem;
     @include md {
       display: none;
-      padding: unset;
+      padding: initial;
     }
   }
 
