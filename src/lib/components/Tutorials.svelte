@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import type { Link, Tutorial } from "$lib/types";
+  import type { ExternalTutorial, Link, Tutorial } from "$lib/types";
   import account from "@material-design-icons/svg/outlined/account_box.svg?raw";
   import email from "@material-design-icons/svg/outlined/email.svg?raw";
   import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
@@ -51,6 +51,10 @@
   const findIconSrc = (iconKey: string) => {
     return icons.find((i) => i.key === iconKey)?.src || "";
   };
+
+  const isExternalTutorial = (
+    tutorial: Tutorial
+  ): tutorial is ExternalTutorial => "url" in tutorial;
 </script>
 
 <section class="tutorials--container">
@@ -81,10 +85,10 @@
       {#each tutorials as tutorial}
         {#if selectedFilters[tutorial.service] || noFilterSelected}
           <a
-            href={"url" in tutorial
+            href={isExternalTutorial(tutorial)
               ? tutorial.url
               : `${base}/tutorials/${tutorial.slug}`}
-            target={"url" in tutorial ? "_blank" : "_self"}
+            target={isExternalTutorial(tutorial) ? "_blank" : undefined}
             class="tutorial--link"
           >
             <SvgIcon class="tutorial--icon" src={findIconSrc(tutorial.icon)} />
