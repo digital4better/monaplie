@@ -4,9 +4,9 @@
   // TODO: Uncomment when used
   // import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
   // import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
-  import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import arrow_back from "@material-design-icons/svg/filled/arrow_back.svg?raw";
   import arrow_forward from "@material-design-icons/svg/filled/arrow_forward.svg?raw";
+  import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
@@ -161,7 +161,7 @@
     color: var(--color-blue-dark);
   }
 
-  .link--label {
+  :global(.link--label) {
     height: 100%;
     line-height: 1.25rem;
   }
