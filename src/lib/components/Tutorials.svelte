@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import type { Link, Tutorial } from "$lib/types";
+  import type { ExternalTutorial, Link, Tutorial } from "$lib/types";
   import account from "@material-design-icons/svg/outlined/account_box.svg?raw";
   import email from "@material-design-icons/svg/outlined/email.svg?raw";
   import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
@@ -51,6 +51,10 @@
   const findIconSrc = (iconKey: string) => {
     return icons.find((i) => i.key === iconKey)?.src || "";
   };
+
+  const isExternalTutorial = (
+    tutorial: Tutorial
+  ): tutorial is ExternalTutorial => "url" in tutorial;
 </script>
 
 <section class="tutorials--container">
@@ -65,24 +69,30 @@
     >
     <div>
       {#each links as { title }}
-        <div
+        <button
           class="tutorials--filter"
           class:tutorials--filter-selected={selectedFilters[title]}
           on:click={() => onClickFilter(title)}
         >
           {title}
-        </div>
+        </button>
       {/each}
     </div>
   </div>
 
   <div class="tutorials--list-container">
     <div class="tutorials--list">
-      {#each tutorials as { title, slug, icon, service }}
-        {#if selectedFilters[service] || noFilterSelected}
-          <a href={`${base}/tutorials/${slug}`} class="tutorial--link">
-            <SvgIcon class="tutorial--icon" src={findIconSrc(icon)} />
-            <div class="tutorial--title">{title}</div>
+      {#each tutorials as tutorial}
+        {#if selectedFilters[tutorial.service] || noFilterSelected}
+          <a
+            href={isExternalTutorial(tutorial)
+              ? tutorial.url
+              : `${base}/tutorials/${tutorial.slug}`}
+            target={isExternalTutorial(tutorial) ? "_blank" : undefined}
+            class="tutorial--link"
+          >
+            <SvgIcon class="tutorial--icon" src={findIconSrc(tutorial.icon)} />
+            <div class="tutorial--title">{tutorial.title}</div>
           </a>
         {/if}
       {/each}
@@ -119,6 +129,7 @@
     margin-right: 1.2em;
     margin-top: 1em;
     cursor: pointer;
+    background-color: inherit;
   }
 
   .tutorials--filter-selected {
