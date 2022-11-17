@@ -30,7 +30,7 @@
   // };
 
   const scroll = (value: number) => {
-    const ul = document.querySelector("#linkList-ul");
+    const ul = document.querySelector(".links-scrolling--list-ul");
     ul?.scrollBy(value, 0);
   };
 </script>
@@ -58,7 +58,7 @@
   >
     <SvgIcon src={arrow_forward} />
   </button>
-  <ul class="links--list" id="linkList-ul">
+  <ul class="links-scrolling--list-ul">
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
         <a
@@ -112,7 +112,7 @@
     white-space: nowrap;
   }
 
-  .links--list {
+  .links-scrolling--list-ul {
     display: flex;
     gap: 1rem;
     list-style-type: none;
