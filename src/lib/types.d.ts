@@ -3,10 +3,12 @@ export type Category = {
   title: string;
   color: string;
 };
+
 export type Image = {
   src: string;
   alt: string;
 };
+
 export type Link = {
   slug: string;
   title: string;
@@ -15,6 +17,7 @@ export type Link = {
   category: string;
   label: string;
 };
+
 export type Site = {
   title: string;
   logo: Image;
@@ -22,8 +25,15 @@ export type Site = {
   details: SiteDetail[];
   links: SiteLinks[];
 };
+
 export type SiteDetail = { title: string; content: string };
+
 export type SiteLinks = { title: string; url: string };
+
+export type TutorialStep = {
+  image?: Image;
+  text: string;
+};
 
 interface BaseTutorial {
   slug: string;
@@ -31,17 +41,12 @@ interface BaseTutorial {
   title: string;
   service: string;
 }
-export type Tutorial = InternalTutorial | ExternalTutorial;
-
-export type InternalTutorial = BaseTutorial & {
+export interface InternalTutorial extends BaseTutorial {
   steps: TutorialStep[];
-};
+}
 
-export type ExternalTutorial = BaseTutorial & {
+export interface ExternalTutorial extends BaseTutorial {
   url: string;
-};
+}
 
-export type TutorialStep = {
-  image?: Image;
-  text: string;
-};
+export type Tutorial = InternalTutorial | ExternalTutorial;
