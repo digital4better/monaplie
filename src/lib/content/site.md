@@ -9,13 +9,22 @@ home:
 description: |-
   Le PLIE vous accompagne dans vos démarches vers l'emploi ou la formation.
 
-  Un conseiller unique, pour un accompagnement personnalisé
+  Un conseiller unique, pour un accompagnement personnalisé !
 details:
-  - title: Quelle est sa finalité ?
-    content: La finalité est de ................ ........ .... ....
-  - title: À qui s’adresse-t-il ?
-    content: Il s'adresse à ................ ........ .... ....
+  - title: Le PLIE, pour qui ? Pour quoi?
+    content: >-
+      Le PLIE accompagne les personnes dans la recherche d'emploi ou de
+      formation.
+
+      Le PLIE c'est :
+      \- un accompagnement pour les + de 26 ans
+      \- un conseiller près de chez moi
+      \- une écoute de mes besoins et une réponse personnalisée
+      \- des propositions d'actions adaptées
+      \- un parcours qui me ressemble dans lequel je suis acteur
+
+      Les conseillers PLIE sont disponibles au sein des Maison de l'emploi de la Métropole Nantaise.
 links:
-  - url: https://www.me-metropole-nantaise.org/ou-nous-trouver/
+  - url: https://atdec.org
     title: "Maisons de l'emploi: où nous trouver ?"
 ---
