@@ -7,7 +7,7 @@
   import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
-  import { initSetStorageFavorites, storedItems } from "../store";
+  import { storedItems } from "../store";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
@@ -16,8 +16,6 @@
   export let favorites: Link[];
   export let categories: Category[] = [];
   let interval_: NodeJS.Timer;
-
-  initSetStorageFavorites();
 
   export const circleColor = (category: string) => {
     return (
@@ -35,6 +33,7 @@
   export const setFavorite = (url: string) => {
     if (!$storedItems) {
       $storedItems = JSON.stringify({ links: [url] });
+      favorites = links.filter((link) => url === link.url);
     } else {
       const favoritesTemp: { links: string[] } = JSON.parse($storedItems);
       console.log(favoritesTemp);
@@ -87,24 +86,24 @@
   <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
+        <button
+          class="favorite--container"
+          role="checkbox"
+          aria-checked={isFavorite($storedItems, url) === favorite}
+          aria-label="Favoris"
+          tabindex="0"
+          on:click={() => setFavorite(url)}
+        >
+          {@html isFavorite($storedItems, url)}
+        </button>
         <a
-          class="link--anchor"
+          class="link--content"
           href={url}
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
           {title}
         >
-          <div
-            class="favorite--container"
-            role="checkbox"
-            aria-checked={isFavorite($storedItems, url) === favorite}
-            aria-label="Favoris"
-            tabindex="0"
-            on:click={() => setFavorite(url)}
-          >
-            {@html isFavorite($storedItems, url)}
-          </div>
           <Image class="link--image" alt={image.alt} src={image.src} />
           <span class="link--title">
             {title}<SvgIcon src={navigate_next} />
@@ -150,7 +149,7 @@
     position: relative;
   }
 
-  .link--anchor {
+  .link--content {
     align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
@@ -217,7 +216,24 @@
     background-color: gray;
   }
 
+  .favorite--container {
+    background-color: inherit;
+    border-style: none;
+    color: var(--color-grey-light);
+    cursor: pointer;
+    fill: currentColor;
+    height: 1.5rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    z-index: 2;
+  }
+
   .favorite--container[aria-checked="true"] {
     color: var(--color-orange);
+  }
+
+  .favorite--container:hover {
+    color: #f7b34d;
   }
 </style>

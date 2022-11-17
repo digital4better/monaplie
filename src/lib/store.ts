@@ -8,3 +8,5 @@ export const initSetStorageFavorites = () =>
   storedItems.subscribe((val) => {
     if (browser) localStorage.setItem("favorite", val || "");
   });
+
+initSetStorageFavorites();
