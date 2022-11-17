@@ -98,17 +98,17 @@ collections:
         options: ["email", "fichier", "point d'interrogation", "compte", télécharger"]
         required: false
         hint: "Sur la page d'accueil, cet icône sera placé devant le titre du tutoriel"
+      - name: "url"
+        label: "Lien externe"
+        widget: "string"
+        required: false
       - name: "service"
         label: "Service"
-        widget: "select"
+        widget: "relation"
         default: "generic"
-        options:
-          - "Générique"
-          - "CAF"
-          - "Pôle Emploi"
-          - "MDPH"
-          - "Sécurité sociale"
-          - "Compte CPF"
+        collection: "links"
+        value_field: "title"
+        search_fields: ["title"]
       - name: "steps"
         label: "Étapes"
         widget: "list"
