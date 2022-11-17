@@ -26,6 +26,7 @@
     "@playwright/test": "^1.26.1",
     "@sveltejs/adapter-static": "^1.0.0-next.44",
     "@sveltejs/kit": "^1.0.0-next.510",
+    "@types/node": "^16.18.3",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "eslint": "^8.24.0",
