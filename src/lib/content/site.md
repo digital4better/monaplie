@@ -5,7 +5,7 @@ logo:
   src: /laplie/images/plie.svg
   alt: Logo du PLIE
 home:
-  src : /laplie/images/mona.svg
+  src : /laplie/images/home-picture.png
 description: Le PLIE est un dispositif territorial qui vise à faciliter l’accès
   à l’emploi des publics les plus en difficulté.
 details:

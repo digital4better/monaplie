@@ -87,10 +87,10 @@
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
         <button
-          class="favorite--container"
-          role="checkbox"
           aria-checked={isFavorite($storedItems, url) === favorite}
           aria-label="Favoris"
+          class="favorite--container"
+          role="checkbox"
           tabindex="0"
           on:click={() => setFavorite(url)}
         >
