@@ -29,9 +29,9 @@
   //   return false;
   // };
 
+  let list: HTMLUListElement;
   const scroll = (value: number) => {
-    const ul = document.querySelector(".links--list");
-    ul?.scrollBy(value, 0);
+    list?.scrollBy(value, 0);
   };
 </script>
 
@@ -58,7 +58,7 @@
   >
     <SvgIcon src={arrow_forward} />
   </button>
-  <ul class="links--list">
+  <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
         <a
