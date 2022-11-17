@@ -6,8 +6,10 @@ logo:
   alt: Logo du PLIE
 home:
   src : /laplie/images/home-picture.png
-description: Le PLIE est un dispositif territorial qui vise à faciliter l’accès
-  à l’emploi des publics les plus en difficulté.
+description: |-
+  Le PLIE vous accompagne dans vos démarches vers l'emploi ou la formation.
+
+  Un conseiller unique, pour un accompagnement personnalisé
 details:
   - title: Quelle est sa finalité ?
     content: La finalité est de ................ ........ .... ....
