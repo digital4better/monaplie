@@ -6,10 +6,7 @@ logo:
   alt: Logo du PLIE
 home:
   src : /laplie/images/home-picture.png
-description: |-
-  Le PLIE vous accompagne dans vos démarches vers l'emploi ou la formation.
-
-  Un conseiller unique, pour un accompagnement personnalisé !
+description: Bienvenue dans “Monaplie”, l'application qui vous aide dans vos démarches
 details:
   - title: Le PLIE, pour qui ? Pour quoi?
     content: >-
@@ -26,5 +23,5 @@ details:
       Les conseillers PLIE sont disponibles au sein des Maison de l'emploi de la Métropole Nantaise.
 links:
   - url: https://atdec.org
-    title: "Maisons de l'emploi: où nous trouver ?"
+    title: "Maison de l'emploi: où nous trouver ?"
 ---
