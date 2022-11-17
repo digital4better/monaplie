@@ -17,19 +17,16 @@
     console.log("befor", selectedFilters);
     const index = selectedFilters.indexOf(category);
     if (index < 0) selectedFilters = [...selectedFilters, category];
-    else {
-      selectedFilters.splice(index, 1);
-      selectedFilters = selectedFilters; // I don't know how to do it differently :
-    }
+    else selectedFilters = selectedFilters.filter((_, i) => i !== index);
   };
 </script>
 
 <secion class="section--container">
   <div class="resource--container">
     <SvgIcon src={attach_file} />
-    <h3 class="resource--title">resources</h3>
+    <h2>Ressources</h2>
   </div>
-  <span class="resource--title">Des resources externes</span>
+  <h3>Des resources externes</h3>
   <div>
     {#each categories as category}
       <button
@@ -77,15 +74,6 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-  }
-  .resource--title {
-    font-weight: bold;
-  }
-  .resources--title {
-    align-items: center;
-    display: inline-flex;
-    gap: 1rem;
-    white-space: nowrap;
   }
 
   .resources--list {
@@ -139,10 +127,6 @@
     color: var(--color-blue-dark);
   }
 
-  .link--label {
-    height: 100%;
-    line-height: 1.25rem;
-  }
   .resources--filter {
     box-sizing: border-box;
     display: inline-flex;

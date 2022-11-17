@@ -77,7 +77,7 @@ collections:
       - name: "category"
         label: "Catégorie"
         widget: "relation"
-        collection: "categories"
+        collection: "link_categories"
         value_field: "title"
         search_fields: ["title"]
       - name: "label"
@@ -138,14 +138,50 @@ collections:
             label: "Description"
             widget: "markdown"
             editor_components: []
-  - name: "categories"
-    label: "Catégories"
-    folder: "src/lib/content/categories"
+  - name: "resources"
+    label: "Ressources"
+    folder: "src/lib/content/resources"
+    create: true
+    fields:
+      - { name: "layout", label: "Layout", widget: "hidden", default: "resources" }
+      - { name: "title", label: "Titre", widget: "string" }
+      - name: "image"
+        label: "Image"
+        widget: "object"
+        fields:
+          - name: "src"
+            widget: "image"
+            label: "Fichier"
+            allow_multiple: false
+            hint: "Accessibilité: Utiliser un de fichier significatif"
+      - { name: "url", label: "URL", widget: "string" }
+      - name: "category"
+        label: "Catégorie"
+        widget: "relation"      
+        collection: "resource_categories"      
+        value_field: "title"      
+        search_fields: ["title"] 
+      - name: "label"
+        label: "Description"
+        widget: "markdown"
+        buttons: ["bold", "italic"]
+        editor_components: []
+  - name: "link_categories"
+    label: "Catégories des liens externes"
+    folder: "src/lib/content/link_categories"
     create: true
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "category" }
       - { name: "title", label: "Titre", widget: "string" }
-      - { name: "color", label: "Couleur", widget: "color" }`;
+      - { name: "color", label: "Couleur", widget: "color" }
+  - name: "resource_categories"
+    label: "Catégories des ressources"
+    folder: "src/lib/content/resource_categories"
+    create: true
+    fields:
+      - { name: "layout", label: "Layout", widget: "hidden", default: "category" }
+      - { name: "title", label: "Titre", widget: "string" }
+`;
 
 const NETLIFY_CMS_LOCAL_PRD_CONFIG = `
 backend:

@@ -34,7 +34,6 @@
     padding: 0;
   }
   .top--container {
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     padding: 4rem 0rem 4rem 2rem;
@@ -44,7 +43,6 @@
     background: (#80b6e6);
   }
   .bottom--container {
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     padding: 4rem 0rem 4rem 2rem;
