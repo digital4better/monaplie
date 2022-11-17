@@ -29,17 +29,24 @@
   .index--container {
     display: flex;
     flex-direction: column;
+    padding: 0;
   }
   .top--container {
     display: flex;
     flex-direction: column;
-    padding: 4rem 4rem 0rem 4rem;
+    padding: 4rem 0rem 4rem 2rem;
+    @include md {
+      padding: 4rem 0rem 4rem 4rem;
+    }
     background: (#80b6e6);
   }
   .bottom--container {
     display: flex;
     flex-direction: column;
-    padding: 4rem 4rem 0rem 4rem;
+    padding: 4rem 0rem 4rem 2rem;
+    @include md {
+      padding: 4rem 0rem 4rem 4rem;
+    }
     background: (#d9ebf5);
   }
 </style>

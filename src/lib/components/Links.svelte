@@ -4,6 +4,8 @@
   // TODO: Uncomment when used
   // import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
   // import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
+  import arrow_back from "@material-design-icons/svg/filled/arrow_back.svg?raw";
+  import arrow_forward from "@material-design-icons/svg/filled/arrow_forward.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import Image from "./Image.svelte";
@@ -12,6 +14,7 @@
 
   export let links: Link[] = [];
   export let categories: Category[] = [];
+  let interval_: NodeJS.Timer;
 
   export const circleColor = (category: string) => {
     return (
@@ -25,6 +28,11 @@
   // export const isFavorite = (url: string) => {
   //   return false;
   // };
+
+  let list: HTMLUListElement;
+  const scroll = (value: number) => {
+    list?.scrollBy(value, 0);
+  };
 </script>
 
 <section class="links--container">
@@ -32,7 +40,25 @@
     <SvgIcon src={launch} />Vos sites publics
   </h2>
   <h3>Connexion vers les services publics</h3>
-  <ul class="links--list">
+  <button
+    class="scroll--button"
+    aria-hidden="true"
+    on:mousedown={() => (interval_ = setInterval(() => scroll(-5), 20))}
+    on:mouseup={() => clearInterval(interval_)}
+  >
+    <SvgIcon src={arrow_back} />
+  </button>
+
+  <button
+    class="scroll--button"
+    aria-hidden="true"
+    on:click={() => scroll(10)}
+    on:mousedown={() => (interval_ = setInterval(() => scroll(5), 20))}
+    on:mouseup={() => clearInterval(interval_)}
+  >
+    <SvgIcon src={arrow_forward} />
+  </button>
+  <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
         <a
@@ -78,7 +104,7 @@
   </ul>
 </section>
 
-<style>
+<style lang="scss">
   .links--title {
     align-items: center;
     display: inline-flex;
@@ -90,8 +116,7 @@
     display: flex;
     gap: 1rem;
     list-style-type: none;
-    overflow-x: scroll;
-    overflow: auto;
+    overflow: hidden;
     padding-left: 0;
   }
 
@@ -136,7 +161,7 @@
     color: var(--color-blue-dark);
   }
 
-  .link--label {
+  :global(.link--label) {
     height: 100%;
     line-height: 1.25rem;
   }
@@ -182,4 +207,16 @@
     color: "var(--color-orange)";
   }
   */
+  .scroll--button {
+    background-color: white;
+    border-radius: 100%;
+    height: 2rem;
+    border: 0;
+  }
+  .scroll--button:hover {
+    cursor: pointer;
+  }
+  .scroll--button:active {
+    background-color: gray;
+  }
 </style>
