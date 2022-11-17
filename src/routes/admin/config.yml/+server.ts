@@ -95,7 +95,7 @@ collections:
       - name: "icon"
         label: "Icon"
         widget: "select"
-        options: ["email", "fichier", "point d'interrogation", "compte", télécharger"]
+        options: ["email", "fichier", "point d'interrogation", "compte", "télécharger"]
         required: false
         hint: "Sur la page d'accueil, cet icône sera placé devant le titre du tutoriel"
       - name: "url"
@@ -104,11 +104,15 @@ collections:
         required: false
       - name: "service"
         label: "Service"
-        widget: "relation"
+        widget: "select"
         default: "generic"
-        collection: "links"
-        value_field: "title"
-        search_fields: ["title"]
+        options:
+          - "Générique"
+          - "CAF"
+          - "Pôle Emploi"
+          - "MDPH"
+          - "Sécurité sociale"
+          - "Compte CPF"
       - name: "steps"
         label: "Étapes"
         widget: "list"
