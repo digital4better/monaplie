@@ -1,18 +1,19 @@
 <script lang="ts">
   import type { Category, Link } from "$lib/types";
-  import circle from "@material-design-icons/svg/filled/circle.svg?raw";
-  // TODO: Uncomment when used
-  // import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
-  // import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import arrow_back from "@material-design-icons/svg/filled/arrow_back.svg?raw";
   import arrow_forward from "@material-design-icons/svg/filled/arrow_forward.svg?raw";
+  import circle from "@material-design-icons/svg/filled/circle.svg?raw";
+  import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
+  import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
+  import { storedItems } from "../store";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let links: Link[] = [];
+  export let favorites: Link[];
   export let categories: Category[] = [];
   let interval_: NodeJS.Timer;
 
@@ -24,15 +25,38 @@
     );
   };
 
-  // TODO: Use localStorage to get/set favorites
-  // export const isFavorite = (url: string) => {
-  //   return false;
-  // };
-
   let list: HTMLUListElement;
   const scroll = (value: number) => {
     list?.scrollBy(value, 0);
   };
+
+  export const setFavorite = (url: string) => {
+    if (!$storedItems) {
+      $storedItems = JSON.stringify({ links: [url] });
+      favorites = links.filter((link) => url === link.url);
+    } else {
+      const favoritesTemp: { links: string[] } = JSON.parse($storedItems);
+      console.log(favoritesTemp);
+      const indexFavorite = favoritesTemp.links.indexOf(url);
+      if (indexFavorite >= 0) {
+        favoritesTemp.links.splice(indexFavorite, 1);
+      } else {
+        favoritesTemp.links.push(url);
+      }
+      $storedItems = JSON.stringify(favoritesTemp);
+      favorites = links.filter(
+        (link) => favoritesTemp.links.indexOf(link.url) >= 0
+      );
+    }
+  };
+
+  const isFavorite = (
+    storedItems: string | false | null,
+    url: string
+  ): string =>
+    JSON.parse(storedItems || "{}")?.links?.indexOf(url) >= 0
+      ? favorite
+      : favorite_border;
 </script>
 
 <section class="links--container">
@@ -62,25 +86,24 @@
   <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
+        <button
+          aria-checked={isFavorite($storedItems, url) === favorite}
+          aria-label="Favoris"
+          class="favorite--container"
+          role="checkbox"
+          tabindex="0"
+          on:click={() => setFavorite(url)}
+        >
+          {@html isFavorite($storedItems, url)}
+        </button>
         <a
-          class="link--anchor"
+          class="link--content"
           href={url}
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
           {title}
         >
-          <!-- TODO: Use checkbox design pattern https://w3c.github.io/aria-practices/examples/checkbox/checkbox.html -->
-          <!-- TODO: Uncomment when used
-          <div
-            class="favorite--container"
-            role="checkbox"
-            aria-checked={isFavorite(url)}
-            aria-label="Favoris"
-            tabindex="0"
-          >
-            {@html isFavorite(url) ? favorite : favorite_border}
-          </div> -->
           <Image class="link--image" alt={image.alt} src={image.src} />
           <span class="link--title">
             {title}<SvgIcon src={navigate_next} />
@@ -103,6 +126,9 @@
 </section>
 
 <style lang="scss">
+  .links--container {
+    padding: 7rem 0 0 0;
+  }
   .links--title {
     align-items: center;
     display: inline-flex;
@@ -123,7 +149,7 @@
     position: relative;
   }
 
-  .link--anchor {
+  .link--content {
     align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
@@ -179,26 +205,6 @@
     color: var(--alt-text-color);
   }
 
-  /* 
-  // TODO: Uncomment when used
-  .favorite--container {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-
-    height: 1.5rem;
-
-    fill: currentColor;
-
-    color: var(--color-grey-light);
-  } */
-
-  /*
-  // TODO: Uncomment when used
-  .favorite--container [aria-checked="true"] {
-    color: "var(--color-orange)";
-  }
-  */
   .scroll--button {
     background-color: white;
     border-radius: 100%;
@@ -208,5 +214,26 @@
   }
   .scroll--button:active {
     background-color: gray;
+  }
+
+  .favorite--container {
+    background-color: inherit;
+    border-style: none;
+    color: var(--color-grey-light);
+    cursor: pointer;
+    fill: currentColor;
+    height: 1.5rem;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    z-index: 2;
+  }
+
+  .favorite--container[aria-checked="true"] {
+    color: var(--color-orange);
+  }
+
+  .favorite--container:hover {
+    color: #f7b34d;
   }
 </style>
