@@ -5,7 +5,7 @@ logo:
   src: /laplie/images/plie.svg
   alt: Logo du PLIE
 home:
-  src : /laplie/images/home-picture.png
+  src: /laplie/images/home-picture.png
 description: Bienvenue dans “Monaplie”, l'application qui vous aide dans vos démarches
 details:
   - title: Le PLIE, pour qui ? Pour quoi?
@@ -13,12 +13,20 @@ details:
       Le PLIE accompagne les personnes dans la recherche d'emploi ou de
       formation.
 
+
       Le PLIE c'est :
-      \- un accompagnement pour les + de 26 ans
-      \- un conseiller près de chez moi
-      \- une écoute de mes besoins et une réponse personnalisée
-      \- des propositions d'actions adaptées
-      \- un parcours qui me ressemble dans lequel je suis acteur
+
+
+      * un accompagnement pour les + de 26 ans
+
+      * un conseiller près de chez moi
+
+      * une écoute de mes besoins et une réponse personnalisée
+
+      * des propositions d'actions adaptées
+
+      * un parcours qui me ressemble dans lequel je suis acteur
+
 
       Les conseillers PLIE sont disponibles au sein des Maison de l'emploi de la Métropole Nantaise.
 links:
