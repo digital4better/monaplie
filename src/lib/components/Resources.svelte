@@ -1,10 +1,10 @@
 <script lang="ts">
-  import SvgIcon from "./SvgIcon.svelte";
-  import attach_file from "@material-design-icons/svg/outlined/attach_file.svg?raw";
-  import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import type { Resource } from "$lib/types";
+  import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
+  import attach_file from "@material-design-icons/svg/outlined/attach_file.svg?raw";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
+  import SvgIcon from "./SvgIcon.svelte";
 
   export let resources: Resource[];
   const categories = Array.from(
@@ -51,15 +51,12 @@
             target="_blank"
             {title}
           >
-            <span />
-          </a>
-          <div class="link--content">
             <Image class="link--image" alt={image.alt} src={image.src} />
-            <div class="link--title">
+            <span class="link--title">
               {title}<SvgIcon src={navigate_next} />
-            </div>
+            </span>
             <Markdown class="link--label" content={label} />
-          </div>
+          </a>
         </li>
       {/if}
     {/each}
@@ -68,10 +65,9 @@
 
 <style>
   .section--container {
-    padding-top: 7rem;
+    padding-top: 4rem;
   }
   .resource--container {
-    box-sizing: border-box;
     display: flex;
     align-items: center;
   }
@@ -91,19 +87,10 @@
   }
 
   .link--anchor {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    position: absolute;
-    z-index: 1;
-  }
-
-  .link--content {
-    box-sizing: border-box;
     align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
+    box-sizing: border-box;
     display: inline-flex;
     flex-direction: column;
     height: 100%;
@@ -120,38 +107,37 @@
 
   .link--title {
     align-items: center;
+    color: var(--color-blue-dark);
     display: inline-flex;
-    margin-top: 0.125rem;
     font-size: large;
     font-weight: 800;
-    color: var(--color-blue-dark);
+    margin-top: 0.125rem;
   }
 
   .resources--filter {
-    box-sizing: border-box;
-    display: inline-flex;
     align-self: center;
-    border: solid;
-    border-width: 1px;
+    background-color: inherit;
     border-color: var(--color-blue);
     border-radius: 15px;
-    padding: 5px 12px 5px 12px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-flex;
     margin-right: 1.2em;
     margin-top: 1em;
-    cursor: pointer;
-    background-color: inherit;
+    padding: 5px 12px 5px 12px;
   }
   .resources--filter-selected {
-    display: inline-flex;
     align-self: center;
-    border: solid;
-    border-width: 1px;
+    background-color: blue;
     border-color: blue;
     border-radius: 15px;
-    padding: 5px 12px 5px 12px;
-    margin-right: 1.2em;
-    background-color: blue;
+    border-style: solid;
+    border-width: 1px;
     color: white;
     cursor: pointer;
+    display: inline-flex;
+    margin-right: 1.2em;
+    padding: 5px 12px 5px 12px;
   }
 </style>

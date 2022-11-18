@@ -51,7 +51,7 @@ export interface ExternalTutorial extends BaseTutorial {
 
 export type Tutorial = InternalTutorial | ExternalTutorial;
 
-export type Ressource = {
+export type Resource = {
   slug: string;
   title: string;
   image: Image;

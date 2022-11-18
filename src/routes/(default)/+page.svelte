@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
-  import Resources from "$lib/components/Resources.svelte";
   import Links from "$lib/components/Links.svelte";
+  import Resources from "$lib/components/Resources.svelte";
   import Tutorials from "$lib/components/Tutorials.svelte";
   import { metadata } from "$lib/content/site.md";
   import type { Site } from "$lib/types";
@@ -36,19 +36,13 @@
   .top--container {
     display: flex;
     flex-direction: column;
-    padding: 4rem 0rem 4rem 2rem;
-    @include md {
-      padding: 4rem 0rem 4rem 4rem;
-    }
+    padding: 4rem 0 0 4rem;
     background: (#80b6e6);
   }
   .bottom--container {
     display: flex;
     flex-direction: column;
-    padding: 4rem 0rem 4rem 2rem;
-    @include md {
-      padding: 4rem 0rem 4rem 4rem;
-    }
+    padding: 4rem 0 0 4rem;
     background: (#d9ebf5);
   }
 </style>
