@@ -43,6 +43,7 @@
   <button
     class="scroll--button"
     aria-hidden="true"
+    on:click={() => scroll(-10)}
     on:mousedown={() => (interval_ = setInterval(() => scroll(-5), 20))}
     on:mouseup={() => clearInterval(interval_)}
   >
@@ -69,9 +70,6 @@
           target="_blank"
           {title}
         >
-          <span />
-        </a>
-        <div class="link--content">
           <!-- TODO: Use checkbox design pattern https://w3c.github.io/aria-practices/examples/checkbox/checkbox.html -->
           <!-- TODO: Uncomment when used
           <div
@@ -84,9 +82,9 @@
             {@html isFavorite(url) ? favorite : favorite_border}
           </div> -->
           <Image class="link--image" alt={image.alt} src={image.src} />
-          <div class="link--title">
+          <span class="link--title">
             {title}<SvgIcon src={navigate_next} />
-          </div>
+          </span>
           <Markdown class="link--label" content={label} />
           <div class="category--container">
             <div
@@ -98,7 +96,7 @@
             </div>
             <span class="category--label">{category}</span>
           </div>
-        </div>
+        </a>
       </li>
     {/each}
   </ul>
@@ -114,51 +112,45 @@
 
   .links--list {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     list-style-type: none;
-    overflow: hidden;
+    margin: 2rem auto;
     padding-left: 0;
+    overflow-y: auto;
   }
 
   .link--container {
     position: relative;
-    margin: 1rem 1rem 0 0;
   }
 
   .link--anchor {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    position: absolute;
-    z-index: 1;
-  }
-
-  .link--content {
     align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
+    box-sizing: border-box;
     display: inline-flex;
     flex-direction: column;
     gap: 1rem;
+    height: 100%;
     min-height: 14rem;
     padding: 2rem;
     position: static;
     text-decoration: none;
-    width: 12rem;
+    width: 17rem;
   }
 
   :global(.link--image) {
-    height: 4rem;
+    max-width: 10rem;
+    max-height: 4rem;
   }
 
   .link--title {
     align-items: center;
+    color: var(--color-blue-dark);
     display: inline-flex;
-    margin-top: 0.125rem;
     font-size: large;
     font-weight: 800;
-    color: var(--color-blue-dark);
+    margin-top: 0.125rem;
   }
 
   :global(.link--label) {
@@ -210,11 +202,9 @@
   .scroll--button {
     background-color: white;
     border-radius: 100%;
-    height: 2rem;
-    border: 0;
-  }
-  .scroll--button:hover {
+    border-width: 0;
     cursor: pointer;
+    height: 2rem;
   }
   .scroll--button:active {
     background-color: gray;

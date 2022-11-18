@@ -23,7 +23,7 @@
     min-height: 100vh;
     padding: 0;
 
-    @include md {
+    @include lg {
       flex-direction: row;
     }
   }
@@ -32,7 +32,7 @@
   .layout--footer {
     display: block;
     padding: 0 1.25rem 1rem 1.25rem;
-    @include md {
+    @include lg {
       display: none;
       padding: initial;
     }
@@ -46,17 +46,16 @@
     max-height: auto !important;
     min-height: 100%;
     padding: 0 2rem 0 3.5rem;
-    width: 40vw;
 
-    @include md {
+    @include lg {
       display: flex;
+      width: 25vw;
     }
   }
 
   .layout--main {
-    width: 100%;
-    @include md {
-      width: 80%;
+    @include lg {
+      width: 75vw;
     }
   }
 </style>

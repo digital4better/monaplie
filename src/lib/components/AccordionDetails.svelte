@@ -39,18 +39,16 @@
 
 <style>
   .accordion--button {
-    border: none;
-    background-color: var(--alt-bg-color);
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    color: inherit;
-    font-weight: 800;
-    cursor: pointer;
-    margin: 0;
-    padding: 0.8em;
+    background-color: var(--alt-bg-color);
     border-radius: 9px;
-    margin-top: 0.8em;
+    border-style: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    font-weight: 800;
+    justify-content: space-between;
+    padding: 0.8rem;
     width: 100%;
   }
   :global(.accordion--button-icon) {

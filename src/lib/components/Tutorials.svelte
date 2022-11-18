@@ -91,8 +91,13 @@
             target={isExternalTutorial(tutorial) ? "_blank" : undefined}
             class="tutorial--link"
           >
-            <SvgIcon class="tutorial--icon" src={findIconSrc(tutorial.icon)} />
-            <div class="tutorial--title">{tutorial.title}</div>
+            {#if tutorial.icon}
+              <SvgIcon
+                class="tutorial--icon"
+                src={findIconSrc(tutorial.icon)}
+              />
+            {/if}
+            <span class="tutorial--title">{tutorial.title}</span>
           </a>
         {/if}
       {/each}
@@ -102,15 +107,15 @@
 
 <style lang="scss">
   .tutorials--title {
-    display: inline-flex;
     align-items: center;
+    display: inline-flex;
     gap: 1rem;
   }
 
   .tutorials--filters {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
   }
 
   .tutorials--filters-instruction {
@@ -119,57 +124,63 @@
   }
 
   .tutorials--filter {
-    display: inline-flex;
     align-self: center;
-    border: solid;
-    border-width: 1px;
+    background-color: inherit;
     border-color: var(--color-blue);
     border-radius: 15px;
-    padding: 5px 12px 5px 12px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline-flex;
     margin-right: 1.2em;
     margin-top: 1em;
-    cursor: pointer;
-    background-color: inherit;
+    padding: 5px 12px 5px 12px;
   }
 
   .tutorials--filter-selected {
-    display: inline-flex;
     align-self: center;
-    border: solid;
-    border-width: 1px;
+    background-color: blue;
     border-color: blue;
     border-radius: 15px;
-    padding: 5px 12px 5px 12px;
-    margin-right: 1.2em;
-    background-color: blue;
+    border-style: solid;
+    border-width: 1px;
     color: white;
     cursor: pointer;
+    display: inline-flex;
+    margin-right: 1.2em;
+    padding: 5px 12px 5px 12px;
   }
 
   .tutorials--list {
-    white-space: normal;
-    @include md {
-      white-space: nowrap;
-    }
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
+    white-space: normal;
+
+    @include md {
+      white-space: nowrap;
+    }
   }
 
   .tutorial--link {
-    padding: 1em;
-    margin: 1em 1em 0 0;
+    align-items: center;
+    align-self: stretch;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
     display: inline-flex;
-    align-items: center;
     justify-content: space-between;
-    max-width: fit-content;
-    cursor: pointer;
+    margin: 1em 1em 0 0;
+    max-width: 13rem;
+    min-height: 4.75rem;
+    padding: 1em;
     text-decoration: none;
   }
 
   :global(.tutorial--icon) {
-    margin-right: 0.5em;
+    margin-right: 1rem;
+  }
+
+  .tutorial--title {
+    white-space: normal;
   }
 </style>

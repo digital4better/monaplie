@@ -36,10 +36,10 @@
     align-items: center;
     gap: 1.5rem;
 
-    border: solid;
-    border-width: 1px;
     border-color: var(--color-blue);
     border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
 
     padding: 0.5rem 1rem;
   }

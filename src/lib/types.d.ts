@@ -50,3 +50,12 @@ export interface ExternalTutorial extends BaseTutorial {
 }
 
 export type Tutorial = InternalTutorial | ExternalTutorial;
+
+export type Resource = {
+  slug: string;
+  title: string;
+  image: Image;
+  url: string;
+  category: string;
+  label: string;
+};
