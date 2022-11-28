@@ -25,6 +25,7 @@
 
     @include lg {
       flex-direction: row;
+      height: 100vh;
     }
   }
 
@@ -50,12 +51,21 @@
     @include lg {
       display: flex;
       width: 25vw;
+      overflow-x:hidden;
+      overflow-y:scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
+  }
+  .layout--aside::-webkit-scrollbar {
+    display: none;
   }
 
   .layout--main {
     @include lg {
       width: 75vw;
+      overflow-x:hidden;
+      overflow-y:scroll;
     }
   }
 </style>
