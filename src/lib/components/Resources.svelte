@@ -21,7 +21,7 @@
   };
 </script>
 
-<secion class="section--container">
+<section class="section--container">
   <div class="resource--container">
     <SvgIcon src={attach_file} />
     <h2>Ressources</h2>
@@ -61,7 +61,7 @@
       {/if}
     {/each}
   </ul>
-</secion>
+</section>
 
 <style>
   .section--container {
