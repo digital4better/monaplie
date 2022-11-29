@@ -1,13 +1,12 @@
 <script lang="ts">
   import type { Category, Link } from "$lib/types";
-  import arrow_back from "@material-design-icons/svg/filled/arrow_back.svg?raw";
-  import arrow_forward from "@material-design-icons/svg/filled/arrow_forward.svg?raw";
   import circle from "@material-design-icons/svg/filled/circle.svg?raw";
   import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
   import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { storedItems } from "../store";
+  import ArrowScroll from "./ArrowScroll.svelte";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
@@ -15,7 +14,6 @@
   export let links: Link[] = [];
   export let favorites: Link[];
   export let categories: Category[] = [];
-  let interval_: NodeJS.Timer;
 
   export const circleColor = (category: string) => {
     return (
@@ -26,9 +24,6 @@
   };
 
   let list: HTMLUListElement;
-  const scroll = (value: number) => {
-    list?.scrollBy(value, 0);
-  };
 
   export const setFavorite = (url: string) => {
     if (!$storedItems) {
@@ -63,26 +58,11 @@
   <h2 class="links--title">
     <SvgIcon src={launch} />Vos sites publics
   </h2>
-  <h3>Connexion vers les services publics</h3>
-  <button
-    class="scroll--button"
-    aria-hidden="true"
-    on:click={() => scroll(-10)}
-    on:mousedown={() => (interval_ = setInterval(() => scroll(-5), 20))}
-    on:mouseup={() => clearInterval(interval_)}
-  >
-    <SvgIcon src={arrow_back} />
-  </button>
+  <div class="button--container">
+    <h3>Connexion vers les services publics</h3>
+    <ArrowScroll {list} />
+  </div>
 
-  <button
-    class="scroll--button"
-    aria-hidden="true"
-    on:click={() => scroll(10)}
-    on:mousedown={() => (interval_ = setInterval(() => scroll(5), 20))}
-    on:mouseup={() => clearInterval(interval_)}
-  >
-    <SvgIcon src={arrow_forward} />
-  </button>
   <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
@@ -128,12 +108,19 @@
 <style lang="scss">
   .links--container {
     padding: 7rem 0 0 0;
+    justify-content: space-between;
   }
   .links--title {
     align-items: center;
-    display: inline-flex;
     gap: 1rem;
     white-space: nowrap;
+  }
+
+  .button--container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .links--list {
@@ -143,6 +130,12 @@
     margin: 2rem auto;
     padding-left: 0;
     overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .links--list::-webkit-scrollbar {
+    display: none;
   }
 
   .link--container {
@@ -203,17 +196,6 @@
   .category--label {
     font-size: small;
     color: var(--alt-text-color);
-  }
-
-  .scroll--button {
-    background-color: white;
-    border-radius: 100%;
-    border-width: 0;
-    cursor: pointer;
-    height: 2rem;
-  }
-  .scroll--button:active {
-    background-color: gray;
   }
 
   .favorite--container {

@@ -6,10 +6,13 @@
   import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
   import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
+  import ArrowScroll from "./ArrowScroll.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let tutorials: Tutorial[];
   export let links: Link[];
+
+  let list: HTMLUListElement;
 
   const selectedFilters: Record<string, boolean> = links.reduce(
     (acc, link) => ({ ...acc, [link.slug]: false }),
@@ -61,7 +64,10 @@
   <h2 class="tutorials--title">
     <SvgIcon src={insert_drive_file} />Tutoriels
   </h2>
-  <h3>Savoir utiliser les services publics</h3>
+  <div class="button--container">
+    <h3>Savoir utiliser les services publics</h3>
+    <ArrowScroll {list} />
+  </div>
 
   <div class="tutorials--filters">
     <span class="tutorials--filters-instruction"
@@ -79,11 +85,10 @@
       {/each}
     </div>
   </div>
-
-  <div class="tutorials--list-container">
-    <div class="tutorials--list">
-      {#each tutorials as tutorial}
-        {#if selectedFilters[tutorial.service] || noFilterSelected}
+  <ul class="tutorials--list" bind:this={list}>
+    {#each tutorials as tutorial}
+      {#if selectedFilters[tutorial.service] || noFilterSelected}
+        <li class="tutorial--container">
           <a
             href={isExternalTutorial(tutorial)
               ? tutorial.url
@@ -99,16 +104,24 @@
             {/if}
             <span class="tutorial--title">{tutorial.title}</span>
           </a>
-        {/if}
-      {/each}
-    </div>
-  </div>
+        </li>
+      {/if}
+    {/each}
+  </ul>
 </section>
 
 <style lang="scss">
   .tutorials--title {
     align-items: center;
     display: inline-flex;
+    gap: 1rem;
+  }
+
+  .button--container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    right: 0;
     gap: 1rem;
   }
 
@@ -153,13 +166,22 @@
 
   .tutorials--list {
     display: flex;
-    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style-type: none;
+    overflow-x: scroll;
     overflow: auto;
-    white-space: normal;
+    padding-left: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-    @include md {
-      white-space: nowrap;
-    }
+  .tutorials--list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tutorial--container {
+    position: relative;
+    margin: 1rem 1rem 0 0;
   }
 
   .tutorial--link {
@@ -170,7 +192,7 @@
     display: inline-flex;
     justify-content: space-between;
     margin: 1em 1em 0 0;
-    max-width: 13rem;
+    width: 13rem;
     min-height: 4.75rem;
     padding: 1em;
     text-decoration: none;

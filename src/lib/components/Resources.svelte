@@ -2,6 +2,7 @@
   import type { Resource } from "$lib/types";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import attach_file from "@material-design-icons/svg/outlined/attach_file.svg?raw";
+  import ArrowScroll from "./ArrowScroll.svelte";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
@@ -12,6 +13,8 @@
   );
 
   let selectedFilters: string[] = [];
+
+  let list: HTMLUListElement;
 
   const onClickFilter = (category: string) => {
     console.log("befor", selectedFilters);
@@ -26,7 +29,11 @@
     <SvgIcon src={attach_file} />
     <h2>Ressources</h2>
   </div>
-  <h3>Des resources externes</h3>
+  <div class="button--container">
+    <h3>Des resources externes</h3>
+    <ArrowScroll {list} />
+  </div>
+
   <div>
     {#each categories as category}
       <button
@@ -39,7 +46,7 @@
     {/each}
   </div>
 
-  <ul class="resources--list">
+  <ul class="resources--list" bind:this={list}>
     {#each resources as { title, label, image, url, category }}
       {#if selectedFilters.length == 0 ? true : selectedFilters.includes(category)}
         <li class="link--container">
@@ -67,6 +74,14 @@
   .section--container {
     padding-top: 4rem;
   }
+
+  .button--container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    right: 0;
+    gap: 1rem;
+  }
   .resource--container {
     display: flex;
     align-items: center;
@@ -79,6 +94,12 @@
     overflow-x: scroll;
     overflow: auto;
     padding-left: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .resources--list::-webkit-scrollbar {
+    display: none;
   }
 
   .link--container {
