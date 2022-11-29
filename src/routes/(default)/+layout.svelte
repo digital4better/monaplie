@@ -22,7 +22,6 @@
     flex-direction: column;
     min-height: 100vh;
     padding: 0;
-
     @include lg {
       flex-direction: row;
       height: 100vh;
@@ -47,12 +46,11 @@
     max-height: auto !important;
     min-height: 100%;
     padding: 0 2rem 0 3.5rem;
-
     @include lg {
       display: flex;
       width: 25vw;
-      overflow-x:hidden;
-      overflow-y:scroll;
+      overflow-x: hidden;
+      overflow-y: scroll;
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
@@ -64,8 +62,8 @@
   .layout--main {
     @include lg {
       width: 75vw;
-      overflow-x:hidden;
-      overflow-y:scroll;
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
   }
 </style>

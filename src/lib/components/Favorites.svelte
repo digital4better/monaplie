@@ -77,7 +77,6 @@
     padding-left: 0;
     margin: 0;
     flex-direction: column;
-
     @include lg {
       flex-direction: row;
     }
