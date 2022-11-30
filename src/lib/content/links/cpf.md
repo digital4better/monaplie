@@ -2,7 +2,7 @@
 layout: link
 title: CPF
 image:
-  src: /laplie/images/logo_moncompteformation-2.png
+  src: /monaplie/images/logo_moncompteformation-2.png
   alt: Compte personnel de formation
 url: https://www.moncompteformation.gouv.fr/espace-prive/html/#/
 category: Emploi & Formation
