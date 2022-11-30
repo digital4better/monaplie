@@ -112,8 +112,8 @@
   }
   .links--title {
     align-items: center;
+    display: inline-flex;
     gap: 1rem;
-    white-space: nowrap;
   }
 
   .button--container {

@@ -44,9 +44,6 @@
     padding: 0.5rem 1rem;
   }
 
-  .header--motd :global(.icon) {
-    padding-top: 1rem;
-  }
   .header--motd :global(.markdown) {
     padding: 0;
   }

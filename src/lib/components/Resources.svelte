@@ -25,10 +25,7 @@
 </script>
 
 <section class="section--container">
-  <div class="resource--container">
-    <SvgIcon src={attach_file} />
-    <h2>Ressources</h2>
-  </div>
+  <h2 class="resources--title"><SvgIcon src={attach_file} />Ressources</h2>
   <div class="button--container">
     <h3>Des resources externes</h3>
     <ArrowScroll {list} />
@@ -82,11 +79,12 @@
     right: 0;
     gap: 1rem;
   }
-  .resource--container {
-    display: flex;
-    align-items: center;
-  }
 
+  .resources--title {
+    align-items: center;
+    display: inline-flex;
+    gap: 1rem;
+  }
   .resources--list {
     display: flex;
     gap: 1rem;

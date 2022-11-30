@@ -201,8 +201,4 @@
   :global(.tutorial--icon) {
     margin-right: 1rem;
   }
-
-  .tutorial--title {
-    white-space: normal;
-  }
 </style>

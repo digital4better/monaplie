@@ -16,31 +16,40 @@
   const id = `accordion-${localIdCounter++}`;
 </script>
 
-<h3>
-  <button
-    class="accordion--button"
-    on:click={toggle}
-    aria-expanded={isOpen}
-    aria-controls="sect"
-    {id}
-  >
-    {entry.title}<SvgIcon class="accordion--button-icon" src={navigate_next} />
-  </button>
-</h3>
-{#if isOpen}
-  <div
-    class="accordion--content"
-    aria-labelledby={id}
-    transition:slide={{ duration: 300 }}
-  >
-    <Markdown content={entry.content} />
-  </div>
-{/if}
+<div class="accordion--container">
+  <h3>
+    <button
+      class="accordion--button"
+      on:click={toggle}
+      aria-expanded={isOpen}
+      aria-controls="sect"
+      {id}
+    >
+      {entry.title}<SvgIcon
+        class="accordion--button-icon"
+        src={navigate_next}
+      />
+    </button>
+  </h3>
+  {#if isOpen}
+    <div
+      class="accordion--content"
+      aria-labelledby={id}
+      transition:slide={{ duration: 300 }}
+    >
+      <Markdown content={entry.content} />
+    </div>
+  {/if}
+</div>
 
 <style>
+  .accordion--container {
+    align-items: center;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+  }
   .accordion--button {
     align-items: center;
-    background-color: var(--alt-bg-color);
     border-radius: 9px;
     border-style: none;
     color: inherit;
@@ -58,7 +67,7 @@
     transform: rotate(0.25turn);
   }
   .accordion--content {
-    margin: 1em 0 1em 2em;
+    margin: 1rem;
     text-align: justify;
   }
 </style>
