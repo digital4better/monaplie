@@ -79,6 +79,7 @@
     flex-direction: column;
     @include lg {
       flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 
