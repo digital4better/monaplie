@@ -186,7 +186,7 @@ collections:
 const NETLIFY_CMS_LOCAL_PRD_CONFIG = `
 backend:
   name: github
-  repo: digital4better/laplie
+  repo: digital4better/monaplie
   branch: main
   site_domain: enchanting-pegasus-785727.netlify.com`;
 const NETLIFY_CMS_LOCAL_DEV_CONFIG = `

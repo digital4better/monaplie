@@ -31,7 +31,7 @@
   </segment>
   <segment>
     Projet open-source sur
-    <Link href="https://github.com/digital4better/laplie">GitHub</Link>
+    <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
   </segment>
 </div>
 

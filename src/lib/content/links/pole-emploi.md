@@ -3,7 +3,7 @@ alt: Logo de Pôle Emploi
 layout: link
 title: POLE EMPLOI
 image:
-  src: /laplie/images/poleemploi.svg
+  src: /monaplie/images/poleemploi.svg
   alt: ""
 url: https://www.pole-emploi.fr/
 category: RSA, Emploi
