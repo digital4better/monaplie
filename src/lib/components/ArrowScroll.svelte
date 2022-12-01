@@ -27,6 +27,7 @@
   <button
     class="scroll--button"
     aria-hidden="true"
+    tabindex="-1"
     on:click={() => scroll(10)}
     on:mousedown={() => (interval_ = setInterval(() => scroll(5), 20))}
     on:mouseup={() => clearInterval(interval_)}
