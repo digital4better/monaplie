@@ -22,7 +22,7 @@
 <div class="tutorial--container">
   <div class="tutorial--home-link">
     <SvgIcon src={arrow_left} color="var(--color-blue-dark)" />
-    <a href={base} rel="noopener noreferrer">Accueil</a>
+    <a href={`${base}/`} rel="noopener noreferrer">Accueil</a>
   </div>
   <h1>{data.tutorial?.title}</h1>
   {#if data.tutorial?.steps}
