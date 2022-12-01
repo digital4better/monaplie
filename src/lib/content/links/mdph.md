@@ -3,7 +3,7 @@ alt: Logo de la MDPH
 layout: link
 title: MDPH
 image:
-  src: /monaplie/images/mdph.svg
+  src: /images/mdph.svg
   alt: ""
 url: http://www.mdph.fr/
 category: Handicap et santé

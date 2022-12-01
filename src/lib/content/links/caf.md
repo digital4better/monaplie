@@ -2,7 +2,7 @@
 layout: link
 title: CAF
 image:
-  src: /monaplie/images/caf.svg
+  src: /images/caf.svg
   alt: ""
 url: https://www.caf.fr/
 category: Aides, logement
