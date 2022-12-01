@@ -10,10 +10,6 @@ const config = {
   kit: {
     adapter: adapter(),
 
-    paths: {
-      base: "/monaplie",
-    },
-
     prerender: {
       entries: ["*", "/admin/config.yml"],
     },

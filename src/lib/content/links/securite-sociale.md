@@ -2,7 +2,7 @@
 layout: link
 title: "AMELI "
 image:
-  src: /monaplie/images/cpam.svg
+  src: /images/cpam.svg
   alt: ""
 url: https://www.ameli.fr/
 category: Handicap et santé
