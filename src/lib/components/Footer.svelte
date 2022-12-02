@@ -39,6 +39,12 @@
         alt={logoFruggr.alt}
       />
     </div>
+    <div class="d4b--link">
+      Made with ♥︎ by <Link href="https://digital4better.com/"
+        >Digital4Better</Link
+      >
+    </div>
+
     Projet open-source sur
     <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
   </segment>
@@ -66,6 +72,10 @@
 
   .logo-fruggr--container {
     max-width: 13rem;
+    margin-bottom: 1rem;
+  }
+
+  .d4b--link {
     margin-bottom: 1rem;
   }
 
