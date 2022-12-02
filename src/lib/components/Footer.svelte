@@ -5,8 +5,9 @@
   import { metadata } from "$lib/content/site.md";
   import type { Site } from "$lib/types";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
+  import Image from "./Image.svelte";
 
-  export let { details, links } = metadata as Site;
+  export let { details, links, logoFruggr } = metadata as Site;
 </script>
 
 <div class="footer--container">
@@ -30,6 +31,14 @@
     {/each}
   </segment>
   <segment>
+    <div class="logo-fruggr--container">
+      <Image
+        width="100%"
+        height="100%"
+        src={logoFruggr.src}
+        alt={logoFruggr.alt}
+      />
+    </div>
     Projet open-source sur
     <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
   </segment>
@@ -53,6 +62,11 @@
 
   .accordion--container {
     margin-top: 1.25rem;
+  }
+
+  .logo-fruggr--container {
+    max-width: 13rem;
+    margin-bottom: 1rem;
   }
 
   .links--list {

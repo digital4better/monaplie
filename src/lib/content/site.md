@@ -4,6 +4,9 @@ title: Bienvenue dans la boîte à outil du PLIE
 logo:
   src: /images/plie.svg
   alt: Logo du PLIE
+logoFruggr:
+  src: /images/fruggr-a.svg
+  alt: Certifié numérique responsable score A avec fruggr.io
 home:
   src: /images/home-mona.svg
 description: Bienvenue dans “Monaplie”, l'application qui vous aide dans vos démarches

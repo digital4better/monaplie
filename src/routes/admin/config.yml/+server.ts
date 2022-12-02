@@ -33,7 +33,21 @@ collections:
                 required: false
                 label: "Alternative textuelle"
                 hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
-          - { name: "description", label: "Description", widget: "markdown" }
+          - name: "logoFruggr"
+            label: "Logo Score Fruggr"
+            widget: "object"
+            fields:
+              - name: "src"
+                widget: "image"
+                label: "Fichier"
+                allow_multiple: false
+                hint: "Accessibilité: Utiliser un de fichier significatif"
+              - name: "alt"
+                widget: "string"
+                required: false
+                label: "Alternative textuelle"
+                hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
+              - { name: "description", label: "Description", widget: "markdown" }
           - name: "details"
             label: "Détails"
             widget: "list"
