@@ -16,6 +16,10 @@
     {}
   );
 
+  const orderedTutorials: Tutorial[] = tutorials.sort((a, b) =>
+    a.order > b.order ? 1 : -1
+  );
+
   let noFilterSelected = true;
 
   const onClickFilter = (slug: string) => {
@@ -82,7 +86,7 @@
 
   <div class="tutorials--list-container">
     <div class="tutorials--list">
-      {#each tutorials as tutorial}
+      {#each orderedTutorials as tutorial}
         {#if selectedFilters[tutorial.service] || noFilterSelected}
           <a
             href={isExternalTutorial(tutorial)

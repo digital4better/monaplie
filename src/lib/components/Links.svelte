@@ -17,6 +17,10 @@
   export let categories: Category[] = [];
   let interval_: NodeJS.Timer;
 
+  const orderedLinks: Link[] = links.sort((a, b) =>
+    a.order > b.order ? 1 : -1
+  );
+
   export const circleColor = (category: string) => {
     return (
       categories.find((c) => {
@@ -84,7 +88,7 @@
     <SvgIcon src={arrow_forward} />
   </button>
   <ul class="links--list" bind:this={list}>
-    {#each links as { title, label, image, category, url }}
+    {#each orderedLinks as { title, label, image, category, url }}
       <li class="link--container">
         <button
           aria-checked={isFavorite($storedItems, url) === favorite}

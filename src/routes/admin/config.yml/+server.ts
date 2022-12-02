@@ -59,6 +59,10 @@ collections:
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "link" }
       - { name: "title", label: "Titre", widget: "string" }
+      - name: "order"
+        label: "Priorité"
+        widget: "number"
+        hint: "Gère l'ordre des ressources, 1 la plus importante (Champ non obligatoire, la ressource est en fin de liste si non rempli)"
       - name: "image"
         label: "Image"
         widget: "object"
@@ -92,6 +96,10 @@ collections:
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "tutorial" }
       - { name: "title", label: "Titre", widget: "string" }
+      - name: "order"
+        label: "Priorité"
+        widget: "number"
+        hint: "Gère l'ordre des ressources, 1 la plus importante (Champ non obligatoire, la ressource est en fin de liste si non rempli)"
       - name: "icon"
         label: "Icon"
         widget: "select"
@@ -145,6 +153,10 @@ collections:
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "resources" }
       - { name: "title", label: "Titre", widget: "string" }
+      - name: "order"
+        label: "Priorité"
+        widget: "number"
+        hint: "Gère l'ordre des ressources, 1 la plus importante (Champ non obligatoire, la ressource est en fin de liste si non rempli)"
       - name: "image"
         label: "Image"
         widget: "object"

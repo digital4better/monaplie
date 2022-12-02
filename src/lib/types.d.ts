@@ -16,6 +16,7 @@ export type Link = {
   url: string;
   category: string;
   label: string;
+  order: number;
 };
 
 export type Site = {
@@ -41,6 +42,7 @@ interface BaseTutorial {
   icon: string;
   title: string;
   service: string;
+  order: number;
 }
 export interface InternalTutorial extends BaseTutorial {
   steps: TutorialStep[];
@@ -59,4 +61,5 @@ export type Resource = {
   url: string;
   category: string;
   label: string;
+  order: number;
 };
