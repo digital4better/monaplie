@@ -18,9 +18,15 @@ const resources = items(import.meta.glob("$lib/content/resources/*.md"));
 
 export const load: Load = async () => {
   return {
-    tutorials: await Promise.all(tutorials),
-    links: await Promise.all(links),
+    tutorials: (await Promise.all(tutorials)).sort((a, b) =>
+      a.order ?? 1000 > b.order ?? 1000 ? 1 : -1
+    ),
+    links: (await Promise.all(links)).sort((a, b) =>
+      a.order ?? 1000 > b.order ?? 1000 ? 1 : -1
+    ),
     categories: await Promise.all(categories),
-    resources: await Promise.all(resources),
+    resources: (await Promise.all(resources)).sort((a, b) =>
+      a.order ?? 1000 > b.order ?? 1000 ? 1 : -1
+    ),
   };
 };

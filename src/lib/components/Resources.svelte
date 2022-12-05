@@ -11,10 +11,6 @@
     new Set(resources.map(({ category }) => category))
   );
 
-  const orderedResources: Resource[] = resources.sort((a, b) =>
-    a.order > b.order ? 1 : -1
-  );
-
   let selectedFilters: string[] = [];
 
   const onClickFilter = (category: string) => {
@@ -44,7 +40,7 @@
   </div>
 
   <ul class="resources--list">
-    {#each orderedResources as { title, label, image, url, category }}
+    {#each resources as { title, label, image, url, category }}
       {#if selectedFilters.length == 0 ? true : selectedFilters.includes(category)}
         <li class="link--container">
           <a
