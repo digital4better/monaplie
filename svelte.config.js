@@ -13,8 +13,6 @@ const config = {
     prerender: {
       entries: ["*", "/admin/config.yml"],
     },
-
-    trailingSlash: "always",
   },
 
   // Consult https://github.com/sveltejs/svelte-preprocess
