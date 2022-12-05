@@ -16,10 +16,12 @@
     class="scroll--button"
     aria-hidden="true"
     on:click={() => scroll(-10)}
-    on:mousedown={() => (interval_ = setInterval(() => scroll(-5), 20))}
-    on:mouseup={() => clearInterval(interval_)}
-    on:touchstart={() => (interval_ = setInterval(() => scroll(-5), 20))}
-    on:touchend={() => clearInterval(interval_)}
+    on:mousedown|preventDefault={() =>
+      (interval_ = setInterval(() => scroll(-5), 20))}
+    on:mouseup|preventDefault={() => clearInterval(interval_)}
+    on:touchstart|preventDefault={() =>
+      (interval_ = setInterval(() => scroll(-5), 20))}
+    on:touchend|preventDefault={() => clearInterval(interval_)}
   >
     <SvgIcon src={arrow_back} />
   </button>

@@ -115,6 +115,7 @@
     align-items: center;
     display: inline-flex;
     gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .button--container {
@@ -168,20 +169,17 @@
     display: flex;
     gap: 0.5rem;
     list-style-type: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 20rem;
     overflow-x: scroll;
     overflow: auto;
     padding-left: 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .tutorials--list::-webkit-scrollbar {
-    display: none;
+    scrollbar-width: thin;
   }
 
   .tutorial--container {
     position: relative;
-    margin: 1rem 1rem 0 0;
   }
 
   .tutorial--link {

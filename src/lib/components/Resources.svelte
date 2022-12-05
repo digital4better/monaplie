@@ -26,7 +26,7 @@
 
 <section class="section--container">
   <h2 class="resources--title"><SvgIcon src={attach_file} />Ressources</h2>
-  <div class="button--container">
+  <div class="subtitle--container">
     <h3>Des resources externes</h3>
     <ArrowScroll {list} />
   </div>
@@ -72,7 +72,7 @@
     padding-top: 4rem;
   }
 
-  .button--container {
+  .subtitle--container {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -92,12 +92,7 @@
     overflow-x: scroll;
     overflow: auto;
     padding-left: 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .resources--list::-webkit-scrollbar {
-    display: none;
+    scrollbar-width: thin;
   }
 
   .link--container {

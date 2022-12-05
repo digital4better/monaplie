@@ -14,8 +14,8 @@
 
   --color-blue: #007cbf;
   --color-blue-dark: #13235b;
-  --color-grey: #707173;
-  --color-grey-light: #9b9b9b;
+  --color-grey: #9b9b9b;
+  --color-grey-light: #f3f6fb;
   --color-orange: #f29400;
   --color-white: #fff;
   --color-yellow: #fabc0f;
@@ -37,6 +37,21 @@ a {
 a:hover {
   text-decoration: underline;
   filter: brightness(80%);
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-grey);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
 }
 
 /* helpers */

@@ -51,12 +51,8 @@
       width: 25vw;
       overflow-x: hidden;
       overflow-y: scroll;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      scrollbar-width: thin;
     }
-  }
-  .layout--aside::-webkit-scrollbar {
-    display: none;
   }
 
   .layout--main {
