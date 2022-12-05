@@ -1,6 +1,7 @@
 ---
 layout: tutorial
 title: Scanner un document depuis l'application Camscanner
+icon: fichier
 service: Générique
 steps:
   - image:
