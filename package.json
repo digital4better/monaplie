@@ -4,8 +4,8 @@
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "engines": {
-    "node": "^16.15.0",
-    "npm": "^8.5.5"
+    "node": "^18.12.1",
+    "npm": "^8.19.2"
   },
   "scripts": {
     "dev": "run-p dev:*",
@@ -26,7 +26,7 @@
     "@playwright/test": "^1.28.1",
     "@sveltejs/adapter-static": "^1.0.0-next.48",
     "@sveltejs/kit": "^1.0.0-next.571",
-    "@types/node": "^16.18.4",
+    "@types/node": "^18.11.10",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.29.0",
