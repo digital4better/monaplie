@@ -19,6 +19,11 @@
   $: step = data.tutorial?.steps ? data.tutorial.steps[current] : undefined;
 </script>
 
+<svelte:head>
+  <title>{data.tutorial?.title} | PLIE</title>
+  <meta name="Content-Security-Policy" content="default-src 'self'" />
+</svelte:head>
+
 <div class="tutorial--container">
   <div class="tutorial--home-link">
     <SvgIcon src={arrow_left} color="var(--color-blue-dark)" />

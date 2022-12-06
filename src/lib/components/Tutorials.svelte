@@ -92,6 +92,7 @@
             href={isExternalTutorial(tutorial)
               ? tutorial.url
               : `${base}/tutorials/${tutorial.slug}`}
+            rel="noopener noreferrer"
             target={isExternalTutorial(tutorial) ? "_blank" : undefined}
             class="tutorial--link"
           >
