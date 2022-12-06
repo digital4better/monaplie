@@ -7,7 +7,7 @@
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
   import Image from "./Image.svelte";
 
-  export let { details, links, logoFruggr } = metadata as Site;
+  export let { details, links, certificate } = metadata as Site;
 </script>
 
 <div class="footer--container">
@@ -35,15 +35,14 @@
       <Image
         width="100%"
         height="100%"
-        src={logoFruggr.src}
-        alt={logoFruggr.alt}
+        src={certificate.src}
+        alt={certificate.alt}
       />
     </div>
-    <div class="d4b--link">
-      Made with ♥︎ by <Link href="https://digital4better.com/"
-        >Digital4Better</Link
-      >
-    </div>
+
+    Made with ♥︎ by <Link href="https://digital4better.com/"
+      >Digital4Better</Link
+    >
 
     Projet open-source sur
     <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
@@ -72,11 +71,6 @@
 
   .logo-fruggr--container {
     max-width: 13rem;
-    margin-bottom: 1rem;
-  }
-
-  .d4b--link {
-    margin-bottom: 1rem;
   }
 
   .links--list {

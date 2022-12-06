@@ -33,7 +33,8 @@ collections:
                 required: false
                 label: "Alternative textuelle"
                 hint: "Accessibilité: Description textuelle de l'image. L'absence d'alternative masquera l'image aux lecteurs d'écran."
-          - name: "logoFruggr"
+          - { name: "description", label: "Description", widget: "markdown" }
+          - name: "certificate"
             label: "Logo Score Fruggr"
             widget: "object"
             fields:

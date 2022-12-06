@@ -22,7 +22,7 @@ export type Link = {
 export type Site = {
   title: string;
   logo: Image;
-  logoFruggr: Image;
+  certificate: Image;
   home: Image;
   description: string;
   details: SiteDetail[];

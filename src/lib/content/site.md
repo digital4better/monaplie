@@ -4,7 +4,7 @@ title: Bienvenue dans la boîte à outil du PLIE
 logo:
   src: /images/plie.svg
   alt: Logo du PLIE
-logoFruggr:
+certificate:
   src: /images/fruggr-a.svg
   alt: Certifié numérique responsable score A avec fruggr.io
 home:
