@@ -5,7 +5,7 @@ logo:
   src: /images/plie.svg
   alt: Logo du PLIE
 home:
-  src: /images/home-picture.png
+  src: /images/home-mona.svg
 description: Bienvenue dans “Monaplie”, l'application qui vous aide dans vos démarches
 details:
   - title: Le PLIE, pour qui ? Pour quoi?

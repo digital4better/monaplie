@@ -16,31 +16,40 @@
   const id = `accordion-${localIdCounter++}`;
 </script>
 
-<h3>
-  <button
-    class="accordion--button"
-    on:click={toggle}
-    aria-expanded={isOpen}
-    aria-controls="sect"
-    {id}
-  >
-    {entry.title}<SvgIcon class="accordion--button-icon" src={navigate_next} />
-  </button>
-</h3>
-{#if isOpen}
-  <div
-    class="accordion--content"
-    aria-labelledby={id}
-    transition:slide={{ duration: 300 }}
-  >
-    <Markdown content={entry.content} />
-  </div>
-{/if}
+<div class="accordion--container">
+  <h3>
+    <button
+      class="accordion--button"
+      on:click={toggle}
+      aria-expanded={isOpen}
+      aria-controls="sect"
+      {id}
+    >
+      {entry.title}<SvgIcon
+        class="accordion--button-icon"
+        src={navigate_next}
+      />
+    </button>
+  </h3>
+  {#if isOpen}
+    <div
+      class="accordion--content"
+      aria-labelledby={id}
+      transition:slide={{ duration: 300 }}
+    >
+      <Markdown content={entry.content} />
+    </div>
+  {/if}
+</div>
 
 <style>
+  .accordion--container {
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--color-grey-light);
+  }
   .accordion--button {
     align-items: center;
-    background-color: var(--alt-bg-color);
     border-radius: 9px;
     border-style: none;
     color: inherit;
@@ -50,6 +59,7 @@
     justify-content: space-between;
     padding: 0.8rem;
     width: 100%;
+    background-color: inherit;
   }
   :global(.accordion--button-icon) {
     transition: transform 0.2s ease-in;
@@ -58,7 +68,9 @@
     transform: rotate(0.25turn);
   }
   .accordion--content {
-    margin: 1em 0 1em 2em;
+    display: inline-block;
+    margin-top: -1rem;
+    padding: 0 1rem;
     text-align: justify;
   }
 </style>

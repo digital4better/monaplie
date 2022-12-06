@@ -6,10 +6,13 @@
   import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
   import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
+  import ArrowScroll from "./ArrowScroll.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let tutorials: Tutorial[];
   export let links: Link[];
+
+  let list: HTMLUListElement;
 
   const selectedFilters: Record<string, boolean> = links.reduce(
     (acc, link) => ({ ...acc, [link.slug]: false }),
@@ -58,10 +61,12 @@
 </script>
 
 <section class="tutorials--container">
-  <h2 class="tutorials--title">
-    <SvgIcon src={insert_drive_file} />Tutoriels
-  </h2>
-  <h3>Savoir utiliser les services publics</h3>
+  <ArrowScroll
+    title="Tutoriels"
+    subtitle="Savoir utiliser les services publics"
+    icon={insert_drive_file}
+    {list}
+  />
 
   <div class="tutorials--filters">
     <span class="tutorials--filters-instruction"
@@ -79,11 +84,10 @@
       {/each}
     </div>
   </div>
-
-  <div class="tutorials--list-container">
-    <div class="tutorials--list">
-      {#each tutorials as tutorial}
-        {#if selectedFilters[tutorial.service] || noFilterSelected}
+  <ul class="tutorials--list" bind:this={list}>
+    {#each tutorials as tutorial}
+      {#if selectedFilters[tutorial.service] || noFilterSelected}
+        <li class="tutorial--container">
           <a
             href={isExternalTutorial(tutorial)
               ? tutorial.url
@@ -99,19 +103,13 @@
             {/if}
             <span class="tutorial--title">{tutorial.title}</span>
           </a>
-        {/if}
-      {/each}
-    </div>
-  </div>
+        </li>
+      {/if}
+    {/each}
+  </ul>
 </section>
 
 <style lang="scss">
-  .tutorials--title {
-    align-items: center;
-    display: inline-flex;
-    gap: 1rem;
-  }
-
   .tutorials--filters {
     align-items: flex-start;
     display: flex;
@@ -153,13 +151,19 @@
 
   .tutorials--list {
     display: flex;
+    gap: 0.5rem;
+    list-style-type: none;
+    flex-direction: column;
     flex-wrap: wrap;
+    max-height: 20rem;
+    overflow-x: scroll;
     overflow: auto;
-    white-space: normal;
+    padding-left: 0;
+    scrollbar-width: thin;
+  }
 
-    @include md {
-      white-space: nowrap;
-    }
+  .tutorial--container {
+    position: relative;
   }
 
   .tutorial--link {
@@ -170,7 +174,7 @@
     display: inline-flex;
     justify-content: space-between;
     margin: 1em 1em 0 0;
-    max-width: 13rem;
+    width: 13rem;
     min-height: 4.75rem;
     padding: 1em;
     text-decoration: none;
@@ -178,9 +182,5 @@
 
   :global(.tutorial--icon) {
     margin-right: 1rem;
-  }
-
-  .tutorial--title {
-    white-space: normal;
   }
 </style>

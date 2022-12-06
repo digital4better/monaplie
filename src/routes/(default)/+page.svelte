@@ -24,11 +24,13 @@
 
 <section class="index--container">
   <div class="top--container">
-    <div class="header-top--container">
-      <h1>{title}</h1>
-      <Image src={home.src} alt={home.alt} />
+    <div>
+      <div class="header-top--container">
+        <h1>{title}</h1>
+        <Image src={home.src} alt={home.alt} />
+      </div>
+      <Favorites {favorites} />
     </div>
-    <Favorites {favorites} />
     <Links links={data.links} categories={data.categories} bind:favorites />
   </div>
   <div class="bottom--container">
@@ -43,24 +45,30 @@
     flex-direction: column;
     height: 100%;
     padding: 0;
-    width: 75vw;
+    @include lg {
+      width: 75vw;
+    }
   }
   .top--container {
-    background: (#80b6e6);
+    background: #80b6e6;
     display: flex;
     flex-direction: column;
-    padding: 4rem 0 0 4rem;
+    gap: 7rem;
+    padding: 4rem 2rem 0 2rem;
   }
   .bottom--container {
     display: flex;
     flex-direction: column;
-    padding: 4rem 0 0 4rem;
-    background: (#d9ebf5);
+    padding: 4rem 2rem 0 2rem;
+    background: #d9ebf5;
   }
   .header-top--container {
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 92.5%;
+    @include lg {
+      flex-direction: row;
+    }
   }
 </style>

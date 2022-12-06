@@ -1,13 +1,12 @@
 <script lang="ts">
   import type { Category, Link } from "$lib/types";
-  import arrow_back from "@material-design-icons/svg/filled/arrow_back.svg?raw";
-  import arrow_forward from "@material-design-icons/svg/filled/arrow_forward.svg?raw";
   import circle from "@material-design-icons/svg/filled/circle.svg?raw";
   import favorite from "@material-design-icons/svg/filled/favorite.svg?raw";
   import favorite_border from "@material-design-icons/svg/filled/favorite_border.svg?raw";
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { storedItems } from "../store";
+  import ArrowScroll from "./ArrowScroll.svelte";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
   import SvgIcon from "./SvgIcon.svelte";
@@ -15,7 +14,6 @@
   export let links: Link[] = [];
   export let favorites: Link[];
   export let categories: Category[] = [];
-  let interval_: NodeJS.Timer;
 
   export const circleColor = (category: string) => {
     return (
@@ -26,9 +24,6 @@
   };
 
   let list: HTMLUListElement;
-  const scroll = (value: number) => {
-    list?.scrollBy(value, 0);
-  };
 
   export const setFavorite = (url: string) => {
     if (!$storedItems) {
@@ -60,29 +55,13 @@
 </script>
 
 <section class="links--container">
-  <h2 class="links--title">
-    <SvgIcon src={launch} />Vos sites publics
-  </h2>
-  <h3>Connexion vers les services publics</h3>
-  <button
-    class="scroll--button"
-    aria-hidden="true"
-    on:click={() => scroll(-10)}
-    on:mousedown={() => (interval_ = setInterval(() => scroll(-5), 20))}
-    on:mouseup={() => clearInterval(interval_)}
-  >
-    <SvgIcon src={arrow_back} />
-  </button>
+  <ArrowScroll
+    title="Vos sites publics"
+    subtitle="Connexion vers les services publics"
+    icon={launch}
+    {list}
+  />
 
-  <button
-    class="scroll--button"
-    aria-hidden="true"
-    on:click={() => scroll(10)}
-    on:mousedown={() => (interval_ = setInterval(() => scroll(5), 20))}
-    on:mouseup={() => clearInterval(interval_)}
-  >
-    <SvgIcon src={arrow_forward} />
-  </button>
   <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
@@ -96,6 +75,16 @@
         >
           {@html isFavorite($storedItems, url)}
         </button>
+        <div class="category--container">
+          <div
+            class="category--icon"
+            aria-hidden
+            style:color={circleColor(category)}
+          >
+            {@html circle}
+          </div>
+          <span class="category--label">{category}</span>
+        </div>
         <a
           class="link--content"
           href={url}
@@ -109,16 +98,6 @@
             {title}<SvgIcon src={navigate_next} />
           </span>
           <Markdown class="link--label" content={label} />
-          <div class="category--container">
-            <div
-              class="category--icon"
-              aria-hidden
-              style:color={circleColor(category)}
-            >
-              {@html circle}
-            </div>
-            <span class="category--label">{category}</span>
-          </div>
         </a>
       </li>
     {/each}
@@ -126,16 +105,6 @@
 </section>
 
 <style lang="scss">
-  .links--container {
-    padding: 7rem 0 0 0;
-  }
-  .links--title {
-    align-items: center;
-    display: inline-flex;
-    gap: 1rem;
-    white-space: nowrap;
-  }
-
   .links--list {
     display: flex;
     gap: 2rem;
@@ -143,6 +112,7 @@
     margin: 2rem auto;
     padding-left: 0;
     overflow-y: auto;
+    scrollbar-width: thin;
   }
 
   .link--container {
@@ -150,16 +120,16 @@
   }
 
   .link--content {
-    align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
+    align-items: flex-start;
     box-sizing: border-box;
     display: inline-flex;
     flex-direction: column;
     gap: 1rem;
     height: 100%;
     min-height: 14rem;
-    padding: 2rem;
+    padding: 3rem 2rem 2rem 2rem;
     position: static;
     text-decoration: none;
     width: 17rem;
@@ -185,10 +155,13 @@
   }
 
   .category--container {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
     align-items: baseline;
-    display: flex;
-    gap: 0.375rem;
-    margin-top: auto;
+    display: inline-flex;
+    gap: 0.5rem;
+    z-index: 2;
   }
 
   .category--icon {
@@ -205,21 +178,10 @@
     color: var(--alt-text-color);
   }
 
-  .scroll--button {
-    background-color: white;
-    border-radius: 100%;
-    border-width: 0;
-    cursor: pointer;
-    height: 2rem;
-  }
-  .scroll--button:active {
-    background-color: gray;
-  }
-
   .favorite--container {
     background-color: inherit;
     border-style: none;
-    color: var(--color-grey-light);
+    color: var(--color-grey);
     cursor: pointer;
     fill: currentColor;
     height: 1.5rem;

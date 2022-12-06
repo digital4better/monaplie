@@ -46,7 +46,7 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
   .link--anchor {
     bottom: 0;
     left: 0;
@@ -59,7 +59,6 @@
     display: flex;
     flex-direction: column;
     background-color: #f7dcb0;
-    width: 90%;
     border-radius: 10px;
     padding: 1rem;
   }
@@ -77,6 +76,11 @@
     gap: 1rem;
     padding-left: 0;
     margin: 0;
+    flex-direction: column;
+    @include lg {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
   .favorite-box--title {
