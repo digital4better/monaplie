@@ -78,7 +78,7 @@
         <div class="category--container">
           <div
             class="category--icon"
-            aria-hidden
+            aria-hidden="true"
             style:color={circleColor(category)}
           >
             {@html circle}
