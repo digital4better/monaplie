@@ -46,7 +46,7 @@
   .accordion--container {
     align-items: center;
     border-radius: 10px;
-    background-color: #f0f0f0;
+    background-color: var(--color-grey-light);
   }
   .accordion--button {
     align-items: center;
@@ -59,6 +59,7 @@
     justify-content: space-between;
     padding: 0.8rem;
     width: 100%;
+    background-color: inherit;
   }
   :global(.accordion--button-icon) {
     transition: transform 0.2s ease-in;
@@ -67,7 +68,9 @@
     transform: rotate(0.25turn);
   }
   .accordion--content {
-    margin: 1rem;
+    display: inline-block;
+    margin-top: -1rem;
+    padding: 0 1rem;
     text-align: justify;
   }
 </style>

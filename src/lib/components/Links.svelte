@@ -55,13 +55,12 @@
 </script>
 
 <section class="links--container">
-  <h2 class="links--title">
-    <SvgIcon src={launch} />Vos sites publics
-  </h2>
-  <div class="button--container">
-    <h3>Connexion vers les services publics</h3>
-    <ArrowScroll {list} />
-  </div>
+  <ArrowScroll
+    title="Vos sites publics"
+    subtitle="Connexion vers les services publics"
+    icon={launch}
+    {list}
+  />
 
   <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
@@ -76,6 +75,16 @@
         >
           {@html isFavorite($storedItems, url)}
         </button>
+        <div class="category--container">
+          <div
+            class="category--icon"
+            aria-hidden
+            style:color={circleColor(category)}
+          >
+            {@html circle}
+          </div>
+          <span class="category--label">{category}</span>
+        </div>
         <a
           class="link--content"
           href={url}
@@ -89,16 +98,6 @@
             {title}<SvgIcon src={navigate_next} />
           </span>
           <Markdown class="link--label" content={label} />
-          <div class="category--container">
-            <div
-              class="category--icon"
-              aria-hidden="true"
-              style:color={circleColor(category)}
-            >
-              {@html circle}
-            </div>
-            <span class="category--label">{category}</span>
-          </div>
         </a>
       </li>
     {/each}
@@ -106,23 +105,6 @@
 </section>
 
 <style lang="scss">
-  .links--container {
-    padding: 7rem 0 0 0;
-    justify-content: space-between;
-  }
-  .links--title {
-    align-items: center;
-    display: inline-flex;
-    gap: 1rem;
-  }
-
-  .button--container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
   .links--list {
     display: flex;
     gap: 2rem;
@@ -130,12 +112,7 @@
     margin: 2rem auto;
     padding-left: 0;
     overflow-y: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .links--list::-webkit-scrollbar {
-    display: none;
+    scrollbar-width: thin;
   }
 
   .link--container {
@@ -143,16 +120,16 @@
   }
 
   .link--content {
-    align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
+    align-items: flex-start;
     box-sizing: border-box;
     display: inline-flex;
     flex-direction: column;
     gap: 1rem;
     height: 100%;
     min-height: 14rem;
-    padding: 2rem;
+    padding: 3rem 2rem 2rem 2rem;
     position: static;
     text-decoration: none;
     width: 17rem;
@@ -178,10 +155,13 @@
   }
 
   .category--container {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
     align-items: baseline;
-    display: flex;
-    gap: 0.375rem;
-    margin-top: auto;
+    display: inline-flex;
+    gap: 0.5rem;
+    z-index: 2;
   }
 
   .category--icon {
@@ -201,7 +181,7 @@
   .favorite--container {
     background-color: inherit;
     border-style: none;
-    color: var(--color-grey-light);
+    color: var(--color-grey);
     cursor: pointer;
     fill: currentColor;
     height: 1.5rem;

@@ -25,11 +25,12 @@
 </script>
 
 <section class="section--container">
-  <h2 class="resources--title"><SvgIcon src={attach_file} />Ressources</h2>
-  <div class="button--container">
-    <h3>Des resources externes</h3>
-    <ArrowScroll {list} />
-  </div>
+  <ArrowScroll
+    title="Ressources"
+    subtitle="Des resources externes"
+    icon={attach_file}
+    {list}
+  />
 
   <div>
     {#each categories as category}
@@ -72,19 +73,6 @@
     padding-top: 4rem;
   }
 
-  .button--container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    right: 0;
-    gap: 1rem;
-  }
-
-  .resources--title {
-    align-items: center;
-    display: inline-flex;
-    gap: 1rem;
-  }
   .resources--list {
     display: flex;
     gap: 1rem;
@@ -92,12 +80,7 @@
     overflow-x: scroll;
     overflow: auto;
     padding-left: 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .resources--list::-webkit-scrollbar {
-    display: none;
+    scrollbar-width: thin;
   }
 
   .link--container {
