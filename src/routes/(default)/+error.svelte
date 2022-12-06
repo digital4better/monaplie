@@ -9,7 +9,7 @@
     Oups ! Cette page n’a pas été trouvée. Vous pouvez reprendre votre
     navigation depuis la page d’accueil.
   </p>
-  <a href={base} class="error--link"> Revenir à la page d’accueil </a>
+  <a href={`${base}/`} class="error--link"> Revenir à la page d’accueil </a>
 </section>
 
 <style>

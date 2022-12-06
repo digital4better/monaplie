@@ -2,14 +2,7 @@
 layout: tutorial
 title: Se connecter à la CAF
 icon: compte
+url: https://www.caf.fr/allocataires/caf-de-seine-et-marne/offre-de-service/thematique-libre/tutoriels
 service: CAF
-steps:
-  - image:
-      src: /images/caf.svg
-      alt: logo caf
-    text: logo caf
-  - image:
-      src: /images/question-mark-blue.svg
-      alt: point d'interrogation
-    text: Démonstration ajout étape
+steps: []
 ---

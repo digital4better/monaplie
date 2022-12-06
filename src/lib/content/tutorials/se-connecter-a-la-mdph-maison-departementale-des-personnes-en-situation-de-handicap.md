@@ -2,7 +2,7 @@
 layout: tutorial
 title: Se connecter à la MDPH Maison Départementale des Personnes en situation
   de Handicap
-icon: null
+icon: fichier
 service: Générique
 steps:
   - image:
@@ -16,13 +16,10 @@ steps:
   - image:
       src: /images/capture-d’ecran-mdph-3bis.png
       alt: Le dossier de demande MDPH
-    text:
+    text: |-
       Le dossier de demande MDPH va se remplir en fonction de votre situation
-
       1. Première demande
-
       2. Vous avez déjà une aide MDPH
-
       3. Vous avez déjà une aide mais votre situation a changé
   - image:
       src: /images/capture-d’ecran-mdph-4.png
@@ -52,9 +49,11 @@ steps:
   - image:
       src: /images/capture-d’ecran-mdph-9.png
       alt: D'autres documents peuvent être ajoutés
-    text: |-
+    text: >-
       Je peux ajouter des documents pour expliquer davantage ma situation, mon
+
       handicap et mes difficultés.
+
 
 
       Demander à mon conseiller PLIE si il veut joindre un courrier pour expliquer ma situation par rapport à l'emploi
@@ -65,9 +64,8 @@ steps:
   - image:
       src: /images/capture-d’ecran-mdph-11.png
       alt: Comment transmettre votre dossier à la MDPH
-    text: >-
+    text: |-
       On peut aussi le faire en ligne 
-
       [mdphenligne.cnsa.fr](https://mdphenligne.cnsa.fr/)
   - image:
       src: /images/capture-d’ecran-mdph-12.png
