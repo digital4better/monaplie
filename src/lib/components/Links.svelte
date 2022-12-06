@@ -55,13 +55,12 @@
 </script>
 
 <section class="links--container">
-  <h2 class="links--title">
-    <SvgIcon src={launch} />Vos sites publics
-  </h2>
-  <div class="button--container">
-    <h3>Connexion vers les services publics</h3>
-    <ArrowScroll {list} />
-  </div>
+  <ArrowScroll
+    title="Vos sites publics"
+    subtitle="Connexion vers les services publics"
+    icon={launch}
+    {list}
+  />
 
   <ul class="links--list" bind:this={list}>
     {#each links as { title, label, image, category, url }}
@@ -106,19 +105,6 @@
 </section>
 
 <style lang="scss">
-  .links--title {
-    align-items: center;
-    display: inline-flex;
-    gap: 1rem;
-  }
-
-  .button--container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
   .links--list {
     display: flex;
     gap: 2rem;

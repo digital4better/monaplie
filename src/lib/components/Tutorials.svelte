@@ -61,13 +61,12 @@
 </script>
 
 <section class="tutorials--container">
-  <h2 class="tutorials--title">
-    <SvgIcon src={insert_drive_file} />Tutoriels
-  </h2>
-  <div class="button--container">
-    <h3>Savoir utiliser les services publics</h3>
-    <ArrowScroll {list} />
-  </div>
+  <ArrowScroll
+    title="Tutoriels"
+    subtitle="Savoir utiliser les services publics"
+    icon={insert_drive_file}
+    {list}
+  />
 
   <div class="tutorials--filters">
     <span class="tutorials--filters-instruction"
@@ -111,21 +110,6 @@
 </section>
 
 <style lang="scss">
-  .tutorials--title {
-    align-items: center;
-    display: inline-flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .button--container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    right: 0;
-    gap: 1rem;
-  }
-
   .tutorials--filters {
     align-items: flex-start;
     display: flex;
