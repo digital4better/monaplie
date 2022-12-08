@@ -6,9 +6,9 @@
   import launch from "@material-design-icons/svg/filled/launch.svg?raw";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import { storedItems } from "../store";
-  import ArrowScroll from "./ArrowScroll.svelte";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
+  import SectionTitle from "./SectionTitle.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let links: Link[] = [];
@@ -22,8 +22,6 @@
       })?.color || "red"
     );
   };
-
-  let list: HTMLUListElement;
 
   export const setFavorite = (url: string) => {
     if (!$storedItems) {
@@ -55,14 +53,12 @@
 </script>
 
 <section class="links--container">
-  <ArrowScroll
+  <SectionTitle
     title="Vos sites publics"
     subtitle="Connexion vers les services publics"
     icon={launch}
-    {list}
   />
-
-  <ul class="links--list" bind:this={list}>
+  <ul class="links--list">
     {#each links as { title, label, image, category, url }}
       <li class="link--container">
         <button

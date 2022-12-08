@@ -6,13 +6,11 @@
   import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
   import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
-  import ArrowScroll from "./ArrowScroll.svelte";
+  import SectionTitle from "./SectionTitle.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let tutorials: Tutorial[];
   export let links: Link[];
-
-  let list: HTMLUListElement;
 
   const selectedFilters: Record<string, boolean> = links.reduce(
     (acc, link) => ({ ...acc, [link.slug]: false }),
@@ -61,11 +59,10 @@
 </script>
 
 <section class="tutorials--container">
-  <ArrowScroll
+  <SectionTitle
     title="Tutoriels"
     subtitle="Savoir utiliser les services publics"
     icon={insert_drive_file}
-    {list}
   />
 
   <div class="tutorials--filters">
@@ -84,7 +81,7 @@
       {/each}
     </div>
   </div>
-  <ul class="tutorials--list" bind:this={list}>
+  <ul class="tutorials--list">
     {#each tutorials as tutorial}
       {#if selectedFilters[tutorial.service] || noFilterSelected}
         <li class="tutorial--container">

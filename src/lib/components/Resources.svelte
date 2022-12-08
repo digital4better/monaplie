@@ -2,9 +2,9 @@
   import type { Resource } from "$lib/types";
   import navigate_next from "@material-design-icons/svg/filled/navigate_next.svg?raw";
   import attach_file from "@material-design-icons/svg/outlined/attach_file.svg?raw";
-  import ArrowScroll from "./ArrowScroll.svelte";
   import Image from "./Image.svelte";
   import Markdown from "./Markdown.svelte";
+  import SectionTitle from "./SectionTitle.svelte";
   import SvgIcon from "./SvgIcon.svelte";
 
   export let resources: Resource[];
@@ -13,8 +13,6 @@
   );
 
   let selectedFilters: string[] = [];
-
-  let list: HTMLUListElement;
 
   const onClickFilter = (category: string) => {
     console.log("befor", selectedFilters);
@@ -25,11 +23,10 @@
 </script>
 
 <section class="section--container">
-  <ArrowScroll
+  <SectionTitle
     title="Ressources"
     subtitle="Des resources externes"
     icon={attach_file}
-    {list}
   />
 
   <div>
@@ -44,7 +41,7 @@
     {/each}
   </div>
 
-  <ul class="resources--list" bind:this={list}>
+  <ul class="resources--list">
     {#each resources as { title, label, image, url, category }}
       {#if selectedFilters.length == 0 ? true : selectedFilters.includes(category)}
         <li class="link--container">
