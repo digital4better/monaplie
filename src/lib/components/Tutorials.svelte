@@ -20,9 +20,8 @@
     []
   );
 
-  const selectedFilters: Record<string, boolean> = services.reduce(
-    (acc, service) => ({ ...acc, [service]: false }),
-    {}
+  const selectedFilters = Object.fromEntries(
+    services.map((service) => [service, false])
   );
 
   let noFilterSelected = true;
