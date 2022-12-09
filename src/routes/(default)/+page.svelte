@@ -35,7 +35,7 @@
     <Links links={data.links} categories={data.categories} bind:favorites />
   </div>
   <div class="bottom--container">
-    <Tutorials tutorials={data.tutorials} links={data.links} />
+    <Tutorials tutorials={data.tutorials} />
     <Resources resources={data.resources} />
   </div>
 </section>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import type { ExternalTutorial, Link, Tutorial } from "$lib/types";
+  import type { ExternalTutorial, Tutorial } from "$lib/types";
   import account from "@material-design-icons/svg/outlined/account_box.svg?raw";
   import email from "@material-design-icons/svg/outlined/email.svg?raw";
   import download from "@material-design-icons/svg/outlined/file_download.svg?raw";
@@ -10,17 +10,24 @@
   import SvgIcon from "./SvgIcon.svelte";
 
   export let tutorials: Tutorial[];
-  export let links: Link[];
 
-  const selectedFilters: Record<string, boolean> = links.reduce(
-    (acc, link) => ({ ...acc, [link.slug]: false }),
-    {}
+  // Get all services which are used in tutorials except "Générique"
+  const services: string[] = tutorials.reduce(
+    (list: string[], { service }) =>
+      list.includes(service) || service === "Générique"
+        ? list
+        : [...list, service],
+    []
+  );
+
+  const selectedFilters = Object.fromEntries(
+    services.map((service) => [service, false])
   );
 
   let noFilterSelected = true;
 
-  const onClickFilter = (slug: string) => {
-    selectedFilters[slug] = !selectedFilters[slug];
+  const onClickFilter = (service: string) => {
+    selectedFilters[service] = !selectedFilters[service];
     noFilterSelected = !hasAnyFilterActive();
   };
 
@@ -70,13 +77,13 @@
       >Filtrer les tutoriels par service</span
     >
     <div>
-      {#each links as { title }}
+      {#each services as service}
         <button
           class="tutorials--filter"
-          class:tutorials--filter-selected={selectedFilters[title]}
-          on:click={() => onClickFilter(title)}
+          class:tutorials--filter-selected={selectedFilters[service]}
+          on:click={() => onClickFilter(service)}
         >
-          {title}
+          {service}
         </button>
       {/each}
     </div>
