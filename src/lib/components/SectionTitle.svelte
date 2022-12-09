@@ -6,24 +6,15 @@
   export let icon: string;
 </script>
 
-<h2 class="links--title">
+<h2 class="section-title--container">
   <SvgIcon src={icon} />{title}
 </h2>
-<div class="button--container">
-  <h3>{subtitle}</h3>
-</div>
+<h3>{subtitle}</h3>
 
 <style lang="scss">
-  .links--title {
+  .section-title--container {
     align-items: center;
     display: inline-flex;
-    gap: 1rem;
-  }
-
-  .button--container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
     gap: 1rem;
   }
 </style>

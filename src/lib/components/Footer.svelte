@@ -32,17 +32,18 @@
   </segment>
   <segment class="bottom-footer--container">
     <div class="logo-fruggr--container">
-      <Image
-        width="100%"
-        height="100%"
-        src={certificate.src}
-        alt={certificate.alt}
-      />
+      <Link href="https://www.fruggr.io/"
+        ><Image
+          width="100%"
+          height="100%"
+          src={certificate.src}
+          alt={certificate.alt}
+        /></Link
+      >
     </div>
     <div class="d4b--link">
-      Made with ♥︎ by <Link href="https://digital4better.com/"
-        >Digital4Better</Link
-      >
+      Made with ♥︎ by
+      <Link href="https://digital4better.com/">Digital4Better</Link>
     </div>
     Projet open-source sur
     <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
