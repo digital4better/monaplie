@@ -1,6 +1,6 @@
 ---
 layout: resources
-title: Mes évènement Pôle emploi
+title: Mes évènements Pôle emploi
 order: 0
 image:
   src: /images/logo_mes_events_emploi.svg
