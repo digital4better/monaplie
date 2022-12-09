@@ -19,12 +19,16 @@
   </segment>
 </div>
 
-<style>
+<style lang="scss">
   .header--container {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding-top: 4rem;
+    gap: 2rem;
+    padding-top: 2rem;
+    @include lg {
+      gap: 4rem;
+      padding-top: 4rem;
+    }
   }
 
   .header--logo {

@@ -31,34 +31,35 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding: 0 1.25rem;
-
-    @include md {
+    padding: 0;
+    @include lg {
       flex-direction: row;
-      padding: unset;
+      height: 100vh;
     }
   }
 
   .layout--header {
     display: block;
-
-    @include md {
+    @include lg {
       display: none;
+      padding: initial;
     }
   }
 
   .layout--aside {
+    box-sizing: border-box;
     border-right: 1px solid var(--color-blue);
     display: none;
     flex-direction: column;
     max-height: auto !important;
-    max-width: 25rem;
     min-height: 100%;
-    padding: 0 3.5rem;
-    width: 25vw;
-
-    @include md {
+    padding: 0 2rem 0 3.5rem;
+    @include lg {
       display: flex;
+      width: 25vw;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      scrollbar-width: thin;
     }
   }
 
@@ -72,8 +73,12 @@
   .header--container {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding: 4rem 0;
+    gap: 2rem;
+    padding: 2rem 0;
+    @include lg {
+      gap: 4rem;
+      padding-top: 4rem;
+    }
   }
 
   .header--logo {

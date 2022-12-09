@@ -34,7 +34,11 @@
     <h2>Étape {current + 1}/{data.tutorial?.steps.length}</h2>
     <div class="tutorial--content">
       {#if step?.image}
-        <Image src={step.image.src} alt={step.image.alt} />
+        <Image
+          class="tutorial--image"
+          src={step.image.src}
+          alt={step.image.alt}
+        />
       {/if}
       <p>
         <Markdown content={step?.text} />
@@ -65,6 +69,7 @@
     flex-direction: column;
     align-items: center;
     margin: 1rem 0;
+    min-height: 95vh;
   }
   .tutorial--home-link {
     display: flex;
@@ -84,12 +89,17 @@
     }
   }
 
+  :global(.tutorial--image) {
+    max-height: 60vh;
+  }
+
   .tutorial--step-buttons {
     display: flex;
     justify-content: space-between;
     gap: 4rem;
-    margin: 2rem 4rem;
+    margin: 0 4rem;
     width: 100%;
+    margin-top: auto;
   }
 
   .tutorial--button {
