@@ -1,7 +1,7 @@
 ---
 layout: resources
 title: Mes évènements Pôle emploi
-order: 0
+order: 3
 image:
   src: /images/logo_mes_events_emploi.svg
 url: https://mesevenementsemploi.pole-emploi.fr/mes-evenements-emploi/evenements
