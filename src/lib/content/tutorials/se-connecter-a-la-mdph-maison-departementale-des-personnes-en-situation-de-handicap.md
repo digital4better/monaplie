@@ -2,8 +2,9 @@
 layout: tutorial
 title: Se connecter à la MDPH Maison Départementale des Personnes en situation
   de Handicap
+order: 2
 icon: fichier
-service: Générique
+service: MDPH
 steps:
   - image:
       src: /images/capture-d’ecran-mdph-1.png
