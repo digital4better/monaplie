@@ -71,13 +71,15 @@ collections:
     label: "Sites publics"
     folder: "src/lib/content/links"
     create: true
+    sortable_fields: ['order', 'commit_date', 'title', 'commit_author']
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "link" }
       - { name: "title", label: "Titre", widget: "string" }
       - name: "order"
         label: "Priorité"
         widget: "number"
-        hint: "Gère l'ordre des ressources, 1 la plus importante (Champ non obligatoire, la ressource est en fin de liste si non rempli)"
+        hint: "Gère l'ordre des ressources, 1 étant la plus importante"
+        default: 9999
       - name: "image"
         label: "Image"
         widget: "object"
@@ -108,13 +110,15 @@ collections:
     label: "Tutorials"
     folder: "src/lib/content/tutorials"
     create: true
+    sortable_fields: ['order', 'commit_date', 'title', 'commit_author']
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "tutorial" }
       - { name: "title", label: "Titre", widget: "string" }
       - name: "order"
         label: "Priorité"
         widget: "number"
-        hint: "Gère l'ordre des ressources, 1 la plus importante (Champ non obligatoire, la ressource est en fin de liste si non rempli)"
+        hint: "Gère l'ordre des ressources, 1 étant la plus importante"
+        default: 9999
       - name: "icon"
         label: "Icon"
         widget: "select"
@@ -165,13 +169,15 @@ collections:
     label: "Ressources"
     folder: "src/lib/content/resources"
     create: true
+    sortable_fields: ['order', 'commit_date', 'title', 'commit_author']
     fields:
       - { name: "layout", label: "Layout", widget: "hidden", default: "resources" }
       - { name: "title", label: "Titre", widget: "string" }
       - name: "order"
         label: "Priorité"
         widget: "number"
-        hint: "Gère l'ordre des ressources, 1 la plus importante (Champ non obligatoire, la ressource est en fin de liste si non rempli)"
+        hint: "Gère l'ordre des ressources, 1 étant la plus importante"
+        default: 9999
       - name: "image"
         label: "Image"
         widget: "object"

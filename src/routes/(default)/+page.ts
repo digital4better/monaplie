@@ -16,17 +16,14 @@ const links = items(import.meta.glob("$lib/content/links/*.md"));
 const categories = items(import.meta.glob("$lib/content/link_categories/*.md"));
 const resources = items(import.meta.glob("$lib/content/resources/*.md"));
 
+const sortByOrder = (a: { order: number }, b: { order: number }) =>
+  (a.order || Number.MAX_SAFE_INTEGER) - (b.order || Number.MAX_SAFE_INTEGER);
+
 export const load: Load = async () => {
   return {
-    tutorials: (await Promise.all(tutorials)).sort((a, b) =>
-      a.order ?? 1000 > b.order ?? 1000 ? 1 : -1
-    ),
-    links: (await Promise.all(links)).sort((a, b) =>
-      a.order ?? 1000 > b.order ?? 1000 ? 1 : -1
-    ),
+    tutorials: (await Promise.all(tutorials)).sort(sortByOrder),
+    links: (await Promise.all(links)).sort(sortByOrder),
     categories: await Promise.all(categories),
-    resources: (await Promise.all(resources)).sort((a, b) =>
-      a.order ?? 1000 > b.order ?? 1000 ? 1 : -1
-    ),
+    resources: (await Promise.all(resources)).sort(sortByOrder),
   };
 };

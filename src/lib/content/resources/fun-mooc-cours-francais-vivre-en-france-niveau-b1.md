@@ -1,7 +1,7 @@
 ---
 layout: resources
 title: Fun Mooc Cours français Vivre en France Niveau B1
-order: 0
+order: 9999
 image:
   src: /images/oip-7-.jpg
 url: https://www.fun-mooc.fr/fr/cours/vivre-en-france-b1/

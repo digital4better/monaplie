@@ -1,7 +1,7 @@
 ---
 layout: resources
 title: Infos droit des étrangers
-order: 0
+order: 9999
 image:
   src: /images/adate_logo_fond_transp.png
 url: https://www.info-droits-etrangers.org/vivre-en-france/
