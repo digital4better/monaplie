@@ -1,6 +1,7 @@
 ---
 layout: link
 title: CAF
+order: 4
 image:
   src: /images/caf.svg
   alt: ""
