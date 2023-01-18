@@ -7,6 +7,6 @@ image:
   src: /images/poleemploi.svg
   alt: ""
 url: https://www.pole-emploi.fr/
-category: RSA, Emploi
+category: Emploi & Formation
 label: "***Le service public de l'emploi en France***"
 ---
