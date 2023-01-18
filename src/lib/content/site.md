@@ -1,6 +1,6 @@
 ---
 layout: site
-title: Besoin de faire une démarche en ligne, Monaplie est là pour vous !
+title: Bienvenue dans Monaplie, l'application qui vous facilite la vie !
 logo:
   src: /images/plie.svg
   alt: Logo du PLIE
