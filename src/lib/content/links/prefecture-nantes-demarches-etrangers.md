@@ -5,7 +5,7 @@ order: 7
 image:
   src: /images/oip-8-.jpg
 url: https://www.loire-atlantique.gouv.fr/Demarches/Demarches-etrangers
-category: Aides financières (RSA, APL)
+category: Administratif
 label: >-
   <!--StartFragment-->
 
