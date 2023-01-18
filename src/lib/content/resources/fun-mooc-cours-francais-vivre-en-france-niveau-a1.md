@@ -5,7 +5,7 @@ order: 9999
 image:
   src: /images/course-v1dgef-interieur134003session01600x315_q85_crop-smart.jpg__300x170_q85_crop-smart_subsampling-2_upscale.jpg
 url: https://www.fun-mooc.fr/fr/cours/vivre-en-france-a1/
-category: Outil
+category: Formation
 label: >-
   <!--StartFragment-->
 
