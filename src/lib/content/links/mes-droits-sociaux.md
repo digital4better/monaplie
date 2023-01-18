@@ -1,7 +1,7 @@
 ---
 layout: link
 title: MES DROITS SOCIAUX
-order: 9999
+order: 6
 image:
   src: /images/th.jpg
   alt: S'informer sur ses droits sociaux
