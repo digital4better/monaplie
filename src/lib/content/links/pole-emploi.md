@@ -2,6 +2,7 @@
 alt: Logo de Pôle Emploi
 layout: link
 title: POLE EMPLOI
+order: 1
 image:
   src: /images/poleemploi.svg
   alt: ""
