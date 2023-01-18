@@ -1,7 +1,7 @@
 ---
 layout: resources
 title: TAN
-order: 9999
+order: 5
 image:
   src: /images/tan.png
 url: https://www.tan.fr/
