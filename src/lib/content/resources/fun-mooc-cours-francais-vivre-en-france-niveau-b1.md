@@ -5,7 +5,7 @@ order: 9999
 image:
   src: /images/oip-7-.jpg
 url: https://www.fun-mooc.fr/fr/cours/vivre-en-france-b1/
-category: Outil
+category: Formation
 label: >-
   <!--StartFragment-->
 
