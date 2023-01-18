@@ -10,7 +10,10 @@ certificate:
   description: \-
 home:
   src: /images/home-mona.svg
-description: Besoin de faire une démarche en ligne, Monaplie est là pour vous !
+description: |-
+  Besoin de faire une démarche en ligne? 
+
+  Monaplie est là pour vous !
 details:
   - title: Le PLIE, pour qui ? Pour quoi?
     content: >-
