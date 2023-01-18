@@ -1,6 +1,7 @@
 ---
 layout: link
 title: "AMELI "
+order: 3
 image:
   src: /images/cpam.svg
   alt: ""
