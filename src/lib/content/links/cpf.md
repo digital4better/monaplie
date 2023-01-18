@@ -1,6 +1,7 @@
 ---
 layout: link
 title: CPF
+order: 2
 image:
   src: /images/logo_moncompteformation-2.png
   alt: Compte personnel de formation
