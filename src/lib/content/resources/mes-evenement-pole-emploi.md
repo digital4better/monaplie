@@ -5,7 +5,7 @@ order: 3
 image:
   src: /images/logo_mes_events_emploi.svg
 url: https://mesevenementsemploi.pole-emploi.fr/mes-evenements-emploi/evenements
-category: Outil
+category: Emploi
 label: >-
   <!--StartFragment-->
 
