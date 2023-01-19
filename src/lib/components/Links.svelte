@@ -52,7 +52,7 @@
       : favorite_border;
 </script>
 
-<section class="links--container">
+<section id="links" class="links--container">
   <SectionTitle
     title="Vos sites publics"
     subtitle="Connexion vers les services publics"
@@ -103,7 +103,7 @@
 <style lang="scss">
   .links--list {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     list-style-type: none;
     margin: 2rem auto;
     padding-left: 0;
@@ -128,7 +128,10 @@
     padding: 3rem 2rem 2rem 2rem;
     position: static;
     text-decoration: none;
-    width: 17rem;
+    width: 15rem;
+    @include lg {
+      width: 18rem;
+    }
   }
 
   :global(.link--image) {

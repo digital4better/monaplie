@@ -65,7 +65,7 @@
   ): tutorial is ExternalTutorial => "url" in tutorial;
 </script>
 
-<section class="tutorials--container">
+<section id="tutorials" class="tutorials--container">
   <SectionTitle
     title="Tutoriels"
     subtitle="Savoir utiliser les services publics"
@@ -156,7 +156,7 @@
 
   .tutorials--list {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     list-style-type: none;
     flex-direction: column;
     flex-wrap: wrap;
@@ -172,17 +172,17 @@
   }
 
   .tutorial--link {
-    align-items: center;
-    align-self: stretch;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
+    align-items: center;
     display: inline-flex;
-    justify-content: space-between;
-    margin: 1em 1em 0 0;
-    width: 13rem;
-    min-height: 4.75rem;
-    padding: 1em;
+    min-height: 6rem;
+    padding: 1rem;
     text-decoration: none;
+    width: 13rem;
+    @include lg {
+      width: 17rem;
+    }
   }
 
   :global(.tutorial--icon) {

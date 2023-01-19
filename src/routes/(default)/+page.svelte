@@ -21,21 +21,24 @@
 <svelte:head>
   <title>PLIE de la métropole nantaise</title>
   <meta name="Content-Security-Policy" content="default-src 'self'" />
+  <link rel="icon" type="image/svg" href="/images/plie.svg" />
 </svelte:head>
 
 <section class="index--container">
-  <div class="top--container">
+  <div class="container top--container">
     <div>
       <div class="header-top--container">
         <h1>{title}</h1>
-        <Image src={home.src} alt={home.alt} />
+        <Image class="header--image" src={home.src} alt={home.alt} />
       </div>
       <Favorites {favorites} />
     </div>
     <Links links={data.links} categories={data.categories} bind:favorites />
   </div>
-  <div class="bottom--container">
+  <div class="container tutorials--container">
     <Tutorials tutorials={data.tutorials} />
+  </div>
+  <div class="container ressources--container">
     <Resources resources={data.resources} />
   </div>
 </section>
@@ -50,18 +53,23 @@
       width: 75vw;
     }
   }
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2rem 0 2rem;
+    @include lg {
+      padding-top: 4rem;
+    }
+  }
   .top--container {
     background: #80b6e6;
-    display: flex;
-    flex-direction: column;
-    gap: 7rem;
-    padding: 4rem 2rem 0 2rem;
+    gap: 5rem;
   }
-  .bottom--container {
-    display: flex;
-    flex-direction: column;
-    padding: 4rem 2rem 0 2rem;
+  .tutorials--container {
     background: #d9ebf5;
+  }
+  .ressources--container {
+    background: var(--color-grey-light);
   }
   .header-top--container {
     align-items: center;
@@ -70,6 +78,12 @@
     justify-content: space-between;
     @include lg {
       flex-direction: row;
+    }
+  }
+  :global(.header--image) {
+    height: 6rem;
+    @include lg {
+      height: initial;
     }
   }
 </style>
