@@ -3,9 +3,13 @@
   import Image from "$lib/components/Image.svelte";
   import Links from "$lib/components/Links.svelte";
   import Resources from "$lib/components/Resources.svelte";
+  import SvgIcon from "$lib/components/SvgIcon.svelte";
   import Tutorials from "$lib/components/Tutorials.svelte";
   import { metadata } from "$lib/content/site.md";
   import type { Link, Site } from "$lib/types";
+  import launch from "@material-design-icons/svg/filled/launch.svg?raw";
+  import attach_file from "@material-design-icons/svg/outlined/attach_file.svg?raw";
+  import insert_drive_file from "@material-design-icons/svg/outlined/insert_drive_file.svg?raw";
   import { storedItems } from "../../lib/store";
   import type { PageData } from "./$types";
 </script>
@@ -21,7 +25,7 @@
 <svelte:head>
   <title>PLIE de la métropole nantaise</title>
   <meta name="Content-Security-Policy" content="default-src 'self'" />
-  <link rel="icon" type="image/svg" href="/images/plie.svg" />
+  <link rel="icon" type="image/svg" href="/images/favicon_plie.svg" />
 </svelte:head>
 
 <section class="index--container">
@@ -42,6 +46,20 @@
     <Resources resources={data.resources} />
   </div>
 </section>
+<segment class="menu--container">
+  <a class="menu--link" href="#links"
+    ><SvgIcon src={launch} />
+    <div>Publics</div></a
+  >
+  <a class="menu--link" href="#tutorials"
+    ><SvgIcon src={insert_drive_file} />
+    <div>Tutoriels</div></a
+  >
+  <a class="menu--link" href="#resources"
+    ><SvgIcon src={attach_file} />
+    <div>Ressources</div></a
+  >
+</segment>
 
 <style lang="scss">
   .index--container {
@@ -69,7 +87,7 @@
     background: #d9ebf5;
   }
   .ressources--container {
-    background: var(--color-grey-light);
+    background: #fef5e6;
   }
   .header-top--container {
     align-items: center;
@@ -79,6 +97,26 @@
     @include lg {
       flex-direction: row;
     }
+  }
+  .menu--container {
+    background-color: var(--alt-bg-color);
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    z-index: 2;
+    border-top: 1px solid var(--color-blue);
+    justify-content: space-around;
+    @include lg {
+      display: none;
+    }
+  }
+  .menu--link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    margin: 0.5rem;
   }
   :global(.header--image) {
     height: 6rem;
