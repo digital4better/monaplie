@@ -15,14 +15,13 @@
   let selectedFilters: string[] = [];
 
   const onClickFilter = (category: string) => {
-    console.log("befor", selectedFilters);
     const index = selectedFilters.indexOf(category);
     if (index < 0) selectedFilters = [...selectedFilters, category];
     else selectedFilters = selectedFilters.filter((_, i) => i !== index);
   };
 </script>
 
-<section class="section--container">
+<section id="resources">
   <SectionTitle
     title="Ressources"
     subtitle="Des resources externes"
@@ -65,39 +64,37 @@
   </ul>
 </section>
 
-<style>
-  .section--container {
-    padding-top: 4rem;
-  }
-
+<style lang="scss">
   .resources--list {
     display: flex;
     gap: 1rem;
     list-style-type: none;
-    overflow-x: scroll;
-    overflow: auto;
+    margin: 2rem auto;
     padding-left: 0;
+    overflow-y: auto;
     scrollbar-width: thin;
   }
 
   .link--container {
     position: relative;
-    margin: 1rem 1rem 0 0;
   }
 
   .link--anchor {
-    align-items: flex-start;
     background-color: var(--alt-bg-color);
     border-radius: 10px;
+    align-items: flex-start;
     box-sizing: border-box;
     display: inline-flex;
     flex-direction: column;
-    height: 100%;
     gap: 1rem;
-    padding: 2rem;
-    position: static;
+    height: 100%;
+    min-height: 14rem;
+    padding: 3rem 2rem 2rem 2rem;
     text-decoration: none;
     width: 15rem;
+    @include lg {
+      width: 18rem;
+    }
   }
 
   :global(.link--image) {
