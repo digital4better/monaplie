@@ -6,7 +6,7 @@ order: 5
 image:
   src: /images/mdph.svg
   alt: ""
-url: http://www.mdph.fr/
+url: https://handicap.loire-atlantique.fr/44/comment-faire-une-demande-a-la-mdph/handi_11358
 category: Handicap et santé
 label: |-
   ***Maison Départementale pour les Personnes en situation de Handicap***
