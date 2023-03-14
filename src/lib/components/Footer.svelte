@@ -49,7 +49,9 @@
       Projet open-source sur
       <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
     </div>
-    <p class="carbonara">Votre navigation sur le site a émis environ <carbon-ara></carbon-ara>.</p>
+    <p class="carbonara">
+      Votre navigation sur le site a émis environ <carbon-ara />
+    </p>
   </segment>
 </div>
 
@@ -91,9 +93,9 @@
     padding-left: 0;
   }
   .carbonara {
-    text-align: center; 
-    color: #888899; 
-    font-size: 0.7rem; 
+    text-align: center;
+    color: #888899;
+    font-size: 0.7rem;
     margin-bottom: 4rem;
     @include sm {
       margin-bottom: 0;
