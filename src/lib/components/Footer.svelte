@@ -45,12 +45,17 @@
       Made with ♥︎ by
       <Link href="https://digital4better.com/">Digital4Better</Link>
     </div>
-    Projet open-source sur
-    <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
+    <div class="d4b--link">
+      Projet open-source sur
+      <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
+    </div>
+    <p class="carbonara">
+      Votre navigation sur le site a émis environ <carbon-ara />
+    </p>
   </segment>
 </div>
 
-<style>
+<style lang="scss">
   .footer--container {
     display: flex;
     flex-direction: column;
@@ -86,5 +91,14 @@
   .links--list {
     list-style-type: none;
     padding-left: 0;
+  }
+  .carbonara {
+    text-align: center;
+    color: #888899;
+    font-size: 0.7rem;
+    margin-bottom: 4rem;
+    @include sm {
+      margin-bottom: 0;
+    }
   }
 </style>
