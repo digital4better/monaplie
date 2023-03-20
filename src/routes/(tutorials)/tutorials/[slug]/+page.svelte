@@ -21,7 +21,6 @@
 
 <svelte:head>
   <title>{data.tutorial?.title} | PLIE</title>
-  <meta name="Content-Security-Policy" content="default-src 'self'" />
 </svelte:head>
 
 <div class="tutorial--container">

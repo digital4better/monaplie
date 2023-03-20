@@ -24,7 +24,6 @@
 
 <svelte:head>
   <title>PLIE de la métropole nantaise</title>
-  <meta name="Content-Security-Policy" content="default-src 'self'" />
 </svelte:head>
 
 <section class="index--container">
