@@ -2,7 +2,7 @@
 layout: site
 title: Bienvenue dans Monaplie, l'application qui vous facilite la vie !
 logo:
-  src: /images/plie.svg
+  src: /images/plie.png
   alt: Logo du PLIE
 certificate:
   src: /images/fruggr-a.svg
