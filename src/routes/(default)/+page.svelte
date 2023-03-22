@@ -101,7 +101,7 @@
     position: fixed;
     bottom: 0;
     display: flex;
-    width: 100%;
+    width: 100vw;
     z-index: 2;
     border-top: 1px solid var(--color-blue);
     justify-content: space-around;
