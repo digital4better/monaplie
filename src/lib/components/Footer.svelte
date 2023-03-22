@@ -24,30 +24,34 @@
     </div>
   </segment>
   <segment class="footer--links">
-    {#each links as { title, url }}
-      <ul class="links--list">
+    <ul class="footer--links-list">
+      {#each links as { title, url }}
         <li><Link href={url}>{title}</Link></li>
-      </ul>
-    {/each}
+      {/each}
+    </ul>
   </segment>
-  <segment class="bottom-footer--container">
-    <div class="d4b--link">
-      <Link href="https://www.fruggr.io/"
-        ><Image
-          class="footer--certificate"
-          src={certificate.src}
-          alt={certificate.alt}
-        /></Link
-      >
-    </div>
-    <div class="d4b--link">
-      Made with ♥︎ by
-      <Link href="https://digital4better.com/">Digital4Better</Link>
-    </div>
-    <div class="d4b--link">
-      Projet open-source sur
-      <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
-    </div>
+  <segment class="footer--links">
+    <ul class="footer--links-list">
+      <li>
+        <Link href="https://www.fruggr.io/" icon={false}>
+          <Image
+            class="footer--certificate"
+            src={certificate.src}
+            alt={certificate.alt}
+          />
+        </Link>
+      </li>
+      <li>
+        Made with ♥︎ by
+        <Link href="https://digital4better.com/">Digital4Better</Link>
+      </li>
+      <li>
+        Projet open-source sur
+        <Link href="https://github.com/digital4better/monaplie">GitHub</Link>
+      </li>
+    </ul>
+  </segment>
+  <segment class="footer--carbonara">
     <p class="carbonara">
       Votre navigation sur le site a émis environ <carbon-ara />
     </p>
@@ -74,23 +78,20 @@
     margin-top: 1.25rem;
   }
 
-  .bottom-footer--container {
-    margin-top: auto;
+  .footer--links-list {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 1rem;
+    }
   }
 
   :global(.footer--certificate) {
     max-width: min(calc(100vw - 3rem), 25rem);
   }
 
-  .d4b--link {
-    margin-bottom: 1rem;
-  }
-
-  .links--list {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  .carbonara {
+  .footer--carbonara {
     text-align: center;
     color: #888899;
     font-size: 0.7rem;

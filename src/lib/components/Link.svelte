@@ -3,13 +3,16 @@
   import SvgIcon from "./SvgIcon.svelte";
 
   export let href: string;
+  export let icon: boolean = true;
 </script>
 
 <span class="link--container">
   <a {href} class="link--anchor" rel="noopener noreferrer" target="_blank">
     <slot />
   </a>
-  <SvgIcon src={launch} size="small" />
+  {#if icon}
+    <SvgIcon src={launch} size="small" />
+  {/if}
 </span>
 
 <style lang="scss">
