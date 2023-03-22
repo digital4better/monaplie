@@ -31,11 +31,10 @@
     {/each}
   </segment>
   <segment class="bottom-footer--container">
-    <div class="logo-fruggr--container">
+    <div class="d4b--link">
       <Link href="https://www.fruggr.io/"
         ><Image
-          width="100%"
-          height="100%"
+          class="footer--certificate"
           src={certificate.src}
           alt={certificate.alt}
         /></Link
@@ -79,9 +78,8 @@
     margin-top: auto;
   }
 
-  .logo-fruggr--container {
-    max-width: 13rem;
-    margin-bottom: 1rem;
+  :global(.footer--certificate) {
+    max-width: min(calc(100vw - 3rem), 25rem);
   }
 
   .d4b--link {

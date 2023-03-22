@@ -6,7 +6,7 @@ export type Category = {
 
 export type Image = {
   src: string;
-  alt: string;
+  alt?: string;
 };
 
 export type Link = {
