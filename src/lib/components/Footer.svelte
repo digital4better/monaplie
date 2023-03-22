@@ -88,7 +88,7 @@
   }
 
   :global(.footer--certificate) {
-    max-width: min(calc(100vw - 3rem), 25rem);
+    max-width: 18rem;
   }
 
   .footer--carbonara {

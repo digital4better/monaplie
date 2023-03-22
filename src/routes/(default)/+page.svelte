@@ -66,7 +66,7 @@
     height: 100%;
     padding: 0;
     @include lg {
-      width: 75vw;
+      width: calc(100vw - 25rem);
     }
   }
   .container {

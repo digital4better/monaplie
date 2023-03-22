@@ -48,7 +48,7 @@
     padding: 0 2rem 2rem 3.5rem;
     @include lg {
       display: flex;
-      width: 25vw;
+      width: 25rem;
       overflow-x: hidden;
       overflow-y: scroll;
       scrollbar-width: thin;
@@ -57,7 +57,7 @@
 
   .layout--main {
     @include lg {
-      width: 75vw;
+      width: calc(100vw - 25rem);
       overflow-x: hidden;
       overflow-y: scroll;
     }

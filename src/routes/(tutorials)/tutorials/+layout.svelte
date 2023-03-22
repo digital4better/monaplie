@@ -56,7 +56,7 @@
     padding: 0 2rem 0 3.5rem;
     @include lg {
       display: flex;
-      width: 25vw;
+      width: 25rem;
       overflow-x: hidden;
       overflow-y: scroll;
       scrollbar-width: thin;
