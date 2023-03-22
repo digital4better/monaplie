@@ -43,7 +43,6 @@
     border-right: 1px solid var(--color-blue);
     display: none;
     flex-direction: column;
-    justify-content: space-between;
     max-height: auto !important;
     min-height: 100%;
     padding: 0 2rem 2rem 3.5rem;
