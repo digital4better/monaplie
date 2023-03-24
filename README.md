@@ -13,11 +13,10 @@ npm install
 # démarrage du serveur de développement
 npm run dev
 
-
 # création d'une version de production
 npm run build
 
-# prévisionnage de la version
+# prévisualisation de la version de production
 npm run preview
 
 > L'application est déployé sur Github Pages
