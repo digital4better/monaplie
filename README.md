@@ -1,42 +1,37 @@
-# create-svelte
+# monaplie.fr
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Description
 
-## Creating a project
+monaplie.fr est une application web responsive créée à la demande du PLIE (Plan Local d’Insertion pour l’Emploi) de la métropole nantaise. Elle rassemble un ensemble de ressources en ligne permettant aux utilisateurs de se réinsérer plus facilement dans la vie active.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation & fonctionnement
 
-```bash
-# create a new project in the current directory
-npm init svelte
+```sh
+# installation des dépendances
+npm install
 
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+# démarrage du serveur de développement
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
 
-## Warning
-
-You can't use typescript or scss in layouts. mdsvex don't handle them
-
-## Building
-
-To create a production version of your app:
-
-```bash
+# création d'une version de production
 npm run build
+
+# prévisionnage de la version
+npm run preview
+
+> L'application est déployé sur Github Pages
 ```
 
-You can preview the production build with `npm run preview`.
+## Technologies
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Typescript : langage JavaScript typé
+- Framework Sveltekit : générateur d'applications web statiques
+- Netlify CMS : gestionnaire de contenu
+
+## Structure du projet
+
+Le projet respecte la structure type de Sveltekit. [Voir leur doc](https://kit.svelte.dev/docs/project-structure)
+
+Le contenu géré par Netlify est stocké dans des fichiers Markdown (`src/lib/content/*/*.md`).
+Ce gestionnaire de contenu est configuré dans le fichier `src/routes/admin/config.yml/+server.ts`.
