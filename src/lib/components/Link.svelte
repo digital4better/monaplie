@@ -3,7 +3,7 @@
   import SvgIcon from "./SvgIcon.svelte";
 
   export let href: string;
-  export let icon: boolean = true;
+  export let icon = true;
 </script>
 
 <span class="link--container">
