@@ -28,6 +28,5 @@ module.exports = {
     // Checked by Typescript - ref: https://typescript-eslint.io/docs/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
     "no-undef": "off",
     "@typescript-eslint/no-undef": "off",
-    "@typescript-eslint/no-inferrable-types": "off",
   },
 };
