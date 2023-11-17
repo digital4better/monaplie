@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
+  import { dev } from "$app/environment";
   import Analytics from "$lib/components/Analytics.svelte";
 </script>
 
-<Analytics />
+{#if !dev}
+  <Analytics />
+{/if}
 <slot />
