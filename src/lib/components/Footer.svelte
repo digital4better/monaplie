@@ -5,6 +5,7 @@
   import { metadata } from "$lib/content/site.md";
   import type { Site } from "$lib/types";
   import help_outline from "@material-design-icons/svg/outlined/help_outline.svg?raw";
+  import Carbonara from "./Carbonara.svelte";
   import Image from "./Image.svelte";
 
   export let { details, links, certificate } = metadata as Site;
@@ -52,9 +53,7 @@
     </ul>
   </segment>
   <segment class="footer--carbonara">
-    <p class="carbonara">
-      Votre navigation sur le site a émis environ <carbon-ara />
-    </p>
+    <Carbonara />
   </segment>
 </div>
 
