@@ -9,10 +9,6 @@ const config = {
 
   kit: {
     adapter: adapter(),
-
-    prerender: {
-      entries: ["*", "/admin/config.yml"],
-    },
   },
 
   // Consult https://github.com/sveltejs/svelte-preprocess
